@@ -1,8 +1,4 @@
 # Redirect rules for Fusion 44X
-# Preserve existing URLs and handle potential old paths
-
-# If any old URLs need to be redirected, add them here:
+# Next.js runtime handles all routing automatically.
+# Add custom redirects here if needed:
 # /old-path  /new-path  301
-
-# Force trailing slash behavior
-/*  /:splat  200
