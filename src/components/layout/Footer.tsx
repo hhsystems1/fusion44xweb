@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig, navLinks } from "@/lib/constants";
 
@@ -9,11 +10,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2 text-lg font-bold tracking-tight mb-4">
-              <span className="text-accent">F</span>
-              <span className="text-foreground">usion</span>
-              <span className="text-accent">44X</span>
-            </div>
+            <Image
+              src="/fusion44x-logo.png"
+              alt="Fusion 44X"
+              width={118}
+              height={118}
+              className="mb-4 h-16 w-16 rounded-full"
+            />
             <p className="text-xs text-foreground-secondary leading-relaxed">
               {siteConfig.tagline}
             </p>

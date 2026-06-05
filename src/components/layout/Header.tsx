@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks, siteConfig } from "@/lib/constants";
+import { navLinks } from "@/lib/constants";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,11 +13,17 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold tracking-tight"
+          className="flex shrink-0 items-center"
+          aria-label="Fusion 44X home"
         >
-          <span className="text-accent">F</span>
-          <span className="text-foreground">usion</span>
-          <span className="text-accent">44X</span>
+          <Image
+            src="/fusion44x-logo.png"
+            alt="Fusion 44X"
+            width={118}
+            height={118}
+            className="h-12 w-12 rounded-full sm:h-14 sm:w-14"
+            loading="eager"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -75,7 +82,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-xl px-4 py-3 text-sm font-medium text-foreground-secondary transition-colors hover:text-accent hover:bg-white/5"
+                className="block rounded-xl px-4 py-4 text-sm font-medium text-foreground-secondary transition-colors hover:text-accent hover:bg-white/5 active:bg-white/10"
               >
                 {link.label}
               </Link>

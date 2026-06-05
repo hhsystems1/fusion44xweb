@@ -38,7 +38,7 @@ export function BeforeAfterSlider() {
           </p>
         </div>
         <div
-          className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-2xl border border-white/10 bg-surface"
+          className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-2xl border border-white/10 bg-surface touch-none"
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}

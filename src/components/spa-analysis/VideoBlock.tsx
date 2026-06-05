@@ -1,41 +1,41 @@
 export function VideoBlock() {
   return (
-    <section className="py-20 sm:py-28 bg-surface/50">
+    <section className="bg-surface/50 py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-12">
+        <div className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-            See the <span className="text-accent">Difference</span> for Yourself
+            See the <span className="text-accent">Probe</span> Up Close
           </h2>
           <p className="mt-4 text-foreground-secondary">
-            Watch how Fusion 44X transforms spa water quality.
+            The Fusion 44X probe powers the contained process that treats water
+            before it circulates through your spa or pool.
           </p>
         </div>
-        <div className="aspect-video rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
-          <div className="flex h-full w-full items-center justify-center">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 border border-accent/20 cursor-pointer transition-all duration-300 hover:bg-accent/20 hover:scale-110">
-                <svg className="h-8 w-8 text-accent ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <p className="text-sm text-foreground-secondary">
-                Video overview — place your video here
-              </p>
-            </div>
-          </div>
+        <div className="overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-2xl shadow-black/30">
+          <video
+            className="aspect-video w-full bg-black object-cover"
+            controls
+            preload="metadata"
+            playsInline
+            poster="/fusion-spa-install.jpg"
+          >
+            <source src="/0604-1.mov" type="video/quicktime" />
+            <source src="/0604-1.mp4" type="video/mp4" />
+          </video>
         </div>
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6">
+        <div className="mt-8 rounded-lg border border-white/10 bg-white/5 p-6">
           <div className="flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent font-semibold">
               MT
             </div>
             <div>
               <p className="text-sm font-medium text-foreground">
-                "I couldn't believe the difference. My spa water has never felt
-                this clean and soft. I wish I had switched years ago."
+                &quot;I couldn&apos;t believe the difference. My spa water has
+                never felt this clean and soft. I wish I had switched years
+                ago.&quot;
               </p>
-              <p className="text-xs text-foreground-secondary mt-1">
-                — Mark T., Scottsdale, AZ
+              <p className="mt-1 text-xs text-foreground-secondary">
+                Mark T., Scottsdale, AZ
               </p>
             </div>
           </div>

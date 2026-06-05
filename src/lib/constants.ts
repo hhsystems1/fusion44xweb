@@ -17,8 +17,8 @@ export const siteConfig = {
     youtube: "https://youtube.com/@fusion44x",
   },
   businessHours: {
-    weekdays: "Mon–Fri: 8 AM – 6 PM",
-    saturday: "Sat: 9 AM – 4 PM",
+    weekdays: "Mon-Fri: 8 AM - 6 PM",
+    saturday: "Sat: 9 AM - 4 PM",
     sunday: "Sun: Closed",
   },
 } as const;
@@ -27,6 +27,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/residential-pools", label: "Pool Systems" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/discover-fusion-44x/how-it-works", label: "How It Works" },
   { href: "/discover-fusion-44x/why-fusion-44-x", label: "Why Fusion 44X" },
   { href: "/reviews", label: "Reviews" },
@@ -66,21 +67,21 @@ export const howItWorksSteps = [
   },
   {
     step: 2,
-    title: "Set It and Forget It",
+    title: "Activate the Probe",
     description:
-      "Once installed, the system runs automatically. No daily testing, no chemical adjustments, no guesswork.",
+      "The patented probe works inside a contained chamber, where the process begins before treated water moves through your system.",
   },
   {
     step: 3,
-    title: "Enjoy Cleaner Water",
+    title: "Circulate Cleaner Water",
     description:
-      "Experience softer, clearer water without the harsh effects of chlorine, salt, or sanitizer chemicals.",
+      "Your pump and filter circulate clearer, softer water without adding chlorine, salt, or sanitizer chemicals to the pool or spa.",
   },
   {
     step: 4,
     title: "Minimal Ongoing Care",
     description:
-      "Just periodic acid maintenance (about twice monthly) to keep your water perfectly balanced.",
+      "Just periodic acid maintenance, typically about twice monthly, to keep your system performing properly.",
   },
 ] as const;
 
@@ -120,7 +121,7 @@ export const faqs = [
   {
     question: "Does the system require any chemicals at all?",
     answer:
-      "The system itself does not add chemicals to the water. However, like any water system, maintaining proper pH balance is important — this typically requires adjusting acid about twice a month.",
+      "The system itself does not add chemicals to the water. However, like any water system, maintaining proper pH balance is important - this typically requires adjusting acid about twice a month.",
   },
   {
     question: "Is Fusion 44X safe for my family and pets?",
@@ -130,17 +131,17 @@ export const faqs = [
   {
     question: "How much does the system cost?",
     answer:
-      "Pricing varies based on your pool or spa size and configuration. Contact us for a free customized quote and spa analysis.",
+      "Fusion Spas & Jacuzzis start at $2,890 and Fusion Residential Pool systems start at $5,890. Final pricing depends on water volume, configuration, and installation details.",
   },
   {
     question: "How long does installation take?",
     answer:
-      "Professional installation typically takes 2-4 hours for most residential pools and spas. Our certified technicians handle the entire process.",
+      "Professional installation typically takes 2-4 hours for most residential pools and spas. Certified technicians handle the installation and setup walkthrough.",
   },
   {
     question: "Do you offer a warranty?",
     answer:
-      "Yes. All Fusion 44X systems come with a comprehensive lifetime warranty covering manufacturing defects and performance.",
+      "Yes. Fusion 44X systems include lifetime warranty coverage, along with a 30-day money-back guarantee.",
   },
 ] as const;
 

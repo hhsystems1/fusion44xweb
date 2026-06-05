@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/constants";
+import { landingPages } from "@/lib/landing-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -18,7 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/pricing", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
-  return routes.map((route) => ({
+  const landingRoutes = landingPages.map((page) => ({
+    path: `/lp/${page.slug}`,
+    priority: 0.8,
+    changeFrequency: "weekly" as const,
+  }));
+
+  return [...routes, ...landingRoutes].map((route) => ({
     url: `${baseUrl}${route.path}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,

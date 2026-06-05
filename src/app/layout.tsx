@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,18 +21,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Fusion 44X — Chlorine-Free Pool & Spa Water Systems",
+    default: "Fusion 44X - Chlorine-Free Pool & Spa Water Systems",
     template: "%s | Fusion 44X",
   },
   description:
     "Experience chlorine-free pool and spa water with Fusion 44X. A smarter water care system designed to reduce harsh chemical maintenance.",
   openGraph: {
-    title: "Fusion 44X — Chlorine-Free Pool & Spa Water Systems",
+    title: "Fusion 44X - Chlorine-Free Pool & Spa Water Systems",
     description:
       "Experience cleaner, softer water with the Fusion 44X system. No chlorine, salt, or sanitizer chemicals added to your water.",
-    url: "https://fusion44x.com",
+    url: siteConfig.url,
     siteName: "Fusion 44X",
+    images: ["/poolex4.webp"],
     locale: "en_US",
     type: "website",
   },

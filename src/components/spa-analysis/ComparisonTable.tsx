@@ -11,8 +11,8 @@ export function ComparisonTable() {
             <span className="text-accent">Fusion 44X</span>
           </h2>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-white/10">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto rounded-2xl border border-white/10">
+          <table className="min-w-[640px] w-full text-sm">
             <thead>
               <tr className="border-b border-white/10 bg-white/5">
                 <th className="px-6 py-4 text-left font-semibold text-foreground">

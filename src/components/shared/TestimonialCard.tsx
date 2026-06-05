@@ -24,7 +24,7 @@ export function TestimonialCard({
         )}
       </div>
       <p className="text-foreground-secondary leading-relaxed text-sm mb-4">
-        "{text}"
+        &quot;{text}&quot;
       </p>
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent font-semibold text-sm">

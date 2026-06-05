@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { products, checkoutHref } from "@/lib/products";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Spa & Jacuzzi Products",
+  title: "Products",
   description:
-    "Explore Fusion 44X spa and Jacuzzi water treatment systems. Chlorine-free, salt-free, chemical-free water for your spa.",
+    "Explore Fusion 44X spa, Jacuzzi, and residential pool systems with provider-neutral purchase links ready for checkout integration.",
 };
 
 export default function ProductsPage() {
@@ -13,99 +15,91 @@ export default function ProductsPage() {
     <div className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Fusion 44X Spa Systems"
-          subtitle="Premium water treatment for spas, hot tubs, and Jacuzzis."
+          title="Fusion 44X Products"
+          subtitle="Two core systems cover spas, Jacuzzis, and residential pools without adding chlorine, salt, or sanitizer chemicals to the water."
         />
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {[
-            {
-              name: "Fusion 44X Spa",
-              tagline: "For standard residential spas",
-              features: [
-                "Designed for spas up to 500 gallons",
-                "Compact inline installation",
-                "No chlorine, salt, or sanitizer chemicals added",
-                "Low maintenance — acid check twice monthly",
-              ],
-              cta: "Learn More",
-            },
-            {
-              name: "Fusion 44X Pro",
-              tagline: "For larger spas and commercial use",
-              features: [
-                "Handles spas up to 1,500 gallons",
-                "Enhanced flow rate for commercial applications",
-                "Heavy-duty construction",
-                "Extended warranty coverage",
-              ],
-              cta: "Learn More",
-              featured: true,
-            },
-            {
-              name: "Fusion 44X Dual",
-              tagline: "For pool & spa combinations",
-              features: [
-                "Treats both pool and spa simultaneously",
-                "Independent flow control",
-                "Single unit for whole-property coverage",
-                "Most cost-effective for combined systems",
-              ],
-              cta: "Learn More",
-            },
-          ].map((product) => (
-            <div
-              key={product.name}
-              className={`relative rounded-2xl border ${
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          {products.map((product) => (
+            <article
+              key={product.id}
+              className={`overflow-hidden rounded-lg border ${
                 product.featured
                   ? "border-accent/30 bg-accent/5"
                   : "border-white/10 bg-white/5"
-              } backdrop-blur-xl p-8 transition-all duration-300 hover:border-accent/30`}
+              } transition-colors hover:border-accent/40`}
             >
-              {product.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-[10px] font-semibold text-white">
-                  Most Popular
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={product.image}
+                  alt={product.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
+                      {product.shortName}
+                    </p>
+                    <h2 className="mt-2 font-serif text-2xl font-bold text-foreground">
+                      {product.name}
+                    </h2>
+                    <p className="mt-1 text-sm text-foreground-secondary">
+                      {product.volume}
+                    </p>
+                  </div>
+                  <div className="text-left sm:text-right">
+                    <p className="text-3xl font-bold text-accent">
+                      {product.price}
+                    </p>
+                    <p className="mt-1 text-xs text-foreground-secondary">
+                      {product.financing}
+                    </p>
+                  </div>
                 </div>
-              )}
-              <h3 className="font-serif text-xl font-bold text-foreground mb-2">
-                {product.name}
-              </h3>
-              <p className="text-xs text-foreground-secondary mb-6">
-                {product.tagline}
-              </p>
-              <ul className="space-y-3 mb-8">
-                {product.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-2 text-xs text-foreground-secondary"
-                  >
-                    <svg
-                      className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {product.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2 text-sm text-foreground-secondary"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/free-spa-analysis"
-                className={`inline-flex w-full items-center justify-center gap-2 rounded-full ${
-                  product.featured
-                    ? "bg-gradient-to-r from-accent to-accent-hover text-white shadow-lg shadow-accent/30"
-                    : "border border-white/20 text-foreground hover:border-accent/50 hover:text-accent"
-                } px-6 py-3 text-xs font-semibold transition-all duration-300`}
-              >
-                {product.cta}
-              </Link>
-            </div>
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href={checkoutHref(product.id)}
+                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-accent to-accent-hover px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:shadow-accent/40"
+                  >
+                    Purchase
+                  </Link>
+                  <Link
+                    href="/free-spa-analysis"
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+                  >
+                    Free Analysis
+                  </Link>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>

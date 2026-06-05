@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { checkoutHref } from "@/lib/products";
 
 export function PricingCTA() {
   return (
@@ -14,10 +15,10 @@ export function PricingCTA() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
-            href="/free-spa-analysis"
+            href={checkoutHref("fusion-residential-pool")}
             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-hover px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 hover:scale-105 active:scale-100"
           >
-            Book Your Free Spa Analysis
+            Purchase Pool System
             <svg
               className="h-4 w-4"
               fill="none"

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { checkoutHref } from "@/lib/products";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export const metadata: Metadata = {
@@ -18,25 +20,29 @@ export default function ResidentialPoolsPage() {
         />
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent mb-4">
-              For Pools
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent">
+              For 5,000-28,000 gallon pools
             </div>
-            <h2 className="font-serif text-2xl font-bold tracking-tight sm:text-3xl mb-4">
-              Pool Water, Reimagined
+            <h2 className="mb-4 font-serif text-2xl font-bold tracking-tight sm:text-3xl">
+              Fusion Residential Pool
             </h2>
-            <p className="text-foreground-secondary leading-relaxed mb-6">
+            <p className="mb-2 text-3xl font-bold text-accent">$5,890</p>
+            <p className="mb-6 text-sm text-foreground-secondary">
+              As low as $99/month with financing
+            </p>
+            <p className="mb-6 leading-relaxed text-foreground-secondary">
               The Fusion 44X residential pool system works inline with your
               existing pool plumbing to treat water without adding chlorine,
-              salt, or sanitizer chemicals. The result is cleaner, softer
-              water that is gentler on your skin, eyes, and equipment.
+              salt, or sanitizer chemicals. The result is cleaner, softer water
+              that is gentler on skin, eyes, and equipment.
             </p>
-            <ul className="space-y-3 mb-8">
+            <ul className="mb-8 space-y-3">
               {[
-                "Designed for in-ground and above-ground pools",
+                "Designed for in-ground and above-ground residential pools",
                 "No chlorine, salt, or sanitizer chemicals added to the water",
                 "Reduces pool maintenance significantly",
                 "Compatible with existing pool equipment",
-                "Backed by patented technology",
+                "Lifetime warranty and 30-day money-back guarantee",
               ].map((item) => (
                 <li
                   key={item}
@@ -59,33 +65,36 @@ export default function ResidentialPoolsPage() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/free-spa-analysis"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-hover px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40"
-            >
-              Get a Free Analysis
-            </Link>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 aspect-square flex items-center justify-center">
-            <div className="text-center">
-              <svg
-                className="mx-auto h-24 w-24 text-accent/60 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={checkoutHref("fusion-residential-pool")}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-hover px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                />
-              </svg>
-              <p className="text-sm text-foreground-secondary">
-                Fusion 44X Pool System
+                Purchase Pool System
+              </Link>
+              <Link
+                href="/free-spa-analysis"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent/50 hover:text-accent"
+              >
+                Get a Free Analysis
+              </Link>
+            </div>
+          </div>
+          <div className="relative min-h-[18rem] sm:min-h-[30rem] overflow-hidden rounded-lg border border-white/10">
+            <Image
+              src="/poolex4.webp"
+              alt="Residential pool with Fusion 44X installed"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-0 p-6">
+              <p className="text-sm font-semibold text-white">
+                Installed residential pool
               </p>
-              <p className="text-xs text-foreground-secondary mt-1">
-                Product image placeholder
+              <p className="mt-1 text-xs text-white/70">
+                Existing customer pool with Fusion 44X installed.
               </p>
             </div>
           </div>
