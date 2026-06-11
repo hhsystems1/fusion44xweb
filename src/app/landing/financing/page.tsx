@@ -1,0 +1,37 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+
+import Fusion44xLandingPage from "@/components/landing/Fusion44xLanding";
+import { fusion44xLandingCampaigns } from "@/content/fusion44xLanding";
+import { siteConfig } from "@/lib/constants";
+
+const campaign = fusion44xLandingCampaigns.financing;
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: `${campaign.seoTitle} | Fusion44x`,
+  description: campaign.seoDescription,
+  alternates: {
+    canonical: `${siteConfig.url}/landing/financing`,
+  },
+  openGraph: {
+    title: `${campaign.seoTitle} | Fusion44x`,
+    description: campaign.seoDescription,
+    url: `${siteConfig.url}/landing/financing`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${campaign.seoTitle} | Fusion44x`,
+    description: campaign.seoDescription,
+  },
+};
+
+export default function FinancingLandingPage() {
+  return (
+    <Suspense fallback={<main className="min-h-screen bg-slate-950" />}>
+      <Fusion44xLandingPage campaign={campaign} pagePath="/landing/financing" />
+    </Suspense>
+  );
+}
+
