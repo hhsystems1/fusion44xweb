@@ -44,3 +44,41 @@ body {
     -webkit-text-size-adjust: 100%;
   }
 }
+
+@keyframes f44xDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -18px, 0) scale(1.05);
+  }
+}
+
+@keyframes f44xPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate3d(-50%, -10px, 0) scale(1.03);
+  }
+}
+
+@keyframes f44xFloat {
+  0%, 100% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-50%, -54%, 0) rotate(2deg);
+  }
+}
+
+@keyframes f44xSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

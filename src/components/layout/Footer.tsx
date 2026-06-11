@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig, navLinks } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/landing/")) {
+    return null;
+  }
 
   return (
     <footer className="border-t border-white/10 bg-black">
