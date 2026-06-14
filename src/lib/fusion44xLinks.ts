@@ -13,7 +13,11 @@ export const CURRENT_CONSULTATION_URL =
   process.env.NEXT_PUBLIC_FUSION44X_CONSULTATION_URL ??
   `${CURRENT_MAIN_SITE_URL}/consultation`;
 
-export type Fusion44xDestination = "checkout" | "consultation" | "main";
+export const CURRENT_FINANCE_OPTIONS_URL =
+  process.env.NEXT_PUBLIC_FUSION44X_FINANCE_OPTIONS_URL ??
+  `${CURRENT_MAIN_SITE_URL}/pricing`;
+
+export type Fusion44xDestination = "checkout" | "consultation" | "finance" | "main";
 
 const ATTRIBUTION_KEYS = new Set([
   "utm_source",
@@ -66,8 +70,9 @@ export function getOutboundUrl(
       ? CURRENT_CHECKOUT_URL
       : destination === "consultation"
         ? CURRENT_CONSULTATION_URL
+        : destination === "finance"
+          ? CURRENT_FINANCE_OPTIONS_URL
         : CURRENT_MAIN_SITE_URL;
 
   return appendAttributionParams(baseUrl, attribution);
 }
-

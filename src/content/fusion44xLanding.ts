@@ -161,10 +161,10 @@ export const fusion44xLandingCampaigns: Record<
     heroHeadline: "Stop Swimming in Chemicals. Start Swimming in Pure Hydrogen.",
     heroSubheadline:
       "Fusion44x is positioned for pool owners who want a cleaner-feeling water experience and a more premium path away from traditional chemical dependence.",
-    primaryCtaLabel: "Buy Now / Finance from $75/mo",
+    primaryCtaLabel: "Buy Now",
     primaryCtaTarget: "checkout",
-    secondaryCtaLabel: "Speak with a Water Specialist",
-    secondaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Finance Options",
+    secondaryCtaTarget: "finance",
     heroStats: [
       { value: "Premium", label: "dark SaaS-style presentation" },
       { value: "Mobile-first", label: "built for paid traffic" },
@@ -274,10 +274,10 @@ export const fusion44xLandingCampaigns: Record<
     finalTitle: "Ready to see if Fusion44x fits your pool?",
     finalSubtitle:
       "Move qualified traffic to the current live checkout or let a specialist confirm the right path first.",
-    finalPrimaryCtaLabel: "Buy Now / Finance from $75/mo",
+    finalPrimaryCtaLabel: "Buy Now",
     finalPrimaryCtaTarget: "checkout",
-    finalSecondaryCtaLabel: "Speak with a Water Specialist",
-    finalSecondaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Finance Options",
+    finalSecondaryCtaTarget: "finance",
   },
   financing: {
     slug: "financing",
@@ -288,10 +288,10 @@ export const fusion44xLandingCampaigns: Record<
     heroHeadline: "Bring Premium Pool Water Home Without the Upfront Hit.",
     heroSubheadline:
       "Show visitors how the Fusion44x experience can be financed so the decision feels easier, calmer, and more premium from the first ad click.",
-    primaryCtaLabel: "See Payment Options",
+    primaryCtaLabel: "Buy Now",
     primaryCtaTarget: "checkout",
-    secondaryCtaLabel: "Speak with a Water Specialist",
-    secondaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Finance Options",
+    secondaryCtaTarget: "finance",
     heroStats: [
       { value: "From $75/mo", label: "finance-friendly framing" },
       { value: "Clear", label: "payment-forward message" },
@@ -400,10 +400,10 @@ export const fusion44xLandingCampaigns: Record<
     finalTitle: "Use the payment path that feels right for your pool.",
     finalSubtitle:
       "Visitors can continue to the current live checkout or talk to a specialist first if they want confirmation.",
-    finalPrimaryCtaLabel: "See Payment Options",
+    finalPrimaryCtaLabel: "Buy Now",
     finalPrimaryCtaTarget: "checkout",
-    finalSecondaryCtaLabel: "Speak with a Water Specialist",
-    finalSecondaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Finance Options",
+    finalSecondaryCtaTarget: "finance",
   },
   consultation: {
     slug: "consultation",
@@ -415,9 +415,9 @@ export const fusion44xLandingCampaigns: Record<
     heroSubheadline:
       "Help visitors understand whether the system matches their pool size, goals, and expectations before they buy.",
     primaryCtaLabel: "Speak With a Specialist",
-    primaryCtaTarget: "consultation",
-    secondaryCtaLabel: "Review Financing",
-    secondaryCtaTarget: "checkout",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Finance Options",
+    secondaryCtaTarget: "finance",
     heroStats: [
       { value: "Fit-first", label: "clarify the right path" },
       { value: "Low friction", label: "easy next step" },
@@ -526,9 +526,9 @@ export const fusion44xLandingCampaigns: Record<
     finalSubtitle:
       "Qualified visitors can book a consultation now or continue to checkout if they are ready.",
     finalPrimaryCtaLabel: "Speak With a Specialist",
-    finalPrimaryCtaTarget: "consultation",
-    finalSecondaryCtaLabel: "Review Financing",
-    finalSecondaryCtaTarget: "checkout",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Finance Options",
+    finalSecondaryCtaTarget: "finance",
   },
   "youtube-vsl": {
     slug: "youtube-vsl",
@@ -539,10 +539,10 @@ export const fusion44xLandingCampaigns: Record<
     heroHeadline: "Watch the Fusion44x Walkthrough Before You Decide.",
     heroSubheadline:
       "This page is built to pair a premium walkthrough video with a clear next step so ad traffic can convert without friction.",
-    primaryCtaLabel: "See If It Fits Your Pool",
-    primaryCtaTarget: "consultation",
-    secondaryCtaLabel: "Buy Now / Finance from $75/mo",
-    secondaryCtaTarget: "checkout",
+    primaryCtaLabel: "Buy Now",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Finance Options",
+    secondaryCtaTarget: "finance",
     heroStats: [
       { value: "Video-first", label: "built for VSL traffic" },
       { value: "Premium", label: "cinematic presentation" },
@@ -652,10 +652,9 @@ export const fusion44xLandingCampaigns: Record<
     finalTitle: "Watch the walkthrough, then take the next step.",
     finalSubtitle:
       "The video can start the conversation, but the CTA should always stay close.",
-    finalPrimaryCtaLabel: "See If It Fits Your Pool",
-    finalPrimaryCtaTarget: "consultation",
-    finalSecondaryCtaLabel: "Buy Now / Finance from $75/mo",
-    finalSecondaryCtaTarget: "checkout",
+    finalPrimaryCtaLabel: "Buy Now",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Finance Options",
+    finalSecondaryCtaTarget: "finance",
   },
 };
-

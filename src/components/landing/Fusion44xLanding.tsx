@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import Link from "next/link";
@@ -270,9 +271,14 @@ export function LandingHeader({
       <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/10 bg-slate-950/72 px-4 py-3.5 shadow-[0_20px_50px_rgba(2,6,23,0.45)] backdrop-blur-2xl sm:px-5">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 text-white">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(14,165,233,0.25),rgba(15,23,42,0.95))] text-sm font-bold tracking-[0.2em] text-cyan-100">
-              F44X
-            </span>
+            <Image
+              src="/fusion44x-logo.png"
+              alt="Fusion 44X"
+              width={72}
+              height={72}
+              className="h-11 w-11 rounded-full border border-cyan-300/20 bg-slate-950/80 object-cover sm:h-12 sm:w-12"
+              priority
+            />
             <span className="hidden text-left sm:block">
               <span className="block text-sm font-semibold text-white">Fusion44x</span>
               <span className="block text-xs uppercase tracking-[0.22em] text-slate-400">
@@ -295,17 +301,17 @@ export function LandingHeader({
 
           <div className="hidden items-center gap-3 md:flex">
             <Button
-              href={secondaryHref}
-              label={campaign.secondaryCtaLabel}
-              tone="secondary"
-              onClick={() => trackLeadClick(campaign.secondaryCtaLabel, "header")}
-            />
-            <Button
               href={primaryHref}
               label={campaign.primaryCtaLabel}
               onClick={() =>
                 trackOutboundClick(campaign.primaryCtaLabel, campaign.primaryCtaTarget, "header")
               }
+            />
+            <Button
+              href={secondaryHref}
+              label={campaign.secondaryCtaLabel}
+              tone="secondary"
+              onClick={() => trackLeadClick(campaign.secondaryCtaLabel, "header")}
             />
           </div>
 
@@ -336,16 +342,6 @@ export function LandingHeader({
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <Button
-                href={secondaryHref}
-                label={campaign.secondaryCtaLabel}
-                tone="secondary"
-                onClick={() => {
-                  trackLeadClick(campaign.secondaryCtaLabel, "header-mobile");
-                  setOpen(false);
-                }}
-                className="w-full"
-              />
-              <Button
                 href={primaryHref}
                 label={campaign.primaryCtaLabel}
                 onClick={() => {
@@ -354,6 +350,16 @@ export function LandingHeader({
                     campaign.primaryCtaTarget,
                     "header-mobile"
                   );
+                  setOpen(false);
+                }}
+                className="w-full"
+              />
+              <Button
+                href={secondaryHref}
+                label={campaign.secondaryCtaLabel}
+                tone="secondary"
+                onClick={() => {
+                  trackLeadClick(campaign.secondaryCtaLabel, "header-mobile");
                   setOpen(false);
                 }}
                 className="w-full"
@@ -989,18 +995,18 @@ export function StickyMobileCTA({
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-slate-950/90 px-3 py-3 backdrop-blur-2xl md:hidden">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3">
         <Button
-          href={secondaryHref}
-          label={campaign.secondaryCtaLabel}
-          tone="secondary"
-          onClick={() => trackLeadClick(campaign.secondaryCtaLabel, "sticky-mobile")}
-          className="w-full justify-center text-center"
-        />
-        <Button
           href={primaryHref}
           label={campaign.primaryCtaLabel}
           onClick={() =>
             trackOutboundClick(campaign.primaryCtaLabel, campaign.primaryCtaTarget, "sticky-mobile")
           }
+          className="w-full justify-center text-center"
+        />
+        <Button
+          href={secondaryHref}
+          label={campaign.secondaryCtaLabel}
+          tone="secondary"
+          onClick={() => trackLeadClick(campaign.secondaryCtaLabel, "sticky-mobile")}
           className="w-full justify-center text-center"
         />
       </div>
