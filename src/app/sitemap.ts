@@ -17,6 +17,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/installation", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/science-lab-results", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/pricing", priority: 0.7, changeFrequency: "monthly" as const },
+    {
+      path: "/landing/chlorine-free-pool",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/financing",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/consultation",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/youtube-vsl",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
   ];
 
   const landingRoutes = landingPages.map((page) => ({
