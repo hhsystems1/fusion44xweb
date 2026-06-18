@@ -4,6 +4,7 @@ export type Fusion44xLandingSlug =
   | "chlorine-free-pool"
   | "chlorine-free-pool2"
   | "financing"
+  | "financing-2"
   | "consultation"
   | "youtube-vsl";
 
@@ -554,6 +555,133 @@ export const fusion44xLandingCampaigns: Record<
     finalSecondaryCtaLabel: "Speak with a Water Specialist",
     finalSecondaryCtaTarget: "consultation",
   },
+  "financing-2": {
+    slug: "financing-2",
+    seoTitle: "Fusion44x Financing - Product First",
+    seoDescription:
+      "Second-pass financing landing page for Fusion44x. Lead with the product value, then make monthly payments feel like the natural next step.",
+    heroEyebrow: "Fusion44x financing iteration 2",
+    heroHeadline: "Make Fusion44x Feel Easier To Start With Monthly Payments.",
+    heroSubheadline:
+      "This second pass leads with the product story first, then uses financing to lower friction so premium buyers can say yes without getting stuck on the upfront number.",
+    primaryCtaLabel: "See Monthly Options",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Talk to a Fusion44x Specialist",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "Payment-first", label: "framing that lowers friction" },
+      { value: "Product-led", label: "still selling Fusion44x" },
+      { value: "Premium", label: "calm, high-end close" },
+    ],
+    trustBar: [
+      "Monthly payment story",
+      "Fusion44x product value",
+      "Specialist backup path",
+      "Current live checkout preserved",
+    ],
+    vslEyebrow: "Why this version works",
+    vslTitle: "Sell the product, then make the payment path feel easy.",
+    vslDescription:
+      "Iteration 2 should reduce the feeling of a hard sales ask by pairing the premium product story with a calm financing path from the start.",
+    vslBullets: [
+      "Show the product value before the money conversation gets heavy",
+      "Make the monthly path feel like part of the normal decision",
+      "Keep a specialist available when the buyer wants human reassurance",
+    ],
+    problemTitle: "What stops people from moving on a premium product",
+    problemIntro:
+      "The technology may make sense, but many buyers still stall when the upfront cost feels too sudden or too abstract.",
+    problemItems: [
+      "The product feels premium but the payment path feels invisible",
+      "Buyers want to know whether monthly options are available",
+      "The page needs to show value before it asks for commitment",
+      "A generic sales page can make the decision feel heavier than it should",
+    ],
+    solutionTitle: "How this financing page creates momentum",
+    solutionIntro:
+      "This version keeps the product at the center, then uses financing as the bridge from interest to action.",
+    solutionItems: [
+      "Lead with monthly language in the hero and financing block",
+      "Keep the Fusion44x product story prominent throughout",
+      "Offer checkout for ready buyers and consultation for everyone else",
+      "Use a calm premium tone so the payment path feels approachable",
+    ],
+    benefitsTitle: "Why the second pass should convert better",
+    benefitsSubtitle:
+      "The page is meant to feel like a premium buying path, not a pressure page.",
+    benefits: sharedBenefits,
+    technologyTitle: "What the buyer is really deciding",
+    technologySubtitle:
+      "Make the value of the system visible before the financing conversation takes over the page.",
+    technologyCards: [
+      {
+        title: "Product value first",
+        description:
+          "Show why Fusion44x is worth considering, then let financing lower the barrier.",
+        highlight: "Product-led framing",
+      },
+      {
+        title: "Payment clarity",
+        description:
+          "Use monthly language early so the buyer can compare the offer without guesswork.",
+        highlight: "Reduced friction",
+      },
+      {
+        title: "Human backup",
+        description:
+          "Keep a specialist route open for buyers who want reassurance before they purchase.",
+        highlight: "Safety net",
+      },
+    ],
+    comparisonTitle: "Compare the usual pitch with the second-pass financing story",
+    comparisonSubtitle:
+      "The page should feel easier to understand because the payment path is part of the product story instead of an afterthought.",
+    comparisonRows: [
+      {
+        label: "Opening message",
+        traditional: "Start with a price wall",
+        fusion44x: "Start with the premium product and monthly path",
+      },
+      {
+        label: "Buyer confidence",
+        traditional: "Unclear if financing is available",
+        fusion44x: "Clear payment language from the start",
+      },
+      {
+        label: "Sales tone",
+        traditional: "Pushy or abrupt",
+        fusion44x: "Calm, premium, and consultative",
+      },
+      {
+        label: "Decision path",
+        traditional: "Buyers have to ask the next question",
+        fusion44x: "Checkout or specialist help is obvious",
+      },
+    ],
+    financingTitle: "Monthly options should help the product sell itself.",
+    financingSubtitle:
+      "The goal of this iteration is to make the payment story easy without losing the Fusion44x product identity.",
+    financingBadge: "Iteration 2",
+    financingBullets: [
+      "Lead with financing without hiding the product",
+      "Keep the live checkout flow ready for qualified buyers",
+      "Use consultation as the safety valve for harder-fit situations",
+    ],
+    testimonialsTitle: "Financing proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved payment or customer quotes when they are ready.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Second-pass financing questions",
+    faqSubtitle: "Answer the money questions before they become objections.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the purchase path feel lighter without weakening the product story.",
+    finalSubtitle:
+      "Visitors can move to checkout, review financing, or talk to a specialist if they want confirmation first.",
+    finalPrimaryCtaLabel: "See Monthly Options",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Talk to a Fusion44x Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
   consultation: {
     slug: "consultation",
     seoTitle: "Fusion44x Consultation",
@@ -817,4 +945,3 @@ export const fusion44xLandingCampaigns: Record<
     finalSecondaryCtaTarget: "checkout",
   },
 };
-
