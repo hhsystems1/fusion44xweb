@@ -2,12 +2,9 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Image from "next/image";
 
-import {
-  CURRENT_MAIN_SITE_URL,
-  type Fusion44xDestination,
-} from "@/lib/fusion44xLinks";
+import { type Fusion44xDestination } from "@/lib/fusion44xLinks";
 import { useFusion44xLandingTracking } from "@/hooks/useFusion44xLandingTracking";
 import type { Fusion44xLandingCampaign } from "@/content/fusion44xLanding";
 
@@ -222,7 +219,7 @@ function SectionShell({
             {title}
           </h2>
           {description ? (
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">
               {description}
             </p>
           ) : null}
@@ -259,39 +256,27 @@ export function LandingHeader({
 
   const primaryHref = buildOutboundHref(campaign.primaryCtaTarget);
   const secondaryHref = buildOutboundHref(campaign.secondaryCtaTarget);
-  const navItems = [
-    { href: "#how-it-works", label: "How It Works" },
-    { href: "#financing", label: "Financing" },
-    { href: "#technical-specs", label: "Technical Specs" },
-  ];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/10 bg-slate-950/72 px-4 py-3.5 shadow-[0_20px_50px_rgba(2,6,23,0.45)] backdrop-blur-2xl sm:px-5">
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3 text-white">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(14,165,233,0.25),rgba(15,23,42,0.95))] text-sm font-bold tracking-[0.2em] text-cyan-100">
-              F44X
-            </span>
+          <div className="flex items-center gap-3 text-white">
+            <Image
+              src="/fusion44x-logo.png"
+              alt="Fusion44x"
+              width={118}
+              height={118}
+              className="h-11 w-11 rounded-full"
+              loading="eager"
+            />
             <span className="hidden text-left sm:block">
               <span className="block text-sm font-semibold text-white">Fusion44x</span>
-              <span className="block text-xs uppercase tracking-[0.22em] text-slate-400">
+              <span className="block text-xs uppercase tracking-[0.22em] text-white/70">
                 Premium pool water technology
               </span>
             </span>
-          </Link>
-
-          <nav className="hidden items-center gap-2 lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/8 hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          </div>
 
           <div className="hidden items-center gap-3 md:flex">
             <Button
@@ -322,19 +307,7 @@ export function LandingHeader({
 
         {open ? (
           <div className="mt-4 border-t border-white/10 pt-4 md:hidden">
-            <div className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl border border-white/8 bg-white/6 px-4 py-3 text-sm font-medium text-slate-100"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               <Button
                 href={secondaryHref}
                 label={campaign.secondaryCtaLabel}
@@ -367,6 +340,22 @@ export function LandingHeader({
 }
 
 export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign }) {
+  if (campaign.heroImage) {
+    return (
+      <div className="relative mx-auto w-full max-w-[34rem]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-cyan-300/20 shadow-[0_30px_120px_rgba(2,6,23,0.65)]">
+          <Image
+            src={campaign.heroImage}
+            alt={campaign.heroImageAlt ?? ""}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative mx-auto w-full max-w-[34rem]">
       <div className="relative overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(2,6,23,0.98))] p-4 shadow-[0_30px_120px_rgba(2,6,23,0.65)]">
@@ -379,13 +368,13 @@ export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign })
               <SparkIcon className="h-4 w-4" />
               Fusion44x visual system
             </div>
-            <div className="rounded-full border border-white/10 bg-white/8 px-3 py-2 text-xs text-slate-300">
+            <div className="rounded-full border border-white/10 bg-white/8 px-3 py-2 text-xs text-white/85">
               Placeholder media area
             </div>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.65),rgba(15,23,42,0.95))] p-4">
+            <div className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.65),rgba(15,23,42,0.95))]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(56,189,248,0.16),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(14,165,233,0.18),transparent_28%)]" />
               <div className="absolute left-1/2 top-1/2 flex h-64 w-64 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-300/25 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),rgba(56,189,248,0.18)_35%,rgba(15,23,42,0.1)_65%,transparent_72%)] animate-[f44xFloat_9s_ease-in-out_infinite]">
                 <div className="absolute inset-6 rounded-full border border-cyan-200/25" />
@@ -394,11 +383,11 @@ export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign })
 
                 <div className="absolute left-4 top-10 rounded-2xl border border-white/10 bg-slate-950/60 px-3 py-2 text-left text-xs backdrop-blur-xl">
                   <p className="font-semibold text-white">Clean water glow</p>
-                  <p className="mt-1 text-slate-400">Premium visual cue for the ad story</p>
+                  <p className="mt-1 text-white/70">Premium visual cue for the ad story</p>
                 </div>
                 <div className="absolute bottom-8 right-2 rounded-2xl border border-white/10 bg-slate-950/60 px-3 py-2 text-left text-xs backdrop-blur-xl">
                   <p className="font-semibold text-white">Hydrogen-style motion</p>
-                  <p className="mt-1 text-slate-400">Swap in final asset later</p>
+                  <p className="mt-1 text-white/70">Swap in final asset later</p>
                 </div>
                 <div className="absolute inset-x-10 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" />
                 <div className="absolute inset-y-10 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-sky-200/50 to-transparent" />
@@ -420,7 +409,7 @@ export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign })
                   Campaign angle
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">{campaign.heroEyebrow}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{campaign.heroSubheadline}</p>
+                <p className="mt-2 text-sm leading-6 text-white/85">{campaign.heroSubheadline}</p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -430,7 +419,7 @@ export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign })
                     className="rounded-[1.35rem] border border-white/10 bg-white/6 p-4 backdrop-blur-xl"
                   >
                     <p className="text-2xl font-semibold tracking-tight text-white">{stat.value}</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-400">{stat.label}</p>
+                    <p className="mt-1 text-sm leading-6 text-white/70">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -438,7 +427,7 @@ export function HeroVisual({ campaign }: { campaign: Fusion44xLandingCampaign })
           </div>
 
           <div className="rounded-[1.5rem] border border-cyan-300/15 bg-[linear-gradient(135deg,rgba(8,15,29,0.9),rgba(15,23,42,0.65))] p-4">
-            <div className="flex items-center gap-3 text-sm font-medium text-slate-200">
+            <div className="flex items-center gap-3 text-sm font-medium text-white/95">
               <ShieldIcon className="h-4 w-4 text-cyan-200" />
               Swap this block for the final product photo, render, or motion asset when ready.
             </div>
@@ -474,7 +463,7 @@ export function LandingHero({
           <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
             {campaign.heroHeadline}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/85 sm:text-lg">
             {campaign.heroSubheadline}
           </p>
 
@@ -500,7 +489,7 @@ export function LandingHero({
             {campaign.trustBar.map((item) => (
               <span
                 key={item}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/7 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/7 px-4 py-2 text-sm text-white/95 backdrop-blur-xl"
               >
                 <CheckIcon className="h-4 w-4 text-cyan-200" />
                 {item}
@@ -560,20 +549,32 @@ export function VSLSection({
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(2,6,23,0.98))] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_30%),linear-gradient(135deg,rgba(14,165,233,0.08),transparent_42%)]" />
           <div className="relative aspect-video overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-[linear-gradient(180deg,rgba(2,6,23,0.65),rgba(15,23,42,0.95))]">
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-              <button
-                type="button"
-                onClick={() => trackVslPlay(`${campaign.slug}-vsl`)}
-                className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-cyan-200/30 bg-[linear-gradient(135deg,rgba(14,165,233,0.95),rgba(59,130,246,0.95))] text-white shadow-[0_25px_70px_rgba(14,165,233,0.3)] transition hover:scale-105"
-                aria-label="Play the Fusion44x walkthrough"
+            {campaign.vslVideoUrl ? (
+              <video
+                src={campaign.vslVideoUrl}
+                poster={campaign.vslPosterImage ?? undefined}
+                controls
+                className="h-full w-full object-contain"
+                onPlay={() => trackVslPlay(`${campaign.slug}-vsl`)}
               >
-                <PlayIcon className="h-7 w-7 translate-x-0.5" />
-              </button>
-              <p className="mt-6 text-lg font-semibold text-white">Final YouTube embed goes here</p>
-              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">
-                Replace this placeholder with the real VSL, product demo, or a hero image/video block.
-              </p>
-            </div>
+                Your browser does not support the video element.
+              </video>
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                <button
+                  type="button"
+                  onClick={() => trackVslPlay(`${campaign.slug}-vsl`)}
+                  className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-cyan-200/30 bg-[linear-gradient(135deg,rgba(14,165,233,0.95),rgba(59,130,246,0.95))] text-white shadow-[0_25px_70px_rgba(14,165,233,0.3)] transition hover:scale-105"
+                  aria-label="Play the Fusion44x walkthrough"
+                >
+                  <PlayIcon className="h-7 w-7 translate-x-0.5" />
+                </button>
+                <p className="mt-6 text-lg font-semibold text-white">Final YouTube embed goes here</p>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-white/85">
+                  Replace this placeholder with the real VSL, product demo, or a hero image/video block.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -585,7 +586,7 @@ export function VSLSection({
             <p className="mt-3 text-lg font-semibold text-white">{campaign.vslTitle}</p>
             <ul className="mt-4 space-y-3">
               {campaign.vslBullets.map((bullet) => (
-                <li key={bullet} className="flex gap-3 text-sm leading-6 text-slate-300">
+                <li key={bullet} className="flex gap-3 text-sm leading-6 text-white/85">
                   <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
                   <span>{bullet}</span>
                 </li>
@@ -633,10 +634,10 @@ export function ProblemSolutionSection({
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200/80">
             {campaign.problemTitle}
           </p>
-          <p className="mt-3 text-base leading-7 text-slate-300">{campaign.problemIntro}</p>
+          <p className="mt-3 text-base leading-7 text-white/85">{campaign.problemIntro}</p>
           <ul className="mt-5 space-y-3">
             {campaign.problemItems.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-6 text-slate-200">
+              <li key={item} className="flex gap-3 text-sm leading-6 text-white/95">
                 <XIcon className="mt-0.5 h-4 w-4 shrink-0 text-rose-200" />
                 <span>{item}</span>
               </li>
@@ -648,10 +649,10 @@ export function ProblemSolutionSection({
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-100/80">
             {campaign.solutionTitle}
           </p>
-          <p className="mt-3 text-base leading-7 text-slate-300">{campaign.solutionIntro}</p>
+          <p className="mt-3 text-base leading-7 text-white/85">{campaign.solutionIntro}</p>
           <ul className="mt-5 space-y-3">
             {campaign.solutionItems.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-6 text-slate-200">
+              <li key={item} className="flex gap-3 text-sm leading-6 text-white/95">
                 <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-cyan-200" />
                 <span>{item}</span>
               </li>
@@ -681,7 +682,7 @@ export function BenefitsGrid({ campaign }: { campaign: Fusion44xLandingCampaign 
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{benefit.description}</p>
+              <p className="mt-3 text-sm leading-7 text-white/85">{benefit.description}</p>
             </article>
           );
         })}
@@ -720,35 +721,49 @@ export function TechnologySection({
                   <span className="text-sm font-semibold">{index + 1}</span>
                 </div>
               </div>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">{card.description}</p>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85">{card.description}</p>
             </div>
           ))}
         </div>
 
         <div className="rounded-[1.75rem] border border-cyan-300/15 bg-[linear-gradient(180deg,rgba(8,15,29,0.98),rgba(15,23,42,0.88))] p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100/80">
-            Product placeholder
-          </p>
-          <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.65),rgba(2,6,23,0.92))] p-5">
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-slate-950/55 p-4">
-                <p className="text-sm font-semibold text-white">Performance note</p>
-                <p className="mt-2 text-sm leading-7 text-slate-300">
-                  This area can later hold the final product render, a technical diagram, or a short explainer animation.
-                </p>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Visual tone</p>
-                  <p className="mt-2 text-sm font-medium text-white">Dark, premium, and cinematic</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Asset slot</p>
-                  <p className="mt-2 text-sm font-medium text-white">Swap in final media later</p>
-                </div>
-              </div>
+          {campaign.productImage ? (
+            <div className="relative h-full min-h-[20rem] overflow-hidden rounded-[1.5rem]">
+              <Image
+                src={campaign.productImage}
+                alt={campaign.productImageAlt ?? "Fusion44x system"}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
             </div>
-          </div>
+          ) : (
+            <>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100/80">
+                Product placeholder
+              </p>
+              <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.65),rgba(2,6,23,0.92))] p-5">
+                <div className="space-y-4">
+                  <div className="rounded-2xl border border-white/10 bg-slate-950/55 p-4">
+                    <p className="text-sm font-semibold text-white">Performance note</p>
+                    <p className="mt-2 text-sm leading-7 text-white/85">
+                      This area can later hold the final product render, a technical diagram, or a short explainer animation.
+                    </p>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
+                      <p className="text-xs uppercase tracking-[0.2em] text-white/70">Visual tone</p>
+                      <p className="mt-2 text-sm font-medium text-white">Dark, premium, and cinematic</p>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
+                      <p className="text-xs uppercase tracking-[0.2em] text-white/70">Asset slot</p>
+                      <p className="mt-2 text-sm font-medium text-white">Swap in final media later</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </SectionShell>
@@ -765,7 +780,7 @@ export function ComparisonSection({
       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
         <div className="grid gap-3 border-b border-white/10 bg-slate-950/45 px-5 py-4 text-sm font-semibold text-white md:grid-cols-[1.1fr_1fr_1fr]">
           <div>Experience</div>
-          <div className="text-slate-300">Traditional approach</div>
+          <div className="text-white/85">Traditional approach</div>
           <div className="text-cyan-100">Fusion44x</div>
         </div>
         {campaign.comparisonRows.map((row, index) => (
@@ -777,7 +792,7 @@ export function ComparisonSection({
             ].join(" ")}
           >
             <div className="font-medium text-white">{row.label}</div>
-            <div className="text-slate-300">{row.traditional}</div>
+            <div className="text-white/85">{row.traditional}</div>
             <div className="text-cyan-100">{row.fusion44x}</div>
           </div>
         ))}
@@ -822,7 +837,7 @@ export function FinancingCTA({
           </div>
           <ul className="mt-6 space-y-3">
             {campaign.financingBullets.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-7 text-slate-300">
+              <li key={item} className="flex gap-3 text-sm leading-7 text-white/85">
                 <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-cyan-200" />
                 <span>{item}</span>
               </li>
@@ -881,10 +896,10 @@ export function TestimonialsSection({
                 {testimonial.badge}
               </span>
             ) : null}
-            <p className="mt-4 text-sm leading-7 text-slate-200">&ldquo;{testimonial.quote}&rdquo;</p>
+            <p className="mt-4 text-sm leading-7 text-white/95">&ldquo;{testimonial.quote}&rdquo;</p>
             <div className="mt-5">
               <p className="font-semibold text-white">{testimonial.name}</p>
-              <p className="mt-1 text-sm text-slate-400">{testimonial.detail}</p>
+              <p className="mt-1 text-sm text-white/70">{testimonial.detail}</p>
             </div>
           </article>
         ))}
@@ -904,9 +919,9 @@ export function FAQSection({ campaign }: { campaign: Fusion44xLandingCampaign })
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-white">
               <span>{faq.question}</span>
-              <ChevronDownIcon className="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180" />
+              <ChevronDownIcon className="h-5 w-5 shrink-0 text-white/70 transition group-open:rotate-180" />
             </summary>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{faq.answer}</p>
+            <p className="mt-4 text-sm leading-7 text-white/85">{faq.answer}</p>
           </details>
         ))}
       </div>
@@ -939,7 +954,7 @@ export function FinalCTA({
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
               {campaign.finalTitle}
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-8 text-white/85 sm:text-lg">
               {campaign.finalSubtitle}
             </p>
           </div>
@@ -962,7 +977,7 @@ export function FinalCTA({
             />
           </div>
 
-          <p className="mt-6 text-sm text-slate-400">
+          <p className="mt-6 text-sm text-white/70">
             Outbound links preserve the campaign UTM parameters from the landing page URL.
           </p>
         </div>
@@ -1066,17 +1081,8 @@ export default function Fusion44xLandingPage({
         trackLeadClick={trackLeadClick}
       />
       <footer className="px-4 pb-28 pt-4 sm:px-6 md:pb-8 lg:px-8">
-        <div className="mx-auto max-w-7xl border-t border-white/10 pt-6 text-sm text-slate-500">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p>Fusion44x landing system inside the existing website repo.</p>
-            <a
-              href={CURRENT_MAIN_SITE_URL}
-              className="inline-flex items-center gap-2 text-cyan-100 transition hover:text-white"
-            >
-              Visit the current live main site
-              <ArrowIcon className="h-4 w-4" />
-            </a>
-          </div>
+        <div className="mx-auto max-w-7xl border-t border-white/10 pt-6 text-sm text-white/70">
+          <p>Fusion44x landing system inside the existing website repo.</p>
         </div>
       </footer>
       <StickyMobileCTA

@@ -22,6 +22,8 @@ export interface Fusion44xLandingCampaign {
   slug: Fusion44xLandingSlug;
   seoTitle: string;
   seoDescription: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   heroEyebrow: string;
   heroHeadline: string;
   heroSubheadline: string;
@@ -35,6 +37,8 @@ export interface Fusion44xLandingCampaign {
   vslTitle: string;
   vslDescription: string;
   vslBullets: string[];
+  vslVideoUrl?: string;
+  vslPosterImage?: string;
   problemTitle: string;
   problemIntro: string;
   problemItems: string[];
@@ -47,6 +51,8 @@ export interface Fusion44xLandingCampaign {
   technologyTitle: string;
   technologySubtitle: string;
   technologyCards: Array<{ title: string; description: string; highlight: string }>;
+  productImage?: string;
+  productImageAlt?: string;
   comparisonTitle: string;
   comparisonSubtitle: string;
   comparisonRows: Array<{ label: string; traditional: string; fusion44x: string }>;
@@ -155,6 +161,12 @@ export const fusion44xLandingCampaigns: Record<
   "chlorine-free-pool": {
     slug: "chlorine-free-pool",
     seoTitle: "Chlorine-Free Pool Experience",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear, chemical-free pool water shining in the sunlight",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium Fusion44x landing page for chlorine-free and chemical-reducing pool buyers. Send paid traffic to checkout or a water specialist consultation.",
     heroEyebrow: "Fusion44x chlorine-free pool experience",
@@ -282,6 +294,10 @@ export const fusion44xLandingCampaigns: Record<
   financing: {
     slug: "financing",
     seoTitle: "Fusion44x Financing",
+    heroImage: "/fusion-family-pool.jpeg",
+    heroImageAlt: "Family enjoying a sparkling clean pool in their backyard",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium financing landing page for Fusion44x. Present monthly payment options and move visitors into the current live checkout or specialist consultation.",
     heroEyebrow: "Flexible ownership path",
@@ -408,6 +424,10 @@ export const fusion44xLandingCampaigns: Record<
   consultation: {
     slug: "consultation",
     seoTitle: "Fusion44x Consultation",
+    heroImage: "/fusion-swim-lifestyle.jpeg",
+    heroImageAlt: "Serene backyard pool setting with premium water quality",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Specialist consultation landing page for Fusion44x. Guide visitors to a fit check, answer questions, and preserve the current live checkout handoff.",
     heroEyebrow: "Water specialist consult",
@@ -533,6 +553,12 @@ export const fusion44xLandingCampaigns: Record<
   "youtube-vsl": {
     slug: "youtube-vsl",
     seoTitle: "Fusion44x Video Sales Letter",
+    heroImage: "/poolex4.webp",
+    heroImageAlt: "Fusion44x advanced pool water technology system",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/poolex4.webp",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium VSL landing page for Fusion44x. Present the technology story with a high-end video-style layout and clear CTA paths.",
     heroEyebrow: "YouTube VSL campaign",
