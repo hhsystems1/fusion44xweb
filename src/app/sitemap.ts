@@ -37,6 +37,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       changeFrequency: "weekly" as const,
     },
+    {
+      path: "/landing/pool-day",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
   ];
 
   const landingRoutes = landingPages.map((page) => ({
