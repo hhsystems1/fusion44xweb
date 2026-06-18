@@ -2,7 +2,10 @@ import type { Fusion44xDestination } from "@/lib/fusion44xLinks";
 
 export type Fusion44xLandingSlug =
   | "chlorine-free-pool"
+  | "chlorine-free-pool2"
   | "financing"
+  | "financing-2"
+  | "financing-3"
   | "consultation"
   | "youtube-vsl";
 
@@ -22,6 +25,8 @@ export interface Fusion44xLandingCampaign {
   slug: Fusion44xLandingSlug;
   seoTitle: string;
   seoDescription: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   heroEyebrow: string;
   heroHeadline: string;
   heroSubheadline: string;
@@ -35,6 +40,8 @@ export interface Fusion44xLandingCampaign {
   vslTitle: string;
   vslDescription: string;
   vslBullets: string[];
+  vslVideoUrl?: string;
+  vslPosterImage?: string;
   problemTitle: string;
   problemIntro: string;
   problemItems: string[];
@@ -47,6 +54,8 @@ export interface Fusion44xLandingCampaign {
   technologyTitle: string;
   technologySubtitle: string;
   technologyCards: Array<{ title: string; description: string; highlight: string }>;
+  productImage?: string;
+  productImageAlt?: string;
   comparisonTitle: string;
   comparisonSubtitle: string;
   comparisonRows: Array<{ label: string; traditional: string; fusion44x: string }>;
@@ -155,6 +164,12 @@ export const fusion44xLandingCampaigns: Record<
   "chlorine-free-pool": {
     slug: "chlorine-free-pool",
     seoTitle: "Chlorine-Free Pool Experience",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear, chemical-free pool water shining in the sunlight",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium Fusion44x landing page for chlorine-free and chemical-reducing pool buyers. Send paid traffic to checkout or a water specialist consultation.",
     heroEyebrow: "Fusion44x chlorine-free pool experience",
@@ -279,9 +294,145 @@ export const fusion44xLandingCampaigns: Record<
     finalSecondaryCtaLabel: "Finance Options",
     finalSecondaryCtaTarget: "finance",
   },
+  "chlorine-free-pool2": {
+    slug: "chlorine-free-pool2",
+    seoTitle: "Chlorine-Free Pool Experience",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear, chemical-free pool water shining in the sunlight",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    seoDescription:
+      "A cleaner, softer-feeling pool experience without the harsh chlorine smell. Built for families who want the swim without the chemical bite.",
+    heroEyebrow: "Chlorine-free pool experience",
+    heroHeadline: "Clear water. Zero harsh smell.",
+    heroSubheadline:
+      "A softer, cleaner-feeling pool setup for families who want the swim without the chemical bite.",
+    primaryCtaLabel: "Get My Pool Plan",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "See How It Works",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "No chlorine odor", label: "Water that feels fresh" },
+      { value: "Gentler feel", label: "Less harshness on skin" },
+      { value: "Simple switch", label: "Clean changeover" },
+    ],
+    trustBar: [
+      "No chlorine odor",
+      "Gentler feel on skin",
+      "Simple switch process",
+    ],
+    vslEyebrow: "VSL overview",
+    vslTitle: "See the water-technology story before you decide.",
+    vslDescription:
+      "Use this section for the paid-ad walkthrough. It should explain the product, show the visual system, and move visitors toward the next step without clutter.",
+    vslBullets: [
+      "What the system is designed to change",
+      "How the ownership experience feels different",
+      "When to choose checkout versus a consultation",
+    ],
+    problemTitle: "Why buyers start looking for something better",
+    problemIntro:
+      "Many pool owners are simply tired of the cycle of strong smells, chemical management, and inconsistent water feel.",
+    problemItems: [
+      "Routine chemical dependence becomes part of the experience",
+      "The water can feel harsher than customers want",
+      "Buyers struggle to compare premium alternatives quickly",
+      "Most pool pages do not show the ownership path clearly",
+    ],
+    solutionTitle: "What Fusion44x changes",
+    solutionIntro:
+      "This landing page turns the pitch into a clear conversion path: understand the fit, review the options, and move forward only if the system matches the pool.",
+    solutionItems: [
+      "A premium water-technology framing instead of commodity language",
+      "Cleaner-feeling pool water positioning with simpler buyer education",
+      "A straightforward consult-or-buy next step for ad traffic",
+      "Reusable sections that can support future campaign variations",
+    ],
+    benefitsTitle: "Benefits that matter to premium pool buyers",
+    benefitsSubtitle:
+      "Keep the language measured, attractive, and conversion-friendly while still supporting the chlorine-free campaign angle.",
+    benefits: sharedBenefits,
+    technologyTitle: "How the technology story should feel",
+    technologySubtitle:
+      "Use this section to explain the water path, the ownership workflow, and the premium experience without overcomplicating the pitch.",
+    technologyCards: [
+      {
+        title: "Water experience",
+        description:
+          "Frame the product around cleaner-feeling water and a more controlled ownership experience.",
+        highlight: "Customer-facing value",
+      },
+      {
+        title: "Sanitation story",
+        description:
+          "Keep the copy focused on chlorine-free or chemical-reducing positioning and avoid unsupported absolute claims.",
+        highlight: "Careful messaging",
+      },
+      {
+        title: "Fit review",
+        description:
+          "Let visitors decide whether their pool size and goals make the system a good candidate.",
+        highlight: "Consultation-ready",
+      },
+    ],
+    comparisonTitle: "Compare the usual approach with the Fusion44x experience",
+    comparisonSubtitle:
+      "This keeps the page honest while showing why premium buyers would care about the upgrade.",
+    comparisonRows: [
+      {
+        label: "Pool water feel",
+        traditional: "Often tied to routine chlorine-first management",
+        fusion44x: "Designed to support a cleaner-feeling, more premium experience",
+      },
+      {
+        label: "Chemical dependence",
+        traditional: "Frequent ongoing chemical adjustments",
+        fusion44x: "Positioned to reduce traditional chemical dependence where appropriate",
+      },
+      {
+        label: "Buying journey",
+        traditional: "Unclear next step and scattered product information",
+        fusion44x: "Simple route to checkout or a water specialist",
+      },
+      {
+        label: "Visual presentation",
+        traditional: "Commodity-style product page",
+        fusion44x: "Cinematic, premium, and ad-ready",
+      },
+    ],
+    financingTitle: "Make the upgrade feel reachable",
+    financingSubtitle:
+      "Use this section to reinforce the monthly-payment story and keep the price conversation simple.",
+    financingBadge: "Finance from $75/mo",
+    financingBullets: [
+      "Designed for premium buyers who want a payment path",
+      "Keep the current live checkout/payment flow in place for now",
+      "Use specialist guidance when the pool needs a fit check first",
+    ],
+    testimonialsTitle: "Owner feedback placeholder",
+    testimonialsSubtitle:
+      "Replace these cards with approved customer quotes or case studies when they are available.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Frequently asked questions",
+    faqSubtitle: "These answer the main objections without overpromising.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the pool feel new again.",
+    finalSubtitle:
+      "Replace this call-to-action with your booking link, phone number, or form embed when you move from prototype to live funnel.",
+    finalPrimaryCtaLabel: "Request My Pool Plan",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Speak with a Water Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
   financing: {
     slug: "financing",
     seoTitle: "Fusion44x Financing",
+    heroImage: "/fusion-family-pool.jpeg",
+    heroImageAlt: "Family enjoying a sparkling clean pool in their backyard",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium financing landing page for Fusion44x. Present monthly payment options for the pool and spa systems while preserving the current checkout or specialist consultation flow.",
     heroEyebrow: "Flexible ownership path",
@@ -406,9 +557,273 @@ export const fusion44xLandingCampaigns: Record<
     finalSecondaryCtaLabel: "Finance Options",
     finalSecondaryCtaTarget: "finance",
   },
+  "financing-2": {
+    slug: "financing-2",
+    seoTitle: "Fusion44x Financing - Product First",
+    seoDescription:
+      "Second-pass financing landing page for Fusion44x. Lead with the product value, then make monthly payments feel like the natural next step.",
+    heroEyebrow: "Fusion44x financing iteration 2",
+    heroHeadline: "Make Fusion44x Feel Easier To Start With Monthly Payments.",
+    heroSubheadline:
+      "This second pass leads with the product story first, then uses financing to lower friction so premium buyers can say yes without getting stuck on the upfront number.",
+    primaryCtaLabel: "See Monthly Options",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Talk to a Fusion44x Specialist",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "Payment-first", label: "framing that lowers friction" },
+      { value: "Product-led", label: "still selling Fusion44x" },
+      { value: "Premium", label: "calm, high-end close" },
+    ],
+    trustBar: [
+      "Monthly payment story",
+      "Fusion44x product value",
+      "Specialist backup path",
+      "Current live checkout preserved",
+    ],
+    vslEyebrow: "Why this version works",
+    vslTitle: "Sell the product, then make the payment path feel easy.",
+    vslDescription:
+      "Iteration 2 should reduce the feeling of a hard sales ask by pairing the premium product story with a calm financing path from the start.",
+    vslBullets: [
+      "Show the product value before the money conversation gets heavy",
+      "Make the monthly path feel like part of the normal decision",
+      "Keep a specialist available when the buyer wants human reassurance",
+    ],
+    problemTitle: "What stops people from moving on a premium product",
+    problemIntro:
+      "The technology may make sense, but many buyers still stall when the upfront cost feels too sudden or too abstract.",
+    problemItems: [
+      "The product feels premium but the payment path feels invisible",
+      "Buyers want to know whether monthly options are available",
+      "The page needs to show value before it asks for commitment",
+      "A generic sales page can make the decision feel heavier than it should",
+    ],
+    solutionTitle: "How this financing page creates momentum",
+    solutionIntro:
+      "This version keeps the product at the center, then uses financing as the bridge from interest to action.",
+    solutionItems: [
+      "Lead with monthly language in the hero and financing block",
+      "Keep the Fusion44x product story prominent throughout",
+      "Offer checkout for ready buyers and consultation for everyone else",
+      "Use a calm premium tone so the payment path feels approachable",
+    ],
+    benefitsTitle: "Why the second pass should convert better",
+    benefitsSubtitle:
+      "The page is meant to feel like a premium buying path, not a pressure page.",
+    benefits: sharedBenefits,
+    technologyTitle: "What the buyer is really deciding",
+    technologySubtitle:
+      "Make the value of the system visible before the financing conversation takes over the page.",
+    technologyCards: [
+      {
+        title: "Product value first",
+        description:
+          "Show why Fusion44x is worth considering, then let financing lower the barrier.",
+        highlight: "Product-led framing",
+      },
+      {
+        title: "Payment clarity",
+        description:
+          "Use monthly language early so the buyer can compare the offer without guesswork.",
+        highlight: "Reduced friction",
+      },
+      {
+        title: "Human backup",
+        description:
+          "Keep a specialist route open for buyers who want reassurance before they purchase.",
+        highlight: "Safety net",
+      },
+    ],
+    comparisonTitle: "Compare the usual pitch with the second-pass financing story",
+    comparisonSubtitle:
+      "The page should feel easier to understand because the payment path is part of the product story instead of an afterthought.",
+    comparisonRows: [
+      {
+        label: "Opening message",
+        traditional: "Start with a price wall",
+        fusion44x: "Start with the premium product and monthly path",
+      },
+      {
+        label: "Buyer confidence",
+        traditional: "Unclear if financing is available",
+        fusion44x: "Clear payment language from the start",
+      },
+      {
+        label: "Sales tone",
+        traditional: "Pushy or abrupt",
+        fusion44x: "Calm, premium, and consultative",
+      },
+      {
+        label: "Decision path",
+        traditional: "Buyers have to ask the next question",
+        fusion44x: "Checkout or specialist help is obvious",
+      },
+    ],
+    financingTitle: "Monthly options should help the product sell itself.",
+    financingSubtitle:
+      "The goal of this iteration is to make the payment story easy without losing the Fusion44x product identity.",
+    financingBadge: "Iteration 2",
+    financingBullets: [
+      "Lead with financing without hiding the product",
+      "Keep the live checkout flow ready for qualified buyers",
+      "Use consultation as the safety valve for harder-fit situations",
+    ],
+    testimonialsTitle: "Financing proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved payment or customer quotes when they are ready.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Second-pass financing questions",
+    faqSubtitle: "Answer the money questions before they become objections.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the purchase path feel lighter without weakening the product story.",
+    finalSubtitle:
+      "Visitors can move to checkout, review financing, or talk to a specialist if they want confirmation first.",
+    finalPrimaryCtaLabel: "See Monthly Options",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Talk to a Fusion44x Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
+  "financing-3": {
+    slug: "financing-3",
+    seoTitle: "Fusion44x Financing - Visual Story",
+    seoDescription:
+      "Third-pass financing landing page for Fusion44x. Borrow the cleaner visual structure from the chlorine-free-pool2 design while keeping financing and product value connected.",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear water and a premium backyard pool setting",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    heroEyebrow: "Fusion44x financing iteration 3",
+    heroHeadline: "Use the Visual Story to Make Financing Feel Natural.",
+    heroSubheadline:
+      "This third pass borrows the lighter, more visual structure of chlorine-free-pool2 so the financing conversation feels easier, while still selling the Fusion44x product itself.",
+    primaryCtaLabel: "See Monthly Payment Options",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Review Fit With a Specialist",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "Visual-led", label: "cleaner page structure" },
+      { value: "Finance-first", label: "lower the upfront barrier" },
+      { value: "Product-led", label: "still selling Fusion44x" },
+    ],
+    trustBar: [
+      "Visual story first",
+      "Monthly payment path",
+      "Premium buyer journey",
+      "Consultation backup",
+    ],
+    vslEyebrow: "Why this version is different",
+    vslTitle: "Lead with the image, then make financing feel obvious.",
+    vslDescription:
+      "The page should look calmer and more premium, with the visuals doing more of the work before the financing language appears.",
+    vslBullets: [
+      "Use a cleaner visual hierarchy like the chlorine-free-pool2 page",
+      "Show the product and water story before the payment objection grows",
+      "Keep the monthly path and consultation path both easy to find",
+    ],
+    problemTitle: "What makes premium buyers pause",
+    problemIntro:
+      "The product can feel right, but if the page is too text-heavy the financing story feels like a hurdle instead of a help.",
+    problemItems: [
+      "Too much copy can hide the visual appeal",
+      "Buyers want to feel the value before they study pricing",
+      "The payment path should feel calm and expected",
+      "A stronger image-led flow can reduce hesitation",
+    ],
+    solutionTitle: "How this version reduces friction",
+    solutionIntro:
+      "This page uses a lighter visual structure to support the monthly-payment story and keep the product itself looking premium.",
+    solutionItems: [
+      "Use hero imagery and media blocks more like chlorine-free-pool2",
+      "Keep financing language present but not overwhelming",
+      "Let the product render and visual hierarchy do part of the selling",
+      "Preserve a simple checkout-or-consultation decision",
+    ],
+    benefitsTitle: "Why the visual approach helps",
+    benefitsSubtitle:
+      "The financing story lands better when the page feels polished and easy to scan.",
+    benefits: sharedBenefits,
+    technologyTitle: "Visual structure, product story, payment story",
+    technologySubtitle:
+      "This section should feel closer to the chlorine-free-pool2 layout, but tuned for financing instead of pure product pitch.",
+    technologyCards: [
+      {
+        title: "Cleaner layout",
+        description:
+          "Borrow the lighter, image-led structure so the page feels more premium and less dense.",
+        highlight: "Design reference",
+      },
+      {
+        title: "Product anchor",
+        description:
+          "Keep Fusion44x visible so financing supports the product instead of replacing it.",
+        highlight: "Product-led",
+      },
+      {
+        title: "Payment clarity",
+        description:
+          "Make the monthly option feel like part of the normal buyer journey.",
+        highlight: "Lower friction",
+      },
+    ],
+    comparisonTitle: "Compare the usual financing pitch with the visual version",
+    comparisonSubtitle:
+      "The goal is to feel more premium and easier to follow by using stronger visual hierarchy.",
+    comparisonRows: [
+      {
+        label: "Page feel",
+        traditional: "Dense and text-heavy",
+        fusion44x: "Cleaner and more visual",
+      },
+      {
+        label: "Buyer focus",
+        traditional: "Fixates on price too early",
+        fusion44x: "Balances product value and payment clarity",
+      },
+      {
+        label: "Structure",
+        traditional: "Generic sales page",
+        fusion44x: "Closer to the chlorine-free-pool2 design language",
+      },
+      {
+        label: "Conversion path",
+        traditional: "Price first, context later",
+        fusion44x: "Visual story first, financing second",
+      },
+    ],
+    financingTitle: "Use visuals to make financing feel like the obvious next step.",
+    financingSubtitle:
+      "The third pass should make the monthly option feel like part of the product experience, not a separate sales pitch.",
+    financingBadge: "Visual reference pass",
+    financingBullets: [
+      "Borrow the structure of chlorine-free-pool2 where it helps the flow",
+      "Keep the live checkout flow available",
+      "Use consultation for buyers who want human confirmation",
+    ],
+    testimonialsTitle: "Visual proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved buyer feedback or finance proof later.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Financing page questions",
+    faqSubtitle: "Keep the answers short and easy to scan.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the payment path feel like part of the premium product story.",
+    finalSubtitle:
+      "Visitors can continue to checkout, review financing, or talk to a specialist if they want confidence first.",
+    finalPrimaryCtaLabel: "See Monthly Payment Options",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Review Fit With a Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
   consultation: {
     slug: "consultation",
     seoTitle: "Fusion44x Consultation",
+    heroImage: "/fusion-swim-lifestyle.jpeg",
+    heroImageAlt: "Serene backyard pool setting with premium water quality",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Specialist consultation landing page for Fusion44x. Guide visitors to a fit check, answer questions, and preserve the current live checkout handoff.",
     heroEyebrow: "Water specialist consult",
@@ -534,6 +949,12 @@ export const fusion44xLandingCampaigns: Record<
   "youtube-vsl": {
     slug: "youtube-vsl",
     seoTitle: "Fusion44x Video Sales Letter",
+    heroImage: "/poolex4.webp",
+    heroImageAlt: "Fusion44x advanced pool water technology system",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/poolex4.webp",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
     seoDescription:
       "Premium VSL landing page for Fusion44x. Present the technology story with a high-end video-style layout and clear CTA paths.",
     heroEyebrow: "YouTube VSL campaign",

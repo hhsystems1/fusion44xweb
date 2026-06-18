@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AnalyticsScripts } from "@/components/layout/AnalyticsScripts";
 import { siteConfig } from "@/lib/constants";
 import "./globals.css";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+        <AnalyticsScripts />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
