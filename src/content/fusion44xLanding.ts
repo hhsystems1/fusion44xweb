@@ -2,6 +2,7 @@ import type { Fusion44xDestination } from "@/lib/fusion44xLinks";
 
 export type Fusion44xLandingSlug =
   | "chlorine-free-pool"
+  | "chlorine-free-pool2"
   | "financing"
   | "consultation"
   | "youtube-vsl";
@@ -287,6 +288,138 @@ export const fusion44xLandingCampaigns: Record<
     finalSubtitle:
       "Move qualified traffic to the current live checkout or let a specialist confirm the right path first.",
     finalPrimaryCtaLabel: "Buy Now / Finance from $75/mo",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Speak with a Water Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
+  "chlorine-free-pool2": {
+    slug: "chlorine-free-pool2",
+    seoTitle: "Chlorine-Free Pool Experience",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear, chemical-free pool water shining in the sunlight",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    seoDescription:
+      "A cleaner, softer-feeling pool experience without the harsh chlorine smell. Built for families who want the swim without the chemical bite.",
+    heroEyebrow: "Chlorine-free pool experience",
+    heroHeadline: "Clear water. Zero harsh smell.",
+    heroSubheadline:
+      "A softer, cleaner-feeling pool setup for families who want the swim without the chemical bite.",
+    primaryCtaLabel: "Get My Pool Plan",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "See How It Works",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "No chlorine odor", label: "Water that feels fresh" },
+      { value: "Gentler feel", label: "Less harshness on skin" },
+      { value: "Simple switch", label: "Clean changeover" },
+    ],
+    trustBar: [
+      "No chlorine odor",
+      "Gentler feel on skin",
+      "Simple switch process",
+    ],
+    vslEyebrow: "VSL overview",
+    vslTitle: "See the water-technology story before you decide.",
+    vslDescription:
+      "Use this section for the paid-ad walkthrough. It should explain the product, show the visual system, and move visitors toward the next step without clutter.",
+    vslBullets: [
+      "What the system is designed to change",
+      "How the ownership experience feels different",
+      "When to choose checkout versus a consultation",
+    ],
+    problemTitle: "Why buyers start looking for something better",
+    problemIntro:
+      "Many pool owners are simply tired of the cycle of strong smells, chemical management, and inconsistent water feel.",
+    problemItems: [
+      "Routine chemical dependence becomes part of the experience",
+      "The water can feel harsher than customers want",
+      "Buyers struggle to compare premium alternatives quickly",
+      "Most pool pages do not show the ownership path clearly",
+    ],
+    solutionTitle: "What Fusion44x changes",
+    solutionIntro:
+      "This landing page turns the pitch into a clear conversion path: understand the fit, review the options, and move forward only if the system matches the pool.",
+    solutionItems: [
+      "A premium water-technology framing instead of commodity language",
+      "Cleaner-feeling pool water positioning with simpler buyer education",
+      "A straightforward consult-or-buy next step for ad traffic",
+      "Reusable sections that can support future campaign variations",
+    ],
+    benefitsTitle: "Benefits that matter to premium pool buyers",
+    benefitsSubtitle:
+      "Keep the language measured, attractive, and conversion-friendly while still supporting the chlorine-free campaign angle.",
+    benefits: sharedBenefits,
+    technologyTitle: "How the technology story should feel",
+    technologySubtitle:
+      "Use this section to explain the water path, the ownership workflow, and the premium experience without overcomplicating the pitch.",
+    technologyCards: [
+      {
+        title: "Water experience",
+        description:
+          "Frame the product around cleaner-feeling water and a more controlled ownership experience.",
+        highlight: "Customer-facing value",
+      },
+      {
+        title: "Sanitation story",
+        description:
+          "Keep the copy focused on chlorine-free or chemical-reducing positioning and avoid unsupported absolute claims.",
+        highlight: "Careful messaging",
+      },
+      {
+        title: "Fit review",
+        description:
+          "Let visitors decide whether their pool size and goals make the system a good candidate.",
+        highlight: "Consultation-ready",
+      },
+    ],
+    comparisonTitle: "Compare the usual approach with the Fusion44x experience",
+    comparisonSubtitle:
+      "This keeps the page honest while showing why premium buyers would care about the upgrade.",
+    comparisonRows: [
+      {
+        label: "Pool water feel",
+        traditional: "Often tied to routine chlorine-first management",
+        fusion44x: "Designed to support a cleaner-feeling, more premium experience",
+      },
+      {
+        label: "Chemical dependence",
+        traditional: "Frequent ongoing chemical adjustments",
+        fusion44x: "Positioned to reduce traditional chemical dependence where appropriate",
+      },
+      {
+        label: "Buying journey",
+        traditional: "Unclear next step and scattered product information",
+        fusion44x: "Simple route to checkout or a water specialist",
+      },
+      {
+        label: "Visual presentation",
+        traditional: "Commodity-style product page",
+        fusion44x: "Cinematic, premium, and ad-ready",
+      },
+    ],
+    financingTitle: "Make the upgrade feel reachable",
+    financingSubtitle:
+      "Use this section to reinforce the monthly-payment story and keep the price conversation simple.",
+    financingBadge: "Finance from $75/mo",
+    financingBullets: [
+      "Designed for premium buyers who want a payment path",
+      "Keep the current live checkout/payment flow in place for now",
+      "Use specialist guidance when the pool needs a fit check first",
+    ],
+    testimonialsTitle: "Owner feedback placeholder",
+    testimonialsSubtitle:
+      "Replace these cards with approved customer quotes or case studies when they are available.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Frequently asked questions",
+    faqSubtitle: "These answer the main objections without overpromising.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the pool feel new again.",
+    finalSubtitle:
+      "Replace this call-to-action with your booking link, phone number, or form embed when you move from prototype to live funnel.",
+    finalPrimaryCtaLabel: "Request My Pool Plan",
     finalPrimaryCtaTarget: "checkout",
     finalSecondaryCtaLabel: "Speak with a Water Specialist",
     finalSecondaryCtaTarget: "consultation",
