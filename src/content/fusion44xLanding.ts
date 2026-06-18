@@ -5,6 +5,7 @@ export type Fusion44xLandingSlug =
   | "chlorine-free-pool2"
   | "financing"
   | "financing-2"
+  | "financing-3"
   | "consultation"
   | "youtube-vsl";
 
@@ -680,6 +681,139 @@ export const fusion44xLandingCampaigns: Record<
     finalPrimaryCtaLabel: "See Monthly Options",
     finalPrimaryCtaTarget: "checkout",
     finalSecondaryCtaLabel: "Talk to a Fusion44x Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
+  "financing-3": {
+    slug: "financing-3",
+    seoTitle: "Fusion44x Financing - Visual Story",
+    seoDescription:
+      "Third-pass financing landing page for Fusion44x. Borrow the cleaner visual structure from the chlorine-free-pool2 design while keeping financing and product value connected.",
+    heroImage: "/fusion-clear-pool.jpg",
+    heroImageAlt: "Clear water and a premium backyard pool setting",
+    vslVideoUrl: "/0604-1.mov",
+    vslPosterImage: "/fusion-clear-pool.jpg",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    heroEyebrow: "Fusion44x financing iteration 3",
+    heroHeadline: "Use the Visual Story to Make Financing Feel Natural.",
+    heroSubheadline:
+      "This third pass borrows the lighter, more visual structure of chlorine-free-pool2 so the financing conversation feels easier, while still selling the Fusion44x product itself.",
+    primaryCtaLabel: "See Monthly Payment Options",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Review Fit With a Specialist",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "Visual-led", label: "cleaner page structure" },
+      { value: "Finance-first", label: "lower the upfront barrier" },
+      { value: "Product-led", label: "still selling Fusion44x" },
+    ],
+    trustBar: [
+      "Visual story first",
+      "Monthly payment path",
+      "Premium buyer journey",
+      "Consultation backup",
+    ],
+    vslEyebrow: "Why this version is different",
+    vslTitle: "Lead with the image, then make financing feel obvious.",
+    vslDescription:
+      "The page should look calmer and more premium, with the visuals doing more of the work before the financing language appears.",
+    vslBullets: [
+      "Use a cleaner visual hierarchy like the chlorine-free-pool2 page",
+      "Show the product and water story before the payment objection grows",
+      "Keep the monthly path and consultation path both easy to find",
+    ],
+    problemTitle: "What makes premium buyers pause",
+    problemIntro:
+      "The product can feel right, but if the page is too text-heavy the financing story feels like a hurdle instead of a help.",
+    problemItems: [
+      "Too much copy can hide the visual appeal",
+      "Buyers want to feel the value before they study pricing",
+      "The payment path should feel calm and expected",
+      "A stronger image-led flow can reduce hesitation",
+    ],
+    solutionTitle: "How this version reduces friction",
+    solutionIntro:
+      "This page uses a lighter visual structure to support the monthly-payment story and keep the product itself looking premium.",
+    solutionItems: [
+      "Use hero imagery and media blocks more like chlorine-free-pool2",
+      "Keep financing language present but not overwhelming",
+      "Let the product render and visual hierarchy do part of the selling",
+      "Preserve a simple checkout-or-consultation decision",
+    ],
+    benefitsTitle: "Why the visual approach helps",
+    benefitsSubtitle:
+      "The financing story lands better when the page feels polished and easy to scan.",
+    benefits: sharedBenefits,
+    technologyTitle: "Visual structure, product story, payment story",
+    technologySubtitle:
+      "This section should feel closer to the chlorine-free-pool2 layout, but tuned for financing instead of pure product pitch.",
+    technologyCards: [
+      {
+        title: "Cleaner layout",
+        description:
+          "Borrow the lighter, image-led structure so the page feels more premium and less dense.",
+        highlight: "Design reference",
+      },
+      {
+        title: "Product anchor",
+        description:
+          "Keep Fusion44x visible so financing supports the product instead of replacing it.",
+        highlight: "Product-led",
+      },
+      {
+        title: "Payment clarity",
+        description:
+          "Make the monthly option feel like part of the normal buyer journey.",
+        highlight: "Lower friction",
+      },
+    ],
+    comparisonTitle: "Compare the usual financing pitch with the visual version",
+    comparisonSubtitle:
+      "The goal is to feel more premium and easier to follow by using stronger visual hierarchy.",
+    comparisonRows: [
+      {
+        label: "Page feel",
+        traditional: "Dense and text-heavy",
+        fusion44x: "Cleaner and more visual",
+      },
+      {
+        label: "Buyer focus",
+        traditional: "Fixates on price too early",
+        fusion44x: "Balances product value and payment clarity",
+      },
+      {
+        label: "Structure",
+        traditional: "Generic sales page",
+        fusion44x: "Closer to the chlorine-free-pool2 design language",
+      },
+      {
+        label: "Conversion path",
+        traditional: "Price first, context later",
+        fusion44x: "Visual story first, financing second",
+      },
+    ],
+    financingTitle: "Use visuals to make financing feel like the obvious next step.",
+    financingSubtitle:
+      "The third pass should make the monthly option feel like part of the product experience, not a separate sales pitch.",
+    financingBadge: "Visual reference pass",
+    financingBullets: [
+      "Borrow the structure of chlorine-free-pool2 where it helps the flow",
+      "Keep the live checkout flow available",
+      "Use consultation for buyers who want human confirmation",
+    ],
+    testimonialsTitle: "Visual proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved buyer feedback or finance proof later.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Financing page questions",
+    faqSubtitle: "Keep the answers short and easy to scan.",
+    faqs: sharedFaqs,
+    finalTitle: "Make the payment path feel like part of the premium product story.",
+    finalSubtitle:
+      "Visitors can continue to checkout, review financing, or talk to a specialist if they want confidence first.",
+    finalPrimaryCtaLabel: "See Monthly Payment Options",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Review Fit With a Specialist",
     finalSecondaryCtaTarget: "consultation",
   },
   consultation: {

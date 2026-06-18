@@ -33,6 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
     },
     {
+      path: "/landing/financing-3",
+      priority: 0.85,
+      changeFrequency: "weekly" as const,
+    },
+    {
       path: "/landing/consultation",
       priority: 0.9,
       changeFrequency: "weekly" as const,
