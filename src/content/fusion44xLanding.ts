@@ -283,97 +283,98 @@ export const fusion44xLandingCampaigns: Record<
     slug: "financing",
     seoTitle: "Fusion44x Financing",
     seoDescription:
-      "Premium financing landing page for Fusion44x. Present monthly payment options and move visitors into the current live checkout or specialist consultation.",
+      "Premium financing landing page for Fusion44x. Present monthly payment options for the pool and spa systems while preserving the current checkout or specialist consultation flow.",
     heroEyebrow: "Flexible ownership path",
-    heroHeadline: "Bring Premium Pool Water Home Without the Upfront Hit.",
+    heroHeadline: "Finance the Fusion44x System That Fits Your Pool or Spa.",
     heroSubheadline:
-      "Show visitors how the Fusion44x experience can be financed so the decision feels easier, calmer, and more premium from the first ad click.",
+      "Show visitors the actual pool and spa products first, then make the monthly payment path feel easy, calm, and consistent with the rest of the site.",
     primaryCtaLabel: "Buy Now",
     primaryCtaTarget: "checkout",
     secondaryCtaLabel: "Finance Options",
     secondaryCtaTarget: "finance",
     heroStats: [
-      { value: "From $75/mo", label: "finance-friendly framing" },
-      { value: "Clear", label: "payment-forward message" },
-      { value: "Ad-ready", label: "strong conversion path" },
+      { value: "From $65/mo", label: "spa financing" },
+      { value: "From $99/mo", label: "pool financing" },
+      { value: "2 products", label: "real checkout paths" },
     ],
     trustBar: [
-      "Monthly payment story",
-      "Premium buyer journey",
+      "Real product photos",
+      "Pool and spa systems",
+      "Monthly pricing visible",
       "Checkout preserved",
-      "Responsive layout",
     ],
     vslEyebrow: "Why financing matters",
-    vslTitle: "Let the payment story remove friction.",
+    vslTitle: "See the product lineup before the price conversation.",
     vslDescription:
-      "This page should make the cost conversation feel manageable by pairing monthly language with a clear specialist path.",
+      "The page should feel like the rest of Fusion44x: product-first, premium, and clear about the next step.",
     vslBullets: [
-      "Show the financing angle early in the ad journey",
+      "Show the real pool and spa products first",
       "Keep the checkout handoff obvious and simple",
       "Offer consultation support for custom pool situations",
     ],
     problemTitle: "What stops buyers from moving forward",
     problemIntro:
-      "Even when the technology makes sense, premium pool buyers can hesitate if the purchase feels too abrupt or hard to compare.",
+      "Even when the technology makes sense, premium buyers can hesitate if the page hides the actual products or turns the offer into abstract finance copy.",
     problemItems: [
-      "They do not know how to think about the cost",
-      "The payment path is not visible enough",
-      "The page does not reassure them that support is available",
-      "The offer feels too technical or too abrupt",
+      "They want to see the actual pool and spa systems",
+      "The payment path should not feel buried",
+      "The page should still look like the Fusion44x site",
+      "The offer should feel premium instead of generic",
     ],
     solutionTitle: "How the financing page removes friction",
     solutionIntro:
-      "This page keeps the premium tone, adds payment clarity, and points the customer to the live checkout or a specialist when they need help.",
+      "The page keeps the premium tone, shows the real products, and points the customer to the live checkout or a specialist when they need help.",
     solutionItems: [
-      "Lead with monthly payment language",
+      "Lead with the actual product lineup",
       "Use a calm, premium presentation instead of pressure",
       "Keep the live checkout link ready for conversion",
       "Route uncertain buyers to a consultation path",
     ],
-    benefitsTitle: "Why the payment angle works",
+    benefitsTitle: "Why the Fusion44x lineup still converts",
     benefitsSubtitle:
-      "The point is not to overpromise, but to make the upgrade feel understandable and accessible.",
+      "The point is not to overpromise, but to make the upgrade feel understandable, visual, and accessible.",
     benefits: sharedBenefits,
-    technologyTitle: "Technical story, framed for buyers",
+    technologyTitle: "Choose the system that matches the job",
     technologySubtitle:
       "Show enough product detail to build confidence while still keeping the page focused on conversion.",
     technologyCards: [
       {
-        title: "Monthly framing",
+        title: "Residential pool",
         description:
-          "Lead with the payment path so the buyer can quickly compare the offer to other premium upgrades.",
-        highlight: "Conversion focus",
+          "The pool system carries the higher-ticket purchase, the stronger financing story, and the most visible product imagery.",
+        highlight: "Featured product",
       },
       {
-        title: "Fit guidance",
-        description: "Invite buyers to confirm pool compatibility before they commit.",
+        title: "Spa system",
+        description:
+          "The spa and jacuzzi option gives the page a second real product path with a lower monthly entry point.",
+        highlight: "Lower monthly price",
+      },
+      {
+        title: "Support path",
+        description:
+          "Invite buyers to confirm fit before they commit, then move them to checkout or consultation.",
         highlight: "Specialist support",
       },
-      {
-        title: "Payment handoff",
-        description:
-          "Keep the outbound CTA pointed at the current live site until the migration is complete.",
-        highlight: "Temporary checkout flow",
-      },
     ],
-    comparisonTitle: "Compare the payment experience",
+    comparisonTitle: "Compare the product paths",
     comparisonSubtitle:
-      "Show why a premium financing path feels better than a generic sales page.",
+      "Show why the pool and spa options both deserve a premium presentation and a clear payment path.",
     comparisonRows: [
       {
-        label: "Price visibility",
-        traditional: "Hidden until late in the conversation",
-        fusion44x: "Presented early with a clear monthly frame",
+        label: "Pool system",
+        traditional: "Bland product page with buried pricing",
+        fusion44x: "Featured with clear pricing and monthly financing",
+      },
+      {
+        label: "Spa system",
+        traditional: "An afterthought in a generic funnel",
+        fusion44x: "Shown as a real product with its own price point",
       },
       {
         label: "Buyer confidence",
         traditional: "Too much guesswork",
         fusion44x: "A consultation path if they want confirmation",
-      },
-      {
-        label: "Payment flow",
-        traditional: "Disconnected from the offer",
-        fusion44x: "Connected to the current live checkout experience",
       },
       {
         label: "Campaign fit",
@@ -384,20 +385,20 @@ export const fusion44xLandingCampaigns: Record<
     financingTitle: "Monthly options should feel premium, not complicated.",
     financingSubtitle:
       "Use the page to make the upgrade feel accessible while preserving the current live payment flow.",
-    financingBadge: "Financing focus",
+    financingBadge: "Pool + spa financing",
     financingBullets: [
       "Use price framing that supports paid-ad conversion",
       "Keep the live checkout flow in place for now",
       "Offer a specialist call for unusual pool layouts or concerns",
     ],
-    testimonialsTitle: "Payment clarity placeholder",
+    testimonialsTitle: "Product clarity placeholder",
     testimonialsSubtitle:
       "Replace these with approved finance or customer feedback once available.",
     testimonials: sharedTestimonials,
     faqTitle: "Common financing questions",
     faqSubtitle: "Answer objections before they leave the page.",
     faqs: sharedFaqs,
-    finalTitle: "Use the payment path that feels right for your pool.",
+    finalTitle: "Use the payment path that feels right for your pool or spa.",
     finalSubtitle:
       "Visitors can continue to the current live checkout or talk to a specialist first if they want confirmation.",
     finalPrimaryCtaLabel: "Buy Now",
