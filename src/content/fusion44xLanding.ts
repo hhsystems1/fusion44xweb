@@ -3,6 +3,9 @@ import type { Fusion44xDestination } from "@/lib/fusion44xLinks";
 export type Fusion44xLandingSlug =
   | "chlorine-free-pool"
   | "chlorine-free-pool2"
+  | "science-of-purity"
+  | "science-of-purity-2"
+  | "science-of-purity-3"
   | "financing"
   | "financing-2"
   | "financing-3"
@@ -154,6 +157,118 @@ const sharedTestimonials = [
     name: "Customer quote placeholder",
     detail: "Swap in approved owner feedback when available.",
     badge: "Placeholder",
+  },
+];
+
+const scienceOfPurityBenefits = [
+  {
+    title: "Hydroxyl-radical story",
+    description:
+      "Frame the Hydro-pH-Infusion pitch around highly reactive hydroxyl radicals that break down unwanted compounds quickly.",
+  },
+  {
+    title: "Cleaner water language",
+    description:
+      "Keep the benefit on the water experience itself so the copy feels premium, calm, and easy to scan.",
+  },
+  {
+    title: "Simple science, not jargon",
+    description:
+      "Explain the process in plain English so the buyer understands why the system matters without a chemistry lecture.",
+  },
+  {
+    title: "Consultation-safe path",
+    description:
+      "Let cautious visitors confirm fit before they move forward, instead of forcing a hard sell too early.",
+  },
+  {
+    title: "Brand-aligned presentation",
+    description:
+      "Use the HHS style guide as the tone and visual reference: clear, blue-forward, and easy to trust.",
+  },
+  {
+    title: "Paid-traffic ready",
+    description:
+      "Keep the hierarchy short enough for ad clicks, mobile scans, and a fast decision path.",
+  },
+];
+
+const scienceOfPurityFaqs = [
+  {
+    question: "What is Hydro-pH-Infusion?",
+    answer:
+      "Hydro-pH-Infusion is the science-forward name for the Fusion44x water experience on this page. The copy should keep the explanation simple, premium, and easy to compare.",
+  },
+  {
+    question: "How do hydroxyl radicals help?",
+    answer:
+      "Hydroxyl radicals are highly reactive and short-lived, which makes them useful for rapidly breaking down unwanted compounds in a water treatment process.",
+  },
+  {
+    question: "Is this a chemical-first pool page?",
+    answer:
+      "No. The page should explain the technology in a cleaner, more premium way while keeping the conversation focused on fit and next steps.",
+  },
+  {
+    question: "What should the CTA do?",
+    answer:
+      "The primary path should let visitors continue into checkout or a specialist conversation, depending on how confident they are.",
+  },
+];
+
+const scienceOfPurity2Benefits = [
+  {
+    title: "Saltwater myth-busting",
+    description:
+      "Explain that salt systems still generate chlorine, so the visitor understands the difference between saltwater branding and actual water treatment.",
+  },
+  {
+    title: "Cleaner science story",
+    description:
+      "Use plain language to show why Hydro-pH-Infusion is a more premium explanation than generic pool chemistry chatter.",
+  },
+  {
+    title: "Reactive oxygen framing",
+    description:
+      "Describe hydroxyl radicals as highly reactive, short-lived oxidants that help break down unwanted compounds quickly.",
+  },
+  {
+    title: "Trust-first health angle",
+    description:
+      "Keep the health discussion measured: fewer harsh-feeling pool conditions and a calmer ownership story, not miracle claims.",
+  },
+  {
+    title: "Master briefing CTA",
+    description:
+      "Offer a downloadable briefing-style next step so the page can keep educating while still moving the lead forward.",
+  },
+  {
+    title: "Video-ready layout",
+    description:
+      "Support stitch/react and split-screen creative with a structure that can feed both ads and a landing page.",
+  },
+];
+
+const scienceOfPurity2Faqs = [
+  {
+    question: "Is saltwater better?",
+    answer:
+      "Saltwater systems are not the same as a chlorine-free or chemical-free experience. Salt systems still create chlorine, so the story should focus on what the buyer is actually getting, not just the label.",
+  },
+  {
+    question: "What makes Hydro-pH-Infusion different?",
+    answer:
+      "Hydro-pH-Infusion is the Fusion44x story for a more premium water experience, with the explanation centered on reactive chemistry instead of routine chemical management.",
+  },
+  {
+    question: "How do hydroxyl radicals work?",
+    answer:
+      "Hydroxyl radicals are highly reactive, short-lived oxidants. In a water-treatment context, that means they react quickly and do not linger as part of the pool experience.",
+  },
+  {
+    question: "What should I do next?",
+    answer:
+      "If the science makes sense, the cleanest next step is to download the briefing or book a specialist conversation so the fit can be confirmed without pressure.",
   },
 ];
 
@@ -424,6 +539,399 @@ export const fusion44xLandingCampaigns: Record<
     finalPrimaryCtaLabel: "Request My Pool Plan",
     finalPrimaryCtaTarget: "checkout",
     finalSecondaryCtaLabel: "Speak with a Water Specialist",
+    finalSecondaryCtaTarget: "consultation",
+  },
+  "science-of-purity": {
+    slug: "science-of-purity",
+    seoTitle: "The Science of Purity",
+    heroImage: "/poolex4.webp",
+    heroImageAlt: "Fusion44x system presented in a premium water-technology setting",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    seoDescription:
+      "A premium Fusion44x landing page that explains Hydro-pH-Infusion, highlights hydroxyl radicals, and routes qualified visitors to consultation or checkout.",
+    heroEyebrow: "Monday campaign: The Science of Purity",
+    heroHeadline: "The Science of Purity Starts with Hydro-pH-Infusion.",
+    heroSubheadline:
+      "Show buyers how Hydro-pH-Infusion uses highly reactive hydroxyl radicals to break down unwanted compounds quickly, then guide them to the next step.",
+    primaryCtaLabel: "See If It Fits My Pool",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Explore Checkout Options",
+    secondaryCtaTarget: "checkout",
+    heroStats: [
+      { value: "Fast", label: "reactive hydroxyl-radical story" },
+      { value: "Premium", label: "science-forward presentation" },
+      { value: "Clear", label: "consultation or checkout next step" },
+    ],
+    trustBar: [
+      "Hydro-pH-Infusion story",
+      "Hydroxyl-radical explanation",
+      "Brand-guide aligned tone",
+      "Mobile-first conversion path",
+    ],
+    vslEyebrow: "Science, simplified",
+    vslTitle: "Explain the chemistry without turning the page into a textbook.",
+    vslDescription:
+      "The goal is to make the process feel credible and premium, while keeping the buyer focused on the practical result.",
+    vslBullets: [
+      "How Hydro-pH-Infusion fits the ownership story",
+      "Why hydroxyl radicals matter in the treatment process",
+      "When to choose the consultation path versus checkout",
+    ],
+    problemTitle: "Why buyers need a better science story",
+    problemIntro:
+      "Most pool pages either drown visitors in jargon or flatten the technology into vague hype. This page should do neither.",
+    problemItems: [
+      "The buyer does not understand why the process is different",
+      "The language feels technical without feeling trustworthy",
+      "The next step is not obvious enough for ad traffic",
+      "The brand story is lost when the science gets overcooked",
+    ],
+    solutionTitle: "What this page should solve",
+    solutionIntro:
+      "Use the science to build confidence, keep the tone premium and simple, and then offer a clean next move.",
+    solutionItems: [
+      "Introduce Hydro-pH-Infusion in plain English",
+      "Explain hydroxyl radicals as the active, fast-moving part of the story",
+      "Keep the visuals blue-forward, modern, and brand-consistent",
+      "Route uncertain buyers into consultation without friction",
+    ],
+    benefitsTitle: "Why the Science of Purity angle works",
+    benefitsSubtitle:
+      "The page should feel like a clean explanation, not a lecture or a billboard.",
+    benefits: scienceOfPurityBenefits,
+    technologyTitle: "How the Hydro-pH-Infusion story should read",
+    technologySubtitle:
+      "Keep the copy grounded, premium, and readable in one pass, following the HHS brand style guide.",
+    technologyCards: [
+      {
+        title: "Reactive chemistry",
+        description:
+          "Hydroxyl radicals are short-lived and highly reactive, which is why the explanation centers on fast breakdown of unwanted compounds.",
+        highlight: "Core science",
+      },
+      {
+        title: "Contained process",
+        description:
+          "Position the system as a controlled in-unit process instead of an open-ended chemical dump.",
+        highlight: "Product framing",
+      },
+      {
+        title: "Simple buyer path",
+        description:
+          "Let the buyer decide whether they want to continue to checkout or ask a specialist a few questions first.",
+        highlight: "Conversion path",
+      },
+    ],
+    comparisonTitle: "Compare the usual pool story with the science-first version",
+    comparisonSubtitle:
+      "This keeps the page honest while showing why a clearer explanation converts better.",
+    comparisonRows: [
+      {
+        label: "Technology explanation",
+        traditional: "Generic claims with little detail",
+        fusion44x: "A clear Hydro-pH-Infusion story with a defined active process",
+      },
+      {
+        label: "Science language",
+        traditional: "Jargon that confuses the buyer",
+        fusion44x: "Plain-English explanation of hydroxyl radicals and why they matter",
+      },
+      {
+        label: "Buyer confidence",
+        traditional: "Unclear whether the page is trustworthy",
+        fusion44x: "Premium, calm, and easier to evaluate at a glance",
+      },
+      {
+        label: "Next step",
+        traditional: "No obvious action",
+        fusion44x: "Consultation first, checkout second, with no dead ends",
+      },
+    ],
+    financingTitle: "Keep the upgrade within reach",
+    financingSubtitle:
+      "The science matters, but the payment story still needs to feel simple and manageable.",
+    financingBadge: "Premium ownership path",
+    financingBullets: [
+      "Keep the monthly language visible for ready buyers",
+      "Let uncertain visitors go to consultation without pressure",
+      "Preserve a clean transition into the live checkout flow",
+    ],
+    testimonialsTitle: "Owner feedback placeholder",
+    testimonialsSubtitle:
+      "Replace these cards with approved quotes or science-led case studies when available.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Frequently asked questions",
+    faqSubtitle: "Answers should stay clear, calm, and legally sane.",
+    faqs: scienceOfPurityFaqs,
+    finalTitle: "Ready to see whether Hydro-pH-Infusion fits your pool?",
+    finalSubtitle:
+      "Continue into checkout if you are ready, or use the consultation path if you want the fit explained first.",
+    finalPrimaryCtaLabel: "See If It Fits My Pool",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Explore Checkout Options",
+    finalSecondaryCtaTarget: "checkout",
+  },
+  "science-of-purity-2": {
+    slug: "science-of-purity-2",
+    seoTitle: "The Science of Purity",
+    heroImage: "/poolex4.webp",
+    heroImageAlt: "Fusion44x system in a premium, science-forward presentation",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    seoDescription:
+      "A science-first Fusion44x landing page that breaks down saltwater myths, explains Hydro-pH-Infusion, and gives buyers a clean next step.",
+    heroEyebrow: "Monday CTA: The Science of Purity",
+    heroHeadline: "Everyone thinks saltwater is the natural choice. They’re wrong.",
+    heroSubheadline:
+      "This page explains Hydro-pH-Infusion in plain English, shows why hydroxyl radicals are the active part of the story, and keeps the next step simple.",
+    primaryCtaLabel: "Get the Master Briefing",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "See Checkout Options",
+    secondaryCtaTarget: "checkout",
+    heroStats: [
+      { value: "Fast", label: "science explained without fluff" },
+      { value: "Clear", label: "saltwater myth-busting" },
+      { value: "Simple", label: "briefing or checkout next step" },
+    ],
+    trustBar: [
+      "Hydro-pH-Infusion explained",
+      "Saltwater myth-busted",
+      "Reactive oxygen story",
+      "Brand-guide aligned copy",
+    ],
+    vslEyebrow: "Science explainer",
+    vslTitle: "Show the chemistry, then get out of the way.",
+    vslDescription:
+      "This version is built for people who want the logic first, then the offer. Keep it readable, visual, and calm.",
+    vslBullets: [
+      "Use a stitch/react or split-screen video treatment",
+      "Explain the chemistry without overpromising",
+      "Move viewers toward the briefing or a specialist call",
+    ],
+    problemTitle: "Why the usual pool story falls apart",
+    problemIntro:
+      "Saltwater branding sounds safer than it often is. If the page does not explain the chemistry, buyers stay confused.",
+    problemItems: [
+      "Salt systems still generate chlorine",
+      "Pool chemistry is often explained in a way that feels defensive",
+      "Health concerns get exaggerated or oversimplified",
+      "The buyer leaves without a clear next step",
+    ],
+    solutionTitle: "What the Science of Purity page should do",
+    solutionIntro:
+      "Show the buyer the mechanism, keep the tone premium, and offer a low-friction briefing path when they want more detail.",
+    solutionItems: [
+      "Define Hydro-pH-Infusion in one sentence",
+      "Explain hydroxyl radicals as the fast-acting part of the process",
+      "Contrast the story against saltwater and chlorine-first thinking",
+      "Use a briefing CTA that feels educational, not pushy",
+    ],
+    benefitsTitle: "Why this version should convert",
+    benefitsSubtitle:
+      "The page should feel like the sensible version of the conversation, not the loudest one.",
+    benefits: scienceOfPurity2Benefits,
+    technologyTitle: "The science explainer should read like this",
+    technologySubtitle:
+      "Keep the explanation direct enough for a reel, but polished enough for a landing page.",
+    technologyCards: [
+      {
+        title: "Saltwater reframe",
+        description:
+          "Saltwater is often marketed as natural, but the system still generates chlorine. The page should say that plainly and move on.",
+        highlight: "Myth-busting",
+      },
+      {
+        title: "Reactive radicals",
+        description:
+          "Hydroxyl radicals are short-lived and highly reactive, which is the core science point buyers need to remember.",
+        highlight: "Core concept",
+      },
+      {
+        title: "Video-friendly hook",
+        description:
+          "Use a strong opening line, a clean split-screen visual, and a quick CTA to the briefing or consultation.",
+        highlight: "Creative ready",
+      },
+    ],
+    comparisonTitle: "Compare the old story with the science-first version",
+    comparisonSubtitle:
+      "This is where the page earns trust by being specific instead of dramatic.",
+    comparisonRows: [
+      {
+        label: "Saltwater positioning",
+        traditional: "Natural-sounding but vague",
+        fusion44x: "Clear about what salt systems actually do",
+      },
+      {
+        label: "Chemistry explanation",
+        traditional: "Too technical or too slippery",
+        fusion44x: "Plain-English Hydro-pH-Infusion story",
+      },
+      {
+        label: "Health framing",
+        traditional: "Overstated or scary",
+        fusion44x: "Measured and trust-first",
+      },
+      {
+        label: "Lead path",
+        traditional: "Confusing or dead-end",
+        fusion44x: "Download the briefing or book a specialist",
+      },
+    ],
+    financingTitle: "Keep the action path obvious",
+    financingSubtitle:
+      "Education should lead into a clean decision, not stall the buyer after they’ve paid attention.",
+    financingBadge: "Briefing-first",
+    financingBullets: [
+      "Use the briefing CTA as the primary educational next step",
+      "Keep checkout available for people already convinced",
+      "Use consultation for buyers who want a human check",
+    ],
+    testimonialsTitle: "Proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved testimonials, expert quotes, or case-study snippets later.",
+    testimonials: sharedTestimonials,
+    faqTitle: "FAQ breakdown",
+    faqSubtitle: "Address the sticky questions before they bounce.",
+    faqs: scienceOfPurity2Faqs,
+    finalTitle: "If the science makes sense, take the briefing.",
+    finalSubtitle:
+      "Start with the master briefing, or continue to checkout if you already know the fit is right.",
+    finalPrimaryCtaLabel: "Get the Master Briefing",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "See Checkout Options",
+    finalSecondaryCtaTarget: "checkout",
+  },
+  "science-of-purity-3": {
+    slug: "science-of-purity-3",
+    seoTitle: "The Science of Purity",
+    heroImage: "/poolex4.webp",
+    heroImageAlt: "Fusion44x system in a premium science-forward presentation",
+    productImage: "/poolex4.webp",
+    productImageAlt: "Fusion44x premium pool sanitation system",
+    seoDescription:
+      "A checkout-forward Science of Purity landing page that keeps the Hydro-pH-Infusion story simple, premium, and ready for conversion.",
+    heroEyebrow: "Monday CTA: The Science of Purity",
+    heroHeadline: "Chlorine is old tech. Hydro-pH-Infusion is the upgrade.",
+    heroSubheadline:
+      "Show how hydroxyl radicals work fast, keep the science easy to understand, and move ready buyers straight toward checkout.",
+    primaryCtaLabel: "See Checkout Options",
+    primaryCtaTarget: "checkout",
+    secondaryCtaLabel: "Get the Master Briefing",
+    secondaryCtaTarget: "consultation",
+    heroStats: [
+      { value: "Direct", label: "checkout-first framing" },
+      { value: "Fast", label: "hydroxyl-radical science" },
+      { value: "Clear", label: "briefing as backup path" },
+    ],
+    trustBar: [
+      "Checkout-forward CTA",
+      "Hydro-pH-Infusion story",
+      "Science made simple",
+      "Brand-guide aligned tone",
+    ],
+    vslEyebrow: "Conversion version",
+    vslTitle: "Lead with the product path, not the homework.",
+    vslDescription:
+      "This version keeps the science present but makes the purchase path the obvious move for ready buyers.",
+    vslBullets: [
+      "Explain the process in one clean pass",
+      "Keep checkout visually dominant",
+      "Use consultation only for visitors who still need reassurance",
+    ],
+    problemTitle: "What slows the sale down",
+    problemIntro:
+      "If the buyer already believes the science, extra education just gets in the way. The page should cut straight to the action.",
+    problemItems: [
+      "Too much explanation can delay the click",
+      "Buyers want to know the upgrade path quickly",
+      "The brand still needs to stay credible and calm",
+      "The page has to work for paid traffic on mobile",
+    ],
+    solutionTitle: "How this version should convert",
+    solutionIntro:
+      "Use a premium science story to support the purchase, then give the buyer one obvious primary action.",
+    solutionItems: [
+      "Keep Hydro-pH-Infusion front and center",
+      "Use hydroxyl radicals as the credibility anchor",
+      "Make checkout the primary CTA throughout the page",
+      "Offer the briefing and consultation only as backup paths",
+    ],
+    benefitsTitle: "Why the checkout-first version works",
+    benefitsSubtitle:
+      "Ready buyers should not have to hunt for the buy path after they’ve already bought the idea.",
+    benefits: scienceOfPurityBenefits,
+    technologyTitle: "How the science should read here",
+    technologySubtitle:
+      "The copy should sound smart, but it should still feel like a sales page that knows where the button is.",
+    technologyCards: [
+      {
+        title: "Fast-reacting chemistry",
+        description:
+          "Explain hydroxyl radicals as the active part of the process so the buyer understands why this is different.",
+        highlight: "Science anchor",
+      },
+      {
+        title: "Premium ownership feel",
+        description:
+          "Keep the water story calm and high-end so the conversion path feels like an upgrade, not a gamble.",
+        highlight: "Product story",
+      },
+      {
+        title: "Checkout first",
+        description:
+          "Make the purchase action the strongest visual and textual cue on the page.",
+        highlight: "Conversion focus",
+      },
+    ],
+    comparisonTitle: "What changes when checkout leads",
+    comparisonSubtitle:
+      "This version reduces friction by making the sale path obvious for buyers who already want the product.",
+    comparisonRows: [
+      {
+        label: "Primary action",
+        traditional: "Ask questions first",
+        fusion44x: "Go straight to checkout",
+      },
+      {
+        label: "Science content",
+        traditional: "Long explanation before the button",
+        fusion44x: "Short, credible explanation that supports the click",
+      },
+      {
+        label: "Buyer mindset",
+        traditional: "Still deciding",
+        fusion44x: "Already convinced, just needs the path",
+      },
+      {
+        label: "Backup option",
+        traditional: "No clear fallback",
+        fusion44x: "Briefing or consultation if needed",
+      },
+    ],
+    financingTitle: "Make the path to purchase obvious",
+    financingSubtitle:
+      "If the visitor is ready, do not make them work for it. Put the checkout path up front.",
+    financingBadge: "Checkout-first",
+    financingBullets: [
+      "Use checkout as the primary action",
+      "Keep the master briefing available for detail-oriented buyers",
+      "Use consultation as the fallback if they still need fit confirmation",
+    ],
+    testimonialsTitle: "Proof placeholder",
+    testimonialsSubtitle:
+      "Replace these with approved customer feedback, expert quotes, or case-study snippets later.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Checkout questions",
+    faqSubtitle: "Give the buyer enough confidence to move now.",
+    faqs: scienceOfPurity2Faqs,
+    finalTitle: "If you already know the fit, go straight to checkout.",
+    finalSubtitle:
+      "The science is here to support the decision, not delay it.",
+    finalPrimaryCtaLabel: "See Checkout Options",
+    finalPrimaryCtaTarget: "checkout",
+    finalSecondaryCtaLabel: "Get the Master Briefing",
     finalSecondaryCtaTarget: "consultation",
   },
   financing: {

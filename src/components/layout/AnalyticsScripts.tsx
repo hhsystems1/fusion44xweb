@@ -27,6 +27,30 @@ function AnalyticsInner() {
     }
   }, [pathname, searchParams]);
 
+  useEffect(() => {
+    const onFusion44xTracking = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      const payload = customEvent.detail;
+
+      if (!payload || !payload.action) {
+        return;
+      }
+
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: payload.action,
+          properties: payload.payload,
+        }),
+        keepalive: true,
+      }).catch(() => {});
+    };
+
+    window.addEventListener("fusion44x:tracking", onFusion44xTracking);
+    return () => window.removeEventListener("fusion44x:tracking", onFusion44xTracking);
+  }, []);
+
   return null;
 }
 

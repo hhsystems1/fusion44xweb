@@ -23,6 +23,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
     },
     {
+      path: "/landing/science-of-purity",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/science-of-purity-2",
+      priority: 0.88,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/science-of-purity-3",
+      priority: 0.88,
+      changeFrequency: "weekly" as const,
+    },
+    {
       path: "/landing/financing",
       priority: 0.9,
       changeFrequency: "weekly" as const,
