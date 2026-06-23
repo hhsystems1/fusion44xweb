@@ -1,37 +1,29 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import Fusion44xLandingPage from "@/components/landing/Fusion44xLanding";
-import { fusion44xLandingCampaigns } from "@/content/fusion44xLanding";
+import VideoSalesLanding from "@/components/landing/VideoSalesLanding";
 import { siteConfig } from "@/lib/constants";
-
-const campaign = fusion44xLandingCampaigns["youtube-vsl"];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: `${campaign.seoTitle} | Fusion44x`,
-  description: campaign.seoDescription,
+  title: "Fusion44x Video Sales Letter",
+  description:
+    "Premium video-first landing page for Fusion44x with a clear route to the form or pricing.",
   alternates: {
     canonical: `${siteConfig.url}/landing/youtube-vsl`,
   },
   openGraph: {
-    title: `${campaign.seoTitle} | Fusion44x`,
-    description: campaign.seoDescription,
+    title: "Fusion44x Video Sales Letter",
+    description: "Premium video-first landing page for Fusion44x with a clear route to the form or pricing.",
     url: `${siteConfig.url}/landing/youtube-vsl`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${campaign.seoTitle} | Fusion44x`,
-    description: campaign.seoDescription,
+    title: "Fusion44x Video Sales Letter",
+    description: "Premium video-first landing page for Fusion44x with a clear route to the form or pricing.",
   },
 };
 
 export default function YoutubeVslLandingPage() {
-  return (
-    <Suspense fallback={<main className="min-h-screen bg-slate-950" />}>
-      <Fusion44xLandingPage campaign={campaign} pagePath="/landing/youtube-vsl" />
-    </Suspense>
-  );
+  return <VideoSalesLanding />;
 }
-
