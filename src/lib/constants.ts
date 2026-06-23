@@ -25,6 +25,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/home-neo", label: "Home Neo" },
   { href: "/products", label: "Products" },
   { href: "/residential-pools", label: "Pool Systems" },
   { href: "/pricing", label: "Pricing" },
