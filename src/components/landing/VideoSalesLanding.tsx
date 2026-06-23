@@ -89,6 +89,8 @@ function TopBar() {
 }
 
 export default function VideoSalesLanding() {
+  const vimeoEmbedUrl =
+    "https://player.vimeo.com/video/1203883518?title=0&byline=0&portrait=0&dnt=1&autoplay=1&muted=1&loop=1&background=1";
   const bullets = [
     "Premium dark-to-blue visuals",
     "Video at the center of the page",
@@ -153,16 +155,14 @@ export default function VideoSalesLanding() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2.2rem] border border-slate-200 bg-white shadow-[0_28px_90px_rgba(15,23,42,0.12)]">
               <div className="relative aspect-video bg-slate-950">
-                <video
-                  src="/0604-1.mov"
-                  poster="/poolex4.webp"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="h-full w-full object-cover"
-                >
-                  Your browser does not support the video element.
-                </video>
+                <iframe
+                  src={vimeoEmbedUrl}
+                  title="Fusion44x video sales letter"
+                  className="absolute inset-0 h-full w-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(9,18,45,0.12),rgba(9,18,45,0.18))]" />
                 <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#1749b7] shadow-sm backdrop-blur">
                   Video proof
