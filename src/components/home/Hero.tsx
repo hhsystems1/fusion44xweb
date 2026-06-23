@@ -57,6 +57,27 @@ export function HeroSection() {
                 Get a Free Analysis
               </Link>
             </div>
+            <div className="mt-4">
+              <Link
+                href="/home-neo"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/65 transition-colors hover:text-accent"
+              >
+                View alternate home concept
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 5l7 7-7 7M5 12h15"
+                  />
+                </svg>
+              </Link>
+            </div>
             <div className="mt-10 grid max-w-xl gap-3 text-xs text-white/75 sm:grid-cols-3">
               {[
                 "Lifetime warranty",

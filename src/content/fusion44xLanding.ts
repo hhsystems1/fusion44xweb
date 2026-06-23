@@ -9,6 +9,10 @@ export type Fusion44xLandingSlug =
   | "financing"
   | "financing-2"
   | "financing-3"
+  | "obsolete-tech-diagnostic-table-2"
+  | "30-day-tactical-content-loop-2"
+  | "design-system-blueprint-2"
+  | "linguistic-token-filter-2"
   | "consultation"
   | "youtube-vsl";
 
@@ -157,6 +161,190 @@ const sharedTestimonials = [
     name: "Customer quote placeholder",
     detail: "Swap in approved owner feedback when available.",
     badge: "Placeholder",
+  },
+];
+
+const diagnosticTable2Benefits = [
+  {
+    title: "Clear replacement story",
+    description:
+      "Frame Fusion44x as the upgrade path when the old stack of salt, UV, ozone, and ionizer talk starts sounding tired.",
+  },
+  {
+    title: "Decision-ready table",
+    description:
+      "Use a clean comparison table so the buyer can see the tradeoffs without digging through a pile of marketing fluff.",
+  },
+  {
+    title: "Myth check",
+    description:
+      "Call out the limits of legacy pool-tech positioning without getting sloppy about unsupported claims.",
+  },
+  {
+    title: "Win summary",
+    description:
+      "End with the reason Fusion44x wins in one or two plain-English sentences.",
+  },
+];
+
+const diagnosticTable2Faqs = [
+  {
+    question: "What is this page comparing?",
+    answer:
+      "It compares Fusion44x against saltwater, UV/ozone, and copper ionizer approaches so buyers can see the upgrade story fast.",
+  },
+  {
+    question: "Why lead with the table?",
+    answer:
+      "Because the comparison does the heavy lifting. Once the tradeoffs are obvious, the next step is easier to trust.",
+  },
+  {
+    question: "What should the CTA do?",
+    answer:
+      "Push the visitor toward a consultation or fit check if they want the comparison explained in human terms.",
+  },
+  {
+    question: "Should the old pages be replaced?",
+    answer:
+      "No. This is a new numbered variant, not a replacement for the original campaign pages.",
+  },
+];
+
+const tacticalLoop2Benefits = [
+  {
+    title: "30-day cadence",
+    description:
+      "Break the month into a repeatable rhythm so posting, follow-up, and review do not depend on memory.",
+  },
+  {
+    title: "DM routing",
+    description:
+      "Show exactly how comments, DMs, and replies move into the next step without getting lost.",
+  },
+  {
+    title: "CRM hygiene",
+    description:
+      "Make the handoff into the CRM feel like the normal end of a content action, not an afterthought.",
+  },
+  {
+    title: "Repeatable machine",
+    description:
+      "Treat the loop like a machine that can be rerun every month without rebuilding the plan from scratch.",
+  },
+];
+
+const tacticalLoop2Faqs = [
+  {
+    question: "What is the loop for?",
+    answer:
+      "It is a 30-day content system for posts, DMs, follow-up, and CRM routing that can be repeated instead of reinvented.",
+  },
+  {
+    question: "Does it require a lot of manual work?",
+    answer:
+      "No. The point is to turn the same structure into a predictable operating rhythm.",
+  },
+  {
+    question: "Why include CRM routing?",
+    answer:
+      "Because content that gets attention but never gets captured is just expensive noise.",
+  },
+  {
+    question: "What should the visitor do next?",
+    answer:
+      "Map the loop to their own pipeline or book a strategy conversation if they want help implementing it.",
+  },
+];
+
+const blueprint2Benefits = [
+  {
+    title: "Color discipline",
+    description:
+      "Define the palette once so every page feels like it belongs to the same system.",
+  },
+  {
+    title: "Type hierarchy",
+    description:
+      "Lock in typography rules so headlines, body copy, and utility text never fight each other.",
+  },
+  {
+    title: "Imagery rules",
+    description:
+      "Show what kinds of images belong and which ones will break the tone immediately.",
+  },
+  {
+    title: "Do-not list",
+    description:
+      "Name the mistakes the brand should stop repeating, not just the things it should use more of.",
+  },
+];
+
+const blueprint2Faqs = [
+  {
+    question: "Is this a brand guide or a landing page?",
+    answer:
+      "It is both: a landing page that explains the brand rules and a blueprint for the pages that follow.",
+  },
+  {
+    question: "Why bother with a design system page now?",
+    answer:
+      "Because a consistent system saves time, prevents drift, and makes future campaign pages easier to build.",
+  },
+  {
+    question: "What should be listed as not allowed?",
+    answer:
+      "Anything off-brand, too generic, or visually noisy enough to dilute the premium feel.",
+  },
+  {
+    question: "How does this help conversion?",
+    answer:
+      "A cleaner system makes the whole funnel feel more trustworthy and easier to skim.",
+  },
+];
+
+const tokenFilter2Benefits = [
+  {
+    title: "Approved language",
+    description:
+      "Define the words that should be used consistently so the offer sounds sharp and repeatable.",
+  },
+  {
+    title: "Banned phrases",
+    description:
+      "List the dead phrases that make the brand sound weak, noisy, or too generic.",
+  },
+  {
+    title: "Positioning clarity",
+    description:
+      "Turn the product story into a cleaner sentence before it gets fed into ads or landing pages.",
+  },
+  {
+    title: "Conversion tone",
+    description:
+      "Keep the language calmer and more credible so the message converts without sounding desperate.",
+  },
+];
+
+const tokenFilter2Faqs = [
+  {
+    question: "What is a token filter here?",
+    answer:
+      "It is a simple message filter that defines what should and should not appear in the copy.",
+  },
+  {
+    question: "Why include forbidden language?",
+    answer:
+      "Because eliminating bad phrasing is often faster than writing better copy from scratch.",
+  },
+  {
+    question: "Does this replace brand voice?",
+    answer:
+      "No. It sharpens the voice so the brand sounds more intentional and less scattered.",
+  },
+  {
+    question: "What comes next after the filter?",
+    answer:
+      "Use the approved language in ads, pages, DMs, and CRM templates so the whole system stays aligned.",
   },
 ];
 
@@ -1324,6 +1512,514 @@ export const fusion44xLandingCampaigns: Record<
     finalPrimaryCtaTarget: "checkout",
     finalSecondaryCtaLabel: "Review Fit With a Specialist",
     finalSecondaryCtaTarget: "consultation",
+  },
+  "obsolete-tech-diagnostic-table-2": {
+    slug: "obsolete-tech-diagnostic-table-2",
+    seoTitle: "Fusion44x Obsolete Tech Diagnostic Table",
+    seoDescription:
+      "A comparison-table landing page built from the 9-picture source set. Compare Fusion44x with saltwater, UV/ozone, and copper ionizers, then summarize why the upgrade wins.",
+    heroEyebrow: "9-picture diagnostic pass",
+    heroHeadline: "Compare Fusion44x Against the Old Pool-Tech Stack.",
+    heroSubheadline:
+      "This page turns the 9-picture source set into a clean comparison table so buyers can see why Fusion44x beats saltwater, UV/ozone, and copper ionizers without reading a white paper.",
+    primaryCtaLabel: "See the Fit",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Open Main Site",
+    secondaryCtaTarget: "main",
+    heroStats: [
+      { value: "4 lanes", label: "legacy tech compared side by side" },
+      { value: "Plain English", label: "no chemistry fog machine" },
+      { value: "Decision-ready", label: "table first, summary second" },
+    ],
+    trustBar: [
+      "Built from 9-picture source set",
+      "Fusion44x vs legacy systems",
+      "Table-first conversion flow",
+      "Plain-English win summary",
+    ],
+    vslEyebrow: "Comparison table",
+    vslTitle: "The table should do the selling for you.",
+    vslDescription:
+      "Use the comparison to show what Fusion44x replaces, what it improves, and why the older approaches stop short.",
+    vslBullets: [
+      "Saltwater still leans on chlorine generation",
+      "UV and ozone can help, but they are not the whole story",
+      "Copper ionizers add another legacy maintenance branch",
+    ],
+    problemTitle: "Why the old stack feels obsolete",
+    problemIntro:
+      "Buyers often get pushed into a pile of half-explanations: saltwater branding, UV add-ons, ozone claims, and ionizer side quests.",
+    problemItems: [
+      "The story is fragmented before the buyer even understands the system",
+      "Each legacy option adds another layer of maintenance or explanation",
+      "The comparison is usually written by marketing, not by decision logic",
+      "The page needs a clean summary of why the upgrade wins",
+    ],
+    solutionTitle: "What this table should solve",
+    solutionIntro:
+      "The table should make the tradeoffs obvious, then end with a short explanation of why Fusion44x is the cleaner path.",
+    solutionItems: [
+      "Compare Fusion44x directly against saltwater, UV/ozone, and copper ionizers",
+      "Keep the language concise enough for quick scanning",
+      "End with a clear reason the newer system wins",
+      "Send interested visitors into a specialist fit check",
+    ],
+    benefitsTitle: "Why the diagnostic table works",
+    benefitsSubtitle:
+      "The 9-picture source set becomes a practical comparison tool instead of a design exercise.",
+    benefits: diagnosticTable2Benefits,
+    technologyTitle: "How the comparison should read",
+    technologySubtitle:
+      "The cards should feel like an executive summary, not a feature dump.",
+    technologyCards: [
+      {
+        title: "Saltwater lane",
+        description:
+          "Call out that salt systems still rely on chlorine generation, so the label sounds cleaner than the underlying chemistry.",
+        highlight: "Myth check",
+      },
+      {
+        title: "UV / ozone lane",
+        description:
+          "Acknowledge the usefulness of UV and ozone without letting the page pretend they solve every part of the problem.",
+        highlight: "Partial answer",
+      },
+      {
+        title: "Copper ionizer lane",
+        description:
+          "Show how ionizers add another legacy maintenance branch instead of replacing the need for a clearer system story.",
+        highlight: "Legacy stack",
+      },
+    ],
+    comparisonTitle: "Fusion44x wins where the old stack gets messy",
+    comparisonSubtitle:
+      "The summary row should make it obvious why the upgrade deserves the buyer's attention.",
+    comparisonRows: [
+      {
+        label: "Saltwater",
+        traditional: "Still generates chlorine and leans on branding more than clarity",
+        fusion44x: "Cleaner story with a more direct ownership path",
+      },
+      {
+        label: "UV / ozone",
+        traditional: "Useful support, but not the whole decision",
+        fusion44x: "Presented as the system that simplifies the pitch",
+      },
+      {
+        label: "Copper ionizers",
+        traditional: "Another legacy maintenance branch to explain",
+        fusion44x: "A more streamlined premium option",
+      },
+      {
+        label: "Bottom line",
+        traditional: "Complicated and fragmented",
+        fusion44x: "One cleaner, easier-to-understand upgrade path",
+      },
+    ],
+    financingTitle: "Why the winner should still feel reachable",
+    financingSubtitle:
+      "The table should close the gap between interest and action, not create a new one.",
+    financingBadge: "Comparison-first",
+    financingBullets: [
+      "Use the table to justify the upgrade",
+      "Keep consultation ready for buyers who want a human review",
+      "Let the main site and payment flow stay available for ready buyers",
+    ],
+    testimonialsTitle: "Table proof placeholder",
+    testimonialsSubtitle:
+      "Swap in approval-only proof once the comparison is validated for the campaign.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Diagnostic table questions",
+    faqSubtitle: "Answer the obvious comparison objections quickly.",
+    faqs: diagnosticTable2Faqs,
+    finalTitle: "If the old stack feels tired, compare the upgrade path.",
+    finalSubtitle:
+      "Use the table to see the difference, then move into consultation if you want the fit explained.",
+    finalPrimaryCtaLabel: "See the Fit",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Open Main Site",
+    finalSecondaryCtaTarget: "main",
+  },
+  "30-day-tactical-content-loop-2": {
+    slug: "30-day-tactical-content-loop-2",
+    seoTitle: "Fusion44x 30-Day Tactical Content Loop",
+    seoDescription:
+      "A 30-day content cadence page built from the 9-picture source set. Show the repeatable machine for posts, DMs, and CRM routing.",
+    heroEyebrow: "9-picture cadence map",
+    heroHeadline: "Run the Same Content Loop Every 30 Days.",
+    heroSubheadline:
+      "Use the 9-picture source set to define a repeatable machine for content, DM follow-up, and CRM routing so the work stops depending on memory.",
+    primaryCtaLabel: "Map My Loop",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Open Main Site",
+    secondaryCtaTarget: "main",
+    heroStats: [
+      { value: "30 days", label: "one repeatable campaign cycle" },
+      { value: "3 channels", label: "posts, DMs, and CRM" },
+      { value: "1 machine", label: "the same loop every month" },
+    ],
+    trustBar: [
+      "Built from 9-picture source set",
+      "Posts, DMs, CRM routing",
+      "Repeatable monthly cadence",
+      "No more ad hoc guessing",
+    ],
+    vslEyebrow: "Cadence, not chaos",
+    vslTitle: "Treat content like an operating system.",
+    vslDescription:
+      "The page should show how one content loop can be repeated month after month without rethinking the whole process each time.",
+    vslBullets: [
+      "Use the same 30-day structure every cycle",
+      "Route replies into a consistent DM path",
+      "Push qualified interest into the CRM without delay",
+    ],
+    problemTitle: "Why content loops break down",
+    problemIntro:
+      "Most content plans fail because the structure lives in someone's head instead of in a repeatable system.",
+    problemItems: [
+      "Posting cadence changes every week",
+      "Replies never get routed consistently",
+      "CRM capture happens late or not at all",
+      "The team has to reinvent the play every month",
+    ],
+    solutionTitle: "What the 30-day loop should solve",
+    solutionIntro:
+      "The loop should turn the strategy into a cycle that can be rerun, reviewed, and improved without rewriting it.",
+    solutionItems: [
+      "Plan the monthly cadence once",
+      "Define what happens after each post or DM",
+      "Route interest into CRM with a clear handoff",
+      "Keep the loop simple enough to repeat",
+    ],
+    benefitsTitle: "Why the loop is worth building",
+    benefitsSubtitle:
+      "The 9-picture source set becomes a playbook the team can actually execute.",
+    benefits: tacticalLoop2Benefits,
+    technologyTitle: "The machine behind the month",
+    technologySubtitle:
+      "These cards should read like an ops checklist, not a motivational poster.",
+    technologyCards: [
+      {
+        title: "Content sprint",
+        description:
+          "Define the weekly posts and creative outputs before the month starts so nobody guesses mid-cycle.",
+        highlight: "Planning layer",
+      },
+      {
+        title: "DM branch",
+        description:
+          "Specify the reply path when someone engages so the conversation does not die in the inbox.",
+        highlight: "Conversation layer",
+      },
+      {
+        title: "CRM handoff",
+        description:
+          "Capture the lead, tag it, and route it into the right follow-up queue as soon as interest shows up.",
+        highlight: "Routing layer",
+      },
+    ],
+    comparisonTitle: "Ad hoc content versus a working loop",
+    comparisonSubtitle:
+      "The contrast should make the operational value obvious at a glance.",
+    comparisonRows: [
+      {
+        label: "Content planning",
+        traditional: "Posts decided last minute",
+        fusion44x: "One repeatable 30-day cadence",
+      },
+      {
+        label: "DM follow-up",
+        traditional: "Inconsistent or forgotten",
+        fusion44x: "Defined branch for every response",
+      },
+      {
+        label: "CRM routing",
+        traditional: "Late or missing capture",
+        fusion44x: "Immediate handoff into the system",
+      },
+      {
+        label: "Team memory",
+        traditional: "Relies on whoever remembers",
+        fusion44x: "Documented loop that can be rerun",
+      },
+    ],
+    financingTitle: "A loop is only useful if it gets used again.",
+    financingSubtitle:
+      "The page should finish with a clear next step that turns the idea into an actual operating plan.",
+    financingBadge: "Ops-first",
+    financingBullets: [
+      "Map the 30-day loop to the current pipeline",
+      "Use consultation if the team wants help setting it up",
+      "Keep the main site open for anyone who needs more context",
+    ],
+    testimonialsTitle: "Loop proof placeholder",
+    testimonialsSubtitle:
+      "Replace with approved operational proof once the cadence is tested.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Content loop questions",
+    faqSubtitle: "Keep the answers tactical and blunt.",
+    faqs: tacticalLoop2Faqs,
+    finalTitle: "Build the loop once, then rerun it every month.",
+    finalSubtitle:
+      "If the cadence makes sense, move into consultation and turn the plan into a repeatable machine.",
+    finalPrimaryCtaLabel: "Map My Loop",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Open Main Site",
+    finalSecondaryCtaTarget: "main",
+  },
+  "design-system-blueprint-2": {
+    slug: "design-system-blueprint-2",
+    seoTitle: "Fusion44x Design System Blueprint",
+    seoDescription:
+      "A brand-system landing page built from the 9-picture source set. Define color, typography, imagery, and the rules that keep Fusion44x consistent.",
+    heroEyebrow: "9-picture brand kit",
+    heroHeadline: "Build the Design System Before the Next Page Ships.",
+    heroSubheadline:
+      "Use the 9-picture source set to define the brand rules: color tokens, type hierarchy, imagery style, and the list of things that do not belong.",
+    primaryCtaLabel: "Review the Blueprint",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Open Main Site",
+    secondaryCtaTarget: "main",
+    heroStats: [
+      { value: "Colors", label: "palette and token rules" },
+      { value: "Typography", label: "headline and body hierarchy" },
+      { value: "Imagery", label: "approved visual style" },
+    ],
+    trustBar: [
+      "Built from 9-picture source set",
+      "Color tokens and spacing rules",
+      "Typography guardrails",
+      "Do / don't library",
+    ],
+    vslEyebrow: "Brand system",
+    vslTitle: "Treat the brand like a blueprint, not a vibe.",
+    vslDescription:
+      "This page should make the design decisions feel documented and repeatable instead of subjective.",
+    vslBullets: [
+      "Define the palette and token names clearly",
+      "Lock in type hierarchy and spacing rules",
+      "Show the imagery style that belongs in the brand",
+    ],
+    problemTitle: "Why brand drift keeps happening",
+    problemIntro:
+      "When the design system is fuzzy, every new page improvises a little differently and the brand starts to wobble.",
+    problemItems: [
+      "Color choices drift from page to page",
+      "Typography gets too many voices",
+      "Images stop matching the tone",
+      "The team has no clean do-not list",
+    ],
+    solutionTitle: "What the blueprint should solve",
+    solutionIntro:
+      "The blueprint should turn the brand into a shared reference that keeps future pages from going off the rails.",
+    solutionItems: [
+      "Document the palette and type hierarchy",
+      "Show approved imagery treatment",
+      "List the mistakes that should be avoided",
+      "Give the team a system they can actually use",
+    ],
+    benefitsTitle: "Why the system matters",
+    benefitsSubtitle:
+      "The 9-picture source set becomes a working brand guide instead of a loose reference board.",
+    benefits: blueprint2Benefits,
+    technologyTitle: "What belongs in the system",
+    technologySubtitle:
+      "The cards should read like a style guide, not a mood board.",
+    technologyCards: [
+      {
+        title: "Palette",
+        description:
+          "Define the blues, neutrals, and accent colors that keep the brand visually consistent.",
+        highlight: "Color system",
+      },
+      {
+        title: "Type stack",
+        description:
+          "Set the hierarchy for headlines, subheads, and body text so every page scans the same way.",
+        highlight: "Typography rules",
+      },
+      {
+        title: "Imagery style",
+        description:
+          "Specify the lighting, crops, and tone that future pages should follow.",
+        highlight: "Visual guardrails",
+      },
+    ],
+    comparisonTitle: "A system beats improvisation",
+    comparisonSubtitle:
+      "The comparison should make it obvious why design rules are a speed boost, not bureaucracy.",
+    comparisonRows: [
+      {
+        label: "Color usage",
+        traditional: "Random choices each time",
+        fusion44x: "A defined palette with reusable tokens",
+      },
+      {
+        label: "Typography",
+        traditional: "Too many styles competing",
+        fusion44x: "One hierarchy that stays consistent",
+      },
+      {
+        label: "Imagery",
+        traditional: "Whatever looks okay in the moment",
+        fusion44x: "Approved visual language with guardrails",
+      },
+      {
+        label: "Workflow",
+        traditional: "Every page feels custom in the wrong way",
+        fusion44x: "A system that speeds up future builds",
+      },
+    ],
+    financingTitle: "A good blueprint saves time on every page after this one.",
+    financingSubtitle:
+      "Once the system is clear, the next landing page gets easier instead of harder.",
+    financingBadge: "System-first",
+    financingBullets: [
+      "Use the blueprint before the next launch",
+      "Let consultation fill in the gaps if the team wants help applying it",
+      "Keep the main site available as the living reference",
+    ],
+    testimonialsTitle: "Blueprint proof placeholder",
+    testimonialsSubtitle:
+      "Swap in approved design feedback when the system is signed off.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Design-system questions",
+    faqSubtitle: "Answer the rules questions before they turn into style drift.",
+    faqs: blueprint2Faqs,
+    finalTitle: "If it doesn't fit the system, it doesn't ship.",
+    finalSubtitle:
+      "Use the blueprint to keep the next pages aligned, then review it with a specialist if the team wants help.",
+    finalPrimaryCtaLabel: "Review the Blueprint",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Open Main Site",
+    finalSecondaryCtaTarget: "main",
+  },
+  "linguistic-token-filter-2": {
+    slug: "linguistic-token-filter-2",
+    seoTitle: "Fusion44x Linguistic Token Filter",
+    seoDescription:
+      "A copy and messaging landing page built from the 9-picture source set. Define approved language, forbidden phrases, positioning, and cleaner conversion copy.",
+    heroEyebrow: "9-picture message filter",
+    heroHeadline: "Filter the Words Before They Hit the Page.",
+    heroSubheadline:
+      "Use the 9-picture source set to define approved language, banned phrases, positioning statements, and cleaner conversion copy across the funnel.",
+    primaryCtaLabel: "Review the Language",
+    primaryCtaTarget: "consultation",
+    secondaryCtaLabel: "Open Main Site",
+    secondaryCtaTarget: "main",
+    heroStats: [
+      { value: "Approved copy", label: "what should always be said" },
+      { value: "Banned phrases", label: "what should never ship" },
+      { value: "Cleaner tone", label: "the words convert better" },
+    ],
+    trustBar: [
+      "Built from 9-picture source set",
+      "Approved language list",
+      "Forbidden phrase list",
+      "Conversion tone guardrails",
+    ],
+    vslEyebrow: "Copy system",
+    vslTitle: "Words are part of the product.",
+    vslDescription:
+      "The page should show how a small set of language rules can make the whole funnel sound sharper and more believable.",
+    vslBullets: [
+      "Define the preferred language once",
+      "Remove phrases that weaken trust",
+      "Keep the positioning sentence clean and repeatable",
+    ],
+    problemTitle: "Why copy drifts off brand",
+    problemIntro:
+      "Without a filter, pages, DMs, and ads start using different words for the same idea and the message gets noisy.",
+    problemItems: [
+      "The offer sounds different in every channel",
+      "Buzzy language replaces clear positioning",
+      "A few bad phrases make the brand feel weaker",
+      "Conversion copy loses confidence when it gets sloppy",
+    ],
+    solutionTitle: "What the token filter should solve",
+    solutionIntro:
+      "The filter should create a shared language system that keeps the message consistent from ads to landing pages to CRM follow-up.",
+    solutionItems: [
+      "Write the approved sentence first",
+      "List the phrases that should never be used",
+      "Keep the position statement short and repeatable",
+      "Make the whole funnel sound like one voice",
+    ],
+    benefitsTitle: "Why the filter improves conversion",
+    benefitsSubtitle:
+      "The 9-picture source set becomes a message map instead of a pile of words.",
+    benefits: tokenFilter2Benefits,
+    technologyTitle: "What belongs in the filter",
+    technologySubtitle:
+      "The cards should feel like a copy deck the team can actually follow.",
+    technologyCards: [
+      {
+        title: "Position statement",
+        description:
+          "Write the clean one-sentence version of what Fusion44x is and why it matters.",
+        highlight: "Core message",
+      },
+      {
+        title: "Forbidden language",
+        description:
+          "Call out the weak, vague, or overly noisy phrases that should never make it into the funnel.",
+        highlight: "Copy guardrail",
+      },
+      {
+        title: "Conversion tone",
+        description:
+          "Set the voice so the offer sounds calm, credible, and easier to trust.",
+        highlight: "Funnel tone",
+      },
+    ],
+    comparisonTitle: "Clean language beats noisy language",
+    comparisonSubtitle:
+      "The comparison should make the value of the filter obvious in one glance.",
+    comparisonRows: [
+      {
+        label: "Copy quality",
+        traditional: "Different wording every time",
+        fusion44x: "One approved message system",
+      },
+      {
+        label: "Positioning",
+        traditional: "Buzzy and vague",
+        fusion44x: "Short, clear, repeatable",
+      },
+      {
+        label: "Trust signal",
+        traditional: "Words sound overworked",
+        fusion44x: "Calm, precise, and credible",
+      },
+      {
+        label: "Team workflow",
+        traditional: "Everyone rewrites from scratch",
+        fusion44x: "The filter keeps the funnel aligned",
+      },
+    ],
+    financingTitle: "A cleaner sentence makes every next step easier.",
+    financingSubtitle:
+      "Once the language is clean, the page can push the user toward a consultation or the main site without confusion.",
+    financingBadge: "Language-first",
+    financingBullets: [
+      "Use the approved copy in every channel",
+      "Route questions to consultation if the message needs a human",
+      "Keep the main site as the always-available reference",
+    ],
+    testimonialsTitle: "Copy proof placeholder",
+    testimonialsSubtitle:
+      "Replace with approved message or conversion proof when the system is tested.",
+    testimonials: sharedTestimonials,
+    faqTitle: "Token-filter questions",
+    faqSubtitle: "Keep the answers blunt and useful.",
+    faqs: tokenFilter2Faqs,
+    finalTitle: "Use the cleaner sentence, not the louder one.",
+    finalSubtitle:
+      "If the language feels right, move into consultation and apply the same filter everywhere else.",
+    finalPrimaryCtaLabel: "Review the Language",
+    finalPrimaryCtaTarget: "consultation",
+    finalSecondaryCtaLabel: "Open Main Site",
+    finalSecondaryCtaTarget: "main",
   },
   consultation: {
     slug: "consultation",

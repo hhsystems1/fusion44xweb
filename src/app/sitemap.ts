@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "/", priority: 1.0, changeFrequency: "weekly" as const },
     { path: "/free-spa-analysis", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/home-neo", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/products", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/residential-pools", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/discover-fusion-44x/how-it-works", priority: 0.7, changeFrequency: "monthly" as const },
@@ -50,6 +51,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       path: "/landing/financing-3",
       priority: 0.85,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/obsolete-tech-diagnostic-table-2",
+      priority: 0.82,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/30-day-tactical-content-loop-2",
+      priority: 0.82,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/design-system-blueprint-2",
+      priority: 0.82,
+      changeFrequency: "weekly" as const,
+    },
+    {
+      path: "/landing/linguistic-token-filter-2",
+      priority: 0.82,
       changeFrequency: "weekly" as const,
     },
     {
