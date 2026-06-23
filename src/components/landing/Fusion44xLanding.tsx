@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { type Fusion44xDestination } from "@/lib/fusion44xLinks";
 import { useFusion44xLandingTracking } from "@/hooks/useFusion44xLandingTracking";
@@ -292,6 +293,12 @@ export function LandingHeader({
                 trackOutboundClick(campaign.primaryCtaLabel, campaign.primaryCtaTarget, "header")
               }
             />
+            <Link
+              href="/free-spa-analysis"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/6 px-4 py-3 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-cyan-300/30 hover:bg-white/10"
+            >
+              Open Form
+            </Link>
           </div>
 
           <button
@@ -331,6 +338,13 @@ export function LandingHeader({
                 }}
                 className="w-full"
               />
+              <Link
+                href="/free-spa-analysis"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/6 px-4 py-3 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-cyan-300/30 hover:bg-white/10 sm:col-span-2"
+              >
+                Open Form
+              </Link>
             </div>
           </div>
         ) : null}

@@ -1,37 +1,28 @@
 import type { Metadata } from "next";
-import { SAHero } from "@/components/spa-analysis/SAHero";
-import { BenefitIcons } from "@/components/spa-analysis/BenefitIcons";
-import { ComparisonTable } from "@/components/spa-analysis/ComparisonTable";
-import { VideoBlock } from "@/components/spa-analysis/VideoBlock";
-import { BeforeAfterSlider } from "@/components/spa-analysis/BeforeAfterSlider";
-import { SavingsCalculator } from "@/components/spa-analysis/SavingsCalculator";
-import { SAReviews } from "@/components/spa-analysis/ReviewsSection";
-import { HowItWorksShort } from "@/components/spa-analysis/HowItWorksShort";
 import { FinalCTA } from "@/components/spa-analysis/FinalCTA";
+import { siteConfig } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Free Spa Analysis",
+  metadataBase: new URL(siteConfig.url),
+  title: "Free Pool Recommendation",
   description:
-    "Stop buying chemicals. Get your free spa analysis and discover how much you could save with the Fusion 44X chlorine-free spa water system.",
+    "Use the Fusion 44X recommendation form to capture pool type, equipment, photos, and contact details in one place.",
   openGraph: {
-    title: "Free Spa Analysis | Fusion 44X",
-    description:
-      "Get your free spa analysis and discover how much you could save by switching to a chlorine-free spa water system.",
+    title: "Free Pool Recommendation | Fusion 44X",
+    description: "Capture pool details with a reusable recommendation form for every page that needs one.",
+    url: `${siteConfig.url}/free-spa-analysis`,
+    type: "website",
+  },
+  alternates: {
+    canonical: `${siteConfig.url}/free-spa-analysis`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Pool Recommendation | Fusion 44X",
+    description: "Capture pool details with a reusable recommendation form for every page that needs one.",
   },
 };
 
 export default function FreeSpaAnalysisPage() {
-  return (
-    <>
-      <SAHero />
-      <BenefitIcons />
-      <ComparisonTable />
-      <VideoBlock />
-      <BeforeAfterSlider />
-      <SavingsCalculator />
-      <SAReviews />
-      <HowItWorksShort />
-      <FinalCTA />
-    </>
-  );
+  return <FinalCTA />;
 }
