@@ -84,6 +84,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
     },
     {
+      path: "/landing/youtube-vsl-2",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
       path: "/landing/pool-day",
       priority: 0.9,
       changeFrequency: "weekly" as const,
