@@ -312,7 +312,7 @@ function TopBar({ headingFontClassName }: { headingFontClassName: string }) {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="#quiz"
+            href="#compatibility-form"
             className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/10"
           >
             Open the quiz
@@ -375,7 +375,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <div className="relative z-10">
             <Pill>
               <ShieldIcon className="h-4 w-4 text-cyan-200" />
-              Fusion 44X review page
+              Chemical-Free Pool System
             </Pill>
             <div className="relative max-w-4xl">
               <h1 className={`${headingFontClassName} mt-6 text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
@@ -391,14 +391,14 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#quiz"
+                href="#compatibility-form"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] shadow-[0_18px_50px_rgba(0,210,255,0.22)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(0,245,212,0.22)]"
               >
                 {active.primaryCta}
                 <ArrowIcon className="h-4 w-4" />
               </a>
               <a
-                href="#quiz"
+                href="#compatibility-form"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] transition hover:border-cyan-300/35 hover:bg-white/10"
               >
                 Fill Out the Form
@@ -417,7 +417,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
               <div className="rounded-[1.6rem] border border-white/10 bg-[#040b14] p-3">
                 <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-slate-950">
                   <iframe
-                    src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0&dnt=1`}
+                    src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&dnt=1`}
                     title="Fusion44x video sales letter"
                     className="absolute inset-0 h-full w-full"
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -425,12 +425,6 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                     loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,30,0.08),rgba(8,17,30,0.2))]" />
-                  <div className="absolute left-4 top-4 rounded-full border border-cyan-300/20 bg-[#06111d]/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100 backdrop-blur">
-                    Video hero
-                  </div>
-                  <div className="absolute bottom-4 right-4 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#06111d] shadow-lg">
-                    Autoplay muted loop
-                  </div>
                 </div>
               </div>
             </div>
@@ -462,9 +456,9 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {[
-              ["Video sets the frame", "The hero introduces the product first"],
-              ["Clear next step", "The fit check decides the route"],
-              ["Premium presentation", "Dark, calm, and polished"],
+              ["See the System in Action", "Watch how Fusion 44X transforms your pool water without harsh chemicals"],
+              ["Quick Compatibility Check", "Answer a few questions to find the right setup for your pool"],
+              ["Premium Chemical-Free Water", "Hydrogen-rich, balanced water that feels silky and clean"],
             ].map(([title, detail]) => (
               <div key={title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-4">
                 <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>{title}</p>
@@ -481,8 +475,8 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <SectionHeading
             headingClassName={headingFontClassName}
             eyebrow="How it works"
-            title="The page moves from video to fit check to the right next step."
-            description="Visitors start with the video, choose the angle that fits their priorities, confirm pool compatibility, and then move to checkout or consultation."
+            title="Watch. Check. Choose. Enjoy chemical-free water."
+            description="See the system in action, confirm your pool compatibility, and take the next step toward cleaner, softer water."
           />
 
             <div className="mt-8 grid gap-4 lg:grid-cols-4">
@@ -490,7 +484,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                 {
                   step: "01",
                   title: "Watch the video",
-                  description: "The Vimeo hero gives the first impression and frames the offer quickly.",
+                  description: "See how Fusion 44X transforms your pool into a chemical-free, hydrogen-rich oasis.",
                 },
                 {
                   step: "02",
@@ -500,12 +494,12 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                 {
                   step: "03",
                   title: "Check the fit",
-                  description: "Capacity, setup, and equipment photo guide the compatibility review.",
+                  description: "Tell us about your pool size and current setup so we can find the right fit.",
                 },
                 {
                   step: "04",
                   title: "Go to the right path",
-                  description: "Standard residential fits route to checkout; larger or complex installs route to consultation.",
+                  description: "Standard residential setups go to checkout, larger or complex installs get a free consultation.",
                 },
               ].map((item) => (
                 <div
@@ -556,13 +550,13 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
             <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-                  Select the angle
+                  Choose Your Perspective
                 </p>
                 <h2 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
-                  One system, three buyer triggers
+                  One system. Three ways to look at it.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-                  Each angle keeps the same product but shifts the opening message, proof points, and objections to match the buyer.
+                  Whether you care about your family, your pets, or your luxury estate, Fusion 44X delivers the same premium chemical-free water.
                 </p>
               </div>
 
@@ -623,7 +617,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             headingClassName={headingFontClassName}
-            eyebrow="Hydrogen-rich water positioning"
+            eyebrow="Hydrogen-Rich Water Technology"
             title={active.positioningTitle}
             description={active.positioningBody}
           />
@@ -672,7 +666,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <div className="rounded-[2rem] border border-cyan-300/10 bg-[linear-gradient(180deg,rgba(0,245,212,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
             <SectionHeading
               headingClassName={headingFontClassName}
-              eyebrow="Fusion 44X solution"
+              eyebrow="The Fusion 44X Solution"
               title={active.solutionTitle}
               description={active.solutionBody}
             />
@@ -681,15 +675,15 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
               {[
                 {
                   title: "About one hour to install",
-                  description: "The system is designed to connect to the existing equipment pad without a major renovation.",
+                  description: "Connects to your existing equipment pad in about an hour with no major renovation needed.",
                 },
                 {
                   title: "No major plumbing changes",
-                  description: "The goal is to work within the current setup and keep the installation straightforward.",
+                  description: "Works with your current pool setup to keep installation simple and clean.",
                 },
                 {
                   title: "Balanced, cleaner-feeling water",
-                  description: "The system is positioned to make the pool easier to manage and more pleasant to use.",
+                  description: "Cleaner, balanced water that feels silky and requires less hands-on maintenance.",
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-5">
@@ -706,9 +700,9 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             headingClassName={headingFontClassName}
-            eyebrow="Why buyers switch"
-            title="The product stays the same; the message follows the buyer."
-            description="Families, pet owners, and luxury homeowners all care about different outcomes, so the page speaks to those outcomes directly."
+            eyebrow="Why Homeowners Choose Fusion 44X"
+            title="One system, three perspectives. Find yours."
+            description="Whether you are a parent, a pet owner, or a luxury homeowner, Fusion 44X delivers the same premium chemical-free water quality."
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -730,17 +724,17 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <div className="rounded-[2rem] border border-white/10 bg-[#081524] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.22)]">
             <SectionHeading
               headingClassName={headingFontClassName}
-              eyebrow="What happens next"
+              eyebrow="How It Works"
               title="The science behind Hydro-pH-Infusion"
-              description="This section gives a concise technical explanation of the system in language a homeowner can review quickly."
+              description="Patented Hydro-pH-Infusion technology delivers hydrogen-rich water without chlorine, salt, or traditional chemicals."
             />
 
             <div className="mt-6 space-y-4">
               {[
                 "A patented metallic probe assembly sits inside the system and works as water moves through it.",
-                "The plan claims 300,000 active hydrogen molecules per minute with a negative molecular charge.",
-                "Hydro-pH-Infusion is meant to keep pH in the 7.2 to 7.8 range on autopilot.",
-                "The goal is simpler installation, fewer chemicals, and less hands-on balancing.",
+                "Generates 300,000 active hydrogen molecules per minute with a negative molecular charge.",
+                "Hydro-pH-Infusion maintains pH in the 7.2 to 7.8 range on autopilot.",
+                "Simple installation, fewer chemicals, and no more weekly balancing routines.",
               ].map((step, index) => (
                 <div key={step} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] text-sm font-bold text-[#06111d]">
@@ -754,16 +748,16 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
 
           <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(0,210,255,0.08),rgba(255,255,255,0.03))] p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-              Compatibility and fit check
+              Pool Compatibility Check
             </p>
             <h3 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
               Is Fusion 44X compatible with your pool?
             </h3>
             <p className="mt-4 text-base leading-7 text-slate-300">
-              Capacity and current setup determine whether the next step is checkout or a consultation. If you upload a pad photo, it gives the team a clear visual reference for the review.
+              Tell us your pool size and current setup. We will determine if Fusion 44X is the right fit and route you to checkout or a free consultation.
             </p>
 
-            <form onSubmit={handleQuizSubmit} className="mt-6 rounded-[1.6rem] border border-white/10 bg-[#06111d] p-5">
+            <form id="compatibility-form" onSubmit={handleQuizSubmit} className="mt-6 rounded-[1.6rem] border border-white/10 bg-[#06111d] p-5">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/80">Capacity</p>
@@ -880,9 +874,9 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             headingClassName={headingFontClassName}
-            eyebrow="Questions buyers ask"
-            title="The practical questions that come before the decision."
-            description="This section covers the core objections and practical questions before the lead moves to the next step."
+            eyebrow="Frequently Asked Questions"
+            title="Common questions about chemical-free pool water."
+            description="Answers to the most common questions about Fusion 44X, installation, and what to expect."
           />
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -902,19 +896,19 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-                  Ready for review
+                  Get Started Today
                 </p>
                 <h2 className={`${headingFontClassName} mt-4 text-4xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-5xl`}>
-                  Transform the pool into a safer, cleaner, more premium place to swim.
+                  Ready for cleaner, chemical-free pool water?
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-                  If the page looks right and the quiz says the system fits, the next step is obvious. The layout stays focused on the review or checkout path the buyer needs.
+                  Check your pool compatibility and take the first step toward hydrogen-rich, balanced water with no chlorine, salt, or harsh chemicals.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
                 <a
-                  href="#quiz"
+                  href="#compatibility-form"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] transition hover:brightness-110"
                 >
                   {active.primaryCta}

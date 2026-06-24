@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import VideoSalesLanding from "@/components/landing/VideoSalesLanding";
 import { siteConfig } from "@/lib/constants";
@@ -7,11 +7,6 @@ import { siteConfig } from "@/lib/constants";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
 });
 
 export const metadata: Metadata = {
@@ -38,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function YoutubeVslLandingPage() {
-  return <VideoSalesLanding bodyFontClassName={inter.className} headingFontClassName={syne.className} />;
+  return <VideoSalesLanding bodyFontClassName={inter.className} headingFontClassName={inter.className} />;
 }
