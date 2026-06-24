@@ -1,7 +1,228 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, type FormEvent, type ReactNode } from "react";
 
-import { siteConfig } from "@/lib/constants";
+import { captureAttributionParams, getOutboundUrl, type Fusion44xDestination } from "@/lib/fusion44xLinks";
+
+type AngleKey = "parents" | "pets" | "luxury";
+type CapacityKey = "under-10k" | "10k-25k" | "25k-40k" | "over-40k" | "";
+type SetupKey = "chlorine" | "saltwater" | "bromine" | "new-construction" | "";
+
+type AngleContent = {
+  label: string;
+  eyebrow: string;
+  heroHeadline: string;
+  heroBody: string;
+  primaryCta: string;
+  secondaryCta: string;
+  positioningTitle: string;
+  positioningBody: string;
+  problemTitle: string;
+  problemBody: string;
+  solutionTitle: string;
+  solutionBody: string;
+  benefits: Array<{ title: string; description: string }>;
+  faqs: Array<{ question: string; answer: string }>;
+};
+
+const ANGLES: Record<AngleKey, AngleContent> = {
+  parents: {
+    label: "Parents",
+    eyebrow: "Family-first angle",
+    heroHeadline: "Stop Letting Your Kids Swim in Harsh Pool Chemicals.",
+    heroBody:
+      "Your kids should not have to deal with red eyes, dry skin, chemical smell, or throat irritation just to enjoy the backyard. Fusion 44X is built to make the pool feel calmer, cleaner, and a lot less like a science experiment.",
+    primaryCta: "Check My Family's Pool Compatibility",
+    secondaryCta: "Learn How It Connects to Your Equipment",
+    positioningTitle: "Pure, Hydrogen-Rich Wellness Water for Your Family",
+    positioningBody:
+      "Fusion 44X creates hydrogen-rich, balanced water for families who want a cleaner pool experience without chlorine, salt, or traditional pool chemicals. Powered by patented Hydro-pH-Infusion technology, it is designed to deliver a more refined, spa-like swimming experience.",
+    problemTitle: "The Toxic Reality of the Traditional Chlorine Loop",
+    problemBody:
+      "Every week, parents drag home chlorine, acid, and shock treatments just to keep the water passable. Chlorine binds with organic matter to create chloramines, which are a big part of the burning eyes, itchy skin, respiratory irritation, and that heavy pool smell that never quite leaves the towels.",
+    solutionTitle: "Break the Chemical Cycle Permanently with Fusion 44X",
+    solutionBody:
+      "The Fusion 44X system is designed to connect to existing pool equipment in about an hour, without pipe cutting or a full remodel. It replaces the usual chemical routine with a cleaner, more manageable path to balanced water.",
+    benefits: [
+      {
+        title: "No More Red Eyes or Throat Irritation",
+        description:
+          "Kids can swim longer without the stinging, burning, or scratchy aftermath that usually comes with a chlorine-heavy pool.",
+      },
+      {
+        title: "Silky-Smooth Skin and Protected Hair",
+        description:
+          "No more dry, itchy post-swim skin or brittle hair that smells like the pool for the rest of the day.",
+      },
+      {
+        title: "Zero Chemical Odor",
+        description:
+          "The backyard stays fresh and breathable instead of carrying the strong chloramine odor common with traditional pools.",
+      },
+      {
+        title: "Lower-Toxin Swimming Environment",
+        description:
+          "The result is a pool that feels gentler on the body and far less dependent on weekly chemical balancing.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is it really 100% chemical-free?",
+        answer:
+          "Fusion 44X is presented as eliminating the need for chlorine, salt, bromine, and traditional pool chemicals while keeping the water balanced through Hydro-pH-Infusion technology.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "The system is designed for a simple installation on the existing equipment pad in about one hour, without a full plumbing overhaul.",
+      },
+      {
+        question: "Is financing available?",
+        answer:
+          "Yes. The plan calls for financing options starting at $75 per month so the upgrade remains accessible without a large upfront payment.",
+      },
+    ],
+  },
+  pets: {
+    label: "Pet owners",
+    eyebrow: "Pet-safe angle",
+    heroHeadline: "Your Dog Does Not Know Your Pool Is Not a Water Bowl.",
+    heroBody:
+      "Pets swim, splash, lick their fur, and absolutely do drink pool water when nobody is looking. Fusion 44X is built for owners who want the backyard to be safe, simple, and less hostile to four-legged chaos.",
+    primaryCta: "See If Fusion44X Fits My Pool",
+    secondaryCta: "Read Our Pet Safety Specifications",
+    positioningTitle: "Pet-Safe, Hydrogen-Rich Water Made for Swimming and Splashing",
+    positioningBody:
+      "Fusion 44X creates hydrogen-rich, balanced pool water for pets who swim, splash, lick their fur, and occasionally treat the pool like a communal bowl. The goal is clean, mineral-balanced water without harsh chemical residue on skin or coat.",
+    problemTitle: "The Hidden Hazards of Chlorinated Pools for Pets",
+    problemBody:
+      "Dogs do not wear goggles, they gulp water, and they lick themselves dry after swimming. Traditional pool chemistry can leave behind chloramines, copper residue, and other irritants that can mean red eyes, hot spots, dry paws, fur bleaching, and a stomach that wishes you had made a different choice.",
+    solutionTitle: "The Ultimate Pet-Wellness Upgrade: Fusion 44X",
+    solutionBody:
+      "This setup is designed to replace the usual chlorine-and-salt routine with a system that is friendlier to pets. It connects to the existing pad, keeps the water balanced on autopilot, and turns the backyard into a safer place for active dogs.",
+    benefits: [
+      {
+        title: "Safe Enough for Daily Splashing",
+        description:
+          "The pool is positioned as a water-first environment rather than a chemical-heavy space pets have to navigate.",
+      },
+      {
+        title: "Protects Sensitive Skin and Paws",
+        description:
+          "Less exposure to harsh pool chemistry means fewer irritated patches, cracked pads, and post-swim misery.",
+      },
+      {
+        title: "Keeps the Coat Soft and Odor-Free",
+        description:
+          "The goal is to avoid the dry, bleached, chemical-smelling coat that often follows traditional pool exposure.",
+      },
+      {
+        title: "More Comfortable Swimming",
+        description:
+          "Pets can swim and recover without the same burning-eye, stinging-skin routine people have come to accept as normal.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can dogs drink the pool water?",
+        answer:
+          "The plan positions the system as producing water that meets drinking-water standards, making accidental sips far less concerning than with a traditional chemical pool.",
+      },
+      {
+        question: "What happens with fur, dander, and oils?",
+        answer:
+          "The system is described as helping neutralize organic contaminants so the existing filtration setup can do its job more effectively.",
+      },
+      {
+        question: "Do I need a new pad?",
+        answer:
+          "No. The installation is designed to integrate with the existing equipment pad, so the project stays simple instead of becoming a major remodel.",
+      },
+    ],
+  },
+  luxury: {
+    label: "Luxury homeowners",
+    eyebrow: "Estate-preservation angle",
+    heroHeadline: "Your Pool Looks Premium. Your Water System Should Too.",
+    heroBody:
+      "Luxury estates deserve water that looks clean, feels expensive, and does not quietly corrode the hardscape while nobody is paying attention. Fusion 44X is the cleaner, calmer, more polished story.",
+    primaryCta: "Request A Pool System Review",
+    secondaryCta: "Download Architectural and Technical Specs",
+    positioningTitle: "A High-Tech Wellness Upgrade for Premium Aquatic Estates",
+    positioningBody:
+      "Fusion 44X upgrades luxury pools with hydrogen-rich, balanced water that moves beyond chlorine, salt, and the usual maintenance burden. It is built to feel premium, protect hardscapes, and suit a home where the pool is part of the architecture, not an afterthought.",
+    problemTitle: "The Hidden Cost of Chlorine and Salt on Premium Estates",
+    problemBody:
+      "Traditional systems can corrode brushed metal fixtures, bleach surfaces, and wear away at travertine, marble, and flagstone over time. Add in the testing, hauling, dumping, and rebalancing ritual and the whole thing starts to feel more like punishment than ownership.",
+    solutionTitle: "The New Standard of Luxury Filtration: Fusion 44X",
+    solutionBody:
+      "Fusion 44X is designed to integrate with existing premium equipment in about an hour, while keeping the water balanced with less manual intervention. The result is a cleaner, quieter, more elegant system that protects the estate as much as it supports the swim.",
+    benefits: [
+      {
+        title: "Protects High-End Hardscapes and Surfaces",
+        description:
+          "Zero salt and zero chlorine help reduce the corrosion that can damage expensive stone and metal fixtures over time.",
+      },
+      {
+        title: "Elite Skin-Hydration and Rejuvenation",
+        description:
+          "The water is positioned to feel silky and refined, like the pool finally got the memo about being expensive.",
+      },
+      {
+        title: "Autopilot Operation",
+        description:
+          "The system aims to reduce the normal juggling act of testing, hauling, and balancing chemicals every week.",
+      },
+      {
+        title: "Silent, Odorless Elegance",
+        description:
+          "No strong chemical smell means the backyard keeps its premium feel instead of advertising the water chemistry to everyone nearby.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Will this help protect travertine and metal fixtures?",
+        answer:
+          "That is one of the core estate-protection claims in the plan: fewer corrosive inputs, less surface damage, and better long-term preservation.",
+      },
+      {
+        question: "Can it work with home automation?",
+        answer:
+          "The system is meant to integrate with common pool automation and equipment setups instead of forcing a ground-up redesign.",
+      },
+      {
+        question: "What about warranty and guarantee?",
+        answer:
+          "The plan specifies a lifetime hardware warranty and a 30-day money-back guarantee.",
+      },
+    ],
+  },
+};
+
+const brandAnchors = [
+  "Hydrogen-rich water",
+  "Powered by Hydro-pH-Infusion technology",
+  "Zero chlorine",
+  "Zero salt",
+  "Zero traditional pool chemicals",
+  "Balanced pool and spa water",
+];
+
+const capacityOptions = [
+  { value: "under-10k", label: "Under 10k gal" },
+  { value: "10k-25k", label: "10k-25k gal" },
+  { value: "25k-40k", label: "25k-40k gal" },
+  { value: "over-40k", label: "Over 40k gal" },
+] as const;
+
+const setupOptions = [
+  { value: "chlorine", label: "Chlorine" },
+  { value: "saltwater", label: "Saltwater" },
+  { value: "bromine", label: "Bromine / Other" },
+  { value: "new-construction", label: "New Construction" },
+] as const;
 
 function ArrowIcon({ className = "" }: { className?: string }) {
   return (
@@ -15,13 +236,35 @@ function ArrowIcon({ className = "" }: { className?: string }) {
 function CheckIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path d="m6 12 3.5 3.5L18 7" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ShieldIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
       <path
-        d="m6 12 3.5 3.5L18 7"
+        d="M12 3.5 19 6.8v5.2c0 4.9-3.2 7.7-7 8.5-3.8-.8-7-3.6-7-8.5V6.8L12 3.5Z"
         stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
+        strokeWidth="1.6"
         strokeLinejoin="round"
       />
+      <path d="m9.2 12 1.9 1.9 3.9-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SparkIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="m18 14 1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -30,29 +273,27 @@ function SectionHeading({
   eyebrow,
   title,
   description,
+  headingClassName = "",
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  headingClassName?: string;
 }) {
   return (
     <div className="max-w-3xl">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1749b7]">
-        {eyebrow}
-      </p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">{eyebrow}</p>
+      <h2 className={`${headingClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl lg:text-5xl`}>
         {title}
       </h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-        {description}
-      </p>
+      <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">{description}</p>
     </div>
   );
 }
 
-function TopBar() {
+function TopBar({ headingFontClassName }: { headingFontClassName: string }) {
   return (
-    <div className="sticky top-0 z-50 border-b border-slate-200 bg-white/92 backdrop-blur-xl">
+    <div className="sticky top-0 z-50 border-b border-white/10 bg-[#06111d]/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -60,180 +301,154 @@ function TopBar() {
             alt="Fusion 44X"
             width={44}
             height={44}
-            className="h-11 w-11 rounded-full border border-slate-200 bg-white object-cover"
+            className="h-11 w-11 rounded-full border border-cyan-300/20 bg-[#0d1d31] object-cover"
             priority
           />
           <div>
-            <p className="text-sm font-bold tracking-tight text-slate-950">Fusion 44X</p>
-            <p className="text-xs text-slate-500">Video-first landing page</p>
+            <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>Fusion 44X</p>
+            <p className="text-xs text-slate-400">Multi-angle landing page</p>
           </div>
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="/free-spa-analysis"
-            className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-[#1749b7] hover:text-[#1749b7]"
+            href="#quiz"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/10"
           >
-            Open Form
+            Open the quiz
           </a>
-          <a
-            href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
-            className="hidden rounded-full bg-[#1749b7] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#123c96] sm:inline-flex"
+          <Link
+            href="/pricing"
+            className="hidden rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-4 py-2 text-xs font-semibold text-[#071423] transition hover:brightness-110 sm:inline-flex"
           >
-            Call {siteConfig.phone}
-          </a>
+            View pricing
+          </Link>
         </div>
       </div>
     </div>
   );
 }
 
-export default function VideoSalesLanding() {
-  const vimeoEmbedUrl =
-    "https://player.vimeo.com/video/1203883518?title=0&byline=0&portrait=0&dnt=1&autoplay=1&muted=1&loop=1&background=1";
-  const bullets = [
-    "Premium dark-to-blue visuals",
-    "Video at the center of the page",
-    "Clear path to the form or pricing",
-    "Built for ad traffic and mobile scans",
-  ];
+function Pill({ children }: { children: ReactNode }) {
+  return (
+    <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/15 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-100/85">
+      {children}
+    </div>
+  );
+}
+
+export default function VideoSalesLanding({ headingFontClassName = "", bodyFontClassName = "" }: { headingFontClassName?: string; bodyFontClassName?: string }) {
+  const [selectedAngle, setSelectedAngle] = useState<AngleKey>("parents");
+  const [capacity, setCapacity] = useState<CapacityKey>("");
+  const [currentSetup, setCurrentSetup] = useState<SetupKey>("");
+  const [photoName, setPhotoName] = useState("");
+
+  const active = ANGLES[selectedAngle];
+  const needsConsultation = capacity === "over-40k" || currentSetup === "new-construction";
+  const routingDestination: Fusion44xDestination = needsConsultation ? "consultation" : "checkout";
+  const routeLabel = needsConsultation ? "Request a Water Specialist Consultation" : "Continue to Checkout";
+
+  function handleQuizSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!capacity || !currentSetup) {
+      return;
+    }
+
+    const attribution = captureAttributionParams(new URLSearchParams(window.location.search).entries());
+    window.location.href = getOutboundUrl(routingDestination, attribution);
+  }
 
   return (
-    <main className="bg-[#f4f8ff] text-slate-950">
-      <TopBar />
+    <main
+      className={`${bodyFontClassName} min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(0,210,255,0.16),transparent_28%),radial-gradient(circle_at_20%_8%,rgba(0,245,212,0.12),transparent_22%),linear-gradient(180deg,#071423_0%,#081a2f_42%,#06111d_100%)] text-[#F4F7FC]`}
+    >
+      <TopBar headingFontClassName={headingFontClassName} />
 
-      <section className="relative overflow-hidden px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(23,73,183,0.14),transparent_32%),radial-gradient(circle_at_18%_12%,rgba(56,189,248,0.12),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.1),rgba(244,248,255,1))]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
+      <section className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-16">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,245,212,0.14),transparent_26%),radial-gradient(circle_at_18%_12%,rgba(0,210,255,0.16),transparent_28%)]"
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#1749b7]">
-              Page 1: video sales letter
-            </div>
-            <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              What if your pool water was actually easier to trust?
+            <Pill>
+              <ShieldIcon className="h-4 w-4 text-cyan-200" />
+              Premium Fusion 44X landing page
+            </Pill>
+            <h1 className={`${headingFontClassName} mt-6 max-w-3xl text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
+              {active.heroHeadline}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              The whole page is built around the video. It introduces the promise fast, then points
-              people either to the form or to pricing before they wander off and start thinking about
-              something less useful.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              {active.heroBody}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#quiz"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] shadow-[0_18px_50px_rgba(0,210,255,0.22)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(0,245,212,0.22)]"
+              >
+                {active.primaryCta}
+                <ArrowIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] transition hover:border-cyan-300/35 hover:bg-white/10"
+              >
+                {active.secondaryCta}
+              </a>
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#1749b7,#1f66d1,#2d7ff0)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_48px_rgba(23,73,183,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(23,73,183,0.3)]"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-[#0f2138] px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:border-white/20 hover:bg-[#132945]"
               >
-                See Pricing &amp; Financing
-                <ArrowIcon className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/free-spa-analysis"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition hover:border-[#1749b7] hover:text-[#1749b7]"
-              >
-                Open the Form
+                View pricing
               </Link>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                "Zero chlorine",
-                "Zero chemicals",
-                "Premium water feel",
-                "Clear next step",
-              ].map((item) => (
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {brandAnchors.map((item) => (
                 <div
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-sm"
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-medium text-slate-200 shadow-[0_14px_34px_rgba(0,0,0,0.18)]"
                 >
-                  <CheckIcon className="h-4 w-4 text-[#1749b7]" />
-                  {item}
+                  <CheckIcon className="h-4 w-4 shrink-0 text-cyan-300" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-[2.2rem] border border-slate-200 bg-white shadow-[0_28px_90px_rgba(15,23,42,0.12)]">
-              <div className="relative aspect-video bg-slate-950">
-                <iframe
-                  src={vimeoEmbedUrl}
-                  title="Fusion44x video sales letter"
-                  className="absolute inset-0 h-full w-full"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(9,18,45,0.12),rgba(9,18,45,0.18))]" />
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#1749b7] shadow-sm backdrop-blur">
-                  Video proof
+            <div className="overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-4 shadow-[0_36px_110px_rgba(0,0,0,0.34)] backdrop-blur">
+              <div className="rounded-[1.6rem] border border-white/10 bg-[#040b14] p-3">
+                <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-slate-950">
+                  <iframe
+                    src="https://player.vimeo.com/video/1204085949?context=Vimeo%5CController%5CApi%5CResources%5CVideoController.&h=95460fc88a&title=0&byline=0&portrait=0&dnt=1&autoplay=1&muted=1&loop=1&background=1"
+                    title="Fusion44x video sales letter"
+                    className="absolute inset-0 h-full w-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,30,0.08),rgba(8,17,30,0.2))]" />
+                  <div className="absolute left-4 top-4 rounded-full border border-cyan-300/20 bg-[#06111d]/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100 backdrop-blur">
+                    Vimeo proof
+                  </div>
+                  <div className="absolute bottom-4 right-4 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#06111d] shadow-lg">
+                    Autoplay muted loop
+                  </div>
                 </div>
-                <div className="absolute bottom-4 right-4 rounded-full bg-[#1749b7] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-blue-500/20">
-                  Play to learn more
-                </div>
               </div>
-            </div>
 
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-[1.4rem] border border-slate-200 bg-white p-4 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Video
-                </p>
-                <p className="mt-2 text-lg font-semibold text-slate-950">Hero walkthrough</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Keep the pitch compact and let the visuals carry the first impression.
-                </p>
-              </div>
-              <div className="rounded-[1.4rem] border border-slate-200 bg-white p-4 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  CTA
-                </p>
-                <p className="mt-2 text-lg font-semibold text-slate-950">Form or pricing</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Two clean exits, no maze, no “we’ll explain later.”
-                </p>
-              </div>
-              <div className="rounded-[1.4rem] border border-slate-200 bg-white p-4 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Tone
-                </p>
-                <p className="mt-2 text-lg font-semibold text-slate-950">Premium, calm, direct</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  If it starts sounding like a generic SaaS pitch, the page loses the plot.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
-              <Image
-                src="/fusion-family-pool.jpeg"
-                alt="Family enjoying a pool with Fusion 44X"
-                width={1200}
-                height={900}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div>
-              <SectionHeading
-                eyebrow="What the video sells"
-                title="The landing page should answer the objection before it gets the chance to grow teeth."
-                description="This section gives you the same comparison energy as the reference screenshot: what traditional pool ownership feels like, then what changes when Fusion 44X is the system."
-              />
-              <div className="mt-6 grid gap-4">
-                {bullets.map((bullet) => (
-                  <div
-                    key={bullet}
-                    className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#eef4ff] text-[#1749b7]">
-                      <CheckIcon className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm font-medium text-slate-700">{bullet}</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["Video-led introduction", "The hero sets the tone immediately"],
+                  ["Clear next step", "Quiz routes by fit"],
+                  ["Premium presentation", "Dark, calm, and polished"],
+                ].map(([title, detail]) => (
+                  <div key={title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-4">
+                    <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>{title}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{detail}</p>
                   </div>
                 ))}
               </div>
@@ -242,115 +457,456 @@ export default function VideoSalesLanding() {
         </div>
       </section>
 
-      <section className="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+      <section className="px-4 pb-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
-            <div className="grid gap-3 border-b border-slate-200 bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-700 md:grid-cols-[1.1fr_1fr_1fr]">
-              <div>Experience</div>
-              <div>Traditional approach</div>
-              <div>Fusion44X</div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.18)] backdrop-blur">
+            <SectionHeading
+              headingClassName={headingFontClassName}
+              eyebrow="How it works"
+              title="The page moves from video to fit check to the right next step."
+              description="Visitors start with the video, choose the angle that fits their priorities, confirm pool compatibility, and then move to checkout or consultation."
+            />
+
+            <div className="mt-8 grid gap-4 lg:grid-cols-4">
+              {[
+                {
+                  step: "01",
+                  title: "Watch the video",
+                  description: "The Vimeo hero gives the first impression and frames the offer quickly.",
+                },
+                {
+                  step: "02",
+                  title: "Choose the angle",
+                  description: "Parents, pet owners, and luxury homeowners see the same product through different motivations.",
+                },
+                {
+                  step: "03",
+                  title: "Check the fit",
+                  description: "Capacity, setup, and equipment photo guide the compatibility review.",
+                },
+                {
+                  step: "04",
+                  title: "Go to the right path",
+                  description: "Standard residential fits route to checkout; larger or complex installs route to consultation.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="rounded-[1.5rem] border border-white/10 bg-[#081524] p-5"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] text-sm font-bold text-[#06111d]">
+                      {item.step}
+                    </div>
+                    <p className={`${headingFontClassName} text-lg font-bold tracking-[0.05em] text-[#F4F7FC]`}>
+                      {item.title}
+                    </p>
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-slate-300">{item.description}</p>
+                </div>
+              ))}
             </div>
-            {[
-              ["Attention flow", "Static brochure page", "Video-led and easier to scan"],
-              ["Next step", "Buried under too much copy", "Form and pricing stay obvious"],
-              ["Visual quality", "Generic template energy", "Premium editorial feel"],
-              ["Traffic fit", "Leaky for paid traffic", "Built to keep momentum"],
-            ].map(([label, traditional, fusion44x], index) => (
-              <div
-                key={label}
-                className={[
-                  "grid gap-4 px-5 py-4 text-sm leading-7 md:grid-cols-[1.1fr_1fr_1fr]",
-                  index !== 3 ? "border-b border-slate-100" : "",
-                ].join(" ")}
-              >
-                <div className="font-medium text-slate-900">{label}</div>
-                <div className="text-slate-600">{traditional}</div>
-                <div className="text-[#1749b7]">{fusion44x}</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.18)] backdrop-blur">
+            <div className="flex flex-wrap gap-3">
+              {(Object.keys(ANGLES) as AngleKey[]).map((key) => {
+                const angle = ANGLES[key];
+                const activeClass =
+                  key === selectedAngle
+                    ? "border-cyan-300/50 bg-[linear-gradient(135deg,rgba(0,210,255,0.18),rgba(0,245,212,0.12))] text-[#F4F7FC]"
+                    : "border-white/10 bg-[#081524] text-slate-300 hover:border-cyan-300/30 hover:bg-white/5";
+
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setSelectedAngle(key)}
+                    className={`rounded-2xl border px-4 py-3 text-left transition ${activeClass}`}
+                  >
+                    <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em]`}>{angle.label}</p>
+                    <p className="mt-1 text-xs leading-5 text-current/80">{angle.eyebrow}</p>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
+                  Select the angle
+                </p>
+                <h2 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
+                  One system, three buyer triggers
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                  Each angle keeps the same product but shifts the opening message, proof points, and objections to match the buyer.
+                </p>
               </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {Object.entries(ANGLES).map(([key, angle]) => {
+                  const isActive = key === selectedAngle;
+                  return (
+                    <div
+                      key={key}
+                      className={[
+                        "rounded-[1.4rem] border p-4 transition",
+                        isActive
+                          ? "border-cyan-300/40 bg-[linear-gradient(180deg,rgba(0,210,255,0.12),rgba(255,255,255,0.04))]"
+                          : "border-white/10 bg-[#081524]",
+                      ].join(" ")}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>
+                          {angle.label}
+                        </p>
+                        {isActive ? <SparkIcon className="h-4 w-4 text-cyan-300" /> : <CheckIcon className="h-4 w-4 text-slate-500" />}
+                      </div>
+                      <p className="mt-2 text-xs leading-5 text-slate-300">{angle.heroHeadline}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="quiz">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-cyan-300/10 bg-[linear-gradient(180deg,rgba(0,210,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
+              Core message
+            </p>
+            <p className={`${headingFontClassName} mt-4 max-w-5xl text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl lg:text-5xl`}>
+              Fusion44X uses Hydro-pH-Infusion technology to create hydrogen-rich, balanced pool
+              and spa water without chlorine, salt, or traditional pool chemicals.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {brandAnchors.map((anchor) => (
+                <div key={anchor} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#081524] px-4 py-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(0,210,255,0.24),rgba(0,245,212,0.22))] text-cyan-100">
+                    <CheckIcon className="h-5 w-5" />
+                  </div>
+                  <p className="text-sm font-medium text-slate-200">{anchor}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="positioning">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            headingClassName={headingFontClassName}
+            eyebrow="Hydrogen-rich water positioning"
+            title={active.positioningTitle}
+            description={active.positioningBody}
+          />
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="problem">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1fr_0.92fr] lg:items-start">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-rose-200/80">
+              What traditional pools leave behind
+            </p>
+            <h2 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
+              {active.problemTitle}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-300">{active.problemBody}</p>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-[#081524] p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
+              What gets removed from the experience
+            </p>
+            <div className="mt-5 space-y-3">
+              {[
+                "Weekly hauling of buckets, bottles, and balancing chemicals",
+                "That unmistakable chloramine smell after the water has been used hard",
+                "The cycle of sanitize, rebalance, repeat, because the pool never gets to be simple",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-slate-200"
+                >
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-400/15 text-rose-200">
+                    <span className="text-xs font-bold">-</span>
+                  </div>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="solution">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-cyan-300/10 bg-[linear-gradient(180deg,rgba(0,245,212,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
+            <SectionHeading
+              headingClassName={headingFontClassName}
+              eyebrow="Fusion 44X solution"
+              title={active.solutionTitle}
+              description={active.solutionBody}
+            />
+
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: "About one hour to install",
+                  description: "The system is designed to connect to the existing equipment pad without a major renovation.",
+                },
+                {
+                  title: "No major plumbing changes",
+                  description: "The goal is to work within the current setup and keep the installation straightforward.",
+                },
+                {
+                  title: "Balanced, cleaner-feeling water",
+                  description: "The system is positioned to make the pool easier to manage and more pleasant to use.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-5">
+                  <p className={`${headingFontClassName} text-lg font-bold tracking-[0.05em] text-[#F4F7FC]`}>{item.title}</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="benefits">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            headingClassName={headingFontClassName}
+            eyebrow="Benefits grid"
+            title="The active angle changes the framing without changing the product."
+            description="Pick the persona at the top and this section follows along. The page keeps one structure while showing the three distinct messages in a clean way."
+          />
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {active.benefits.map((benefit) => (
+              <article key={benefit.title} className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.18)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(0,210,255,0.16),rgba(0,245,212,0.16))] text-cyan-200">
+                  <SparkIcon className="h-5 w-5" />
+                </div>
+                <h3 className={`${headingFontClassName} mt-4 text-xl font-bold tracking-[0.05em] text-[#F4F7FC]`}>{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{benefit.description}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="The Fusion44X difference"
-            title="Give people a clean comparison they can understand without a sales seminar."
-            description="The left side is the old way. The right side is the better story. That is the whole trick, and it works because humans like obvious answers."
-          />
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="how-it-works">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.98fr_1.02fr] lg:items-stretch">
+          <div className="rounded-[2rem] border border-white/10 bg-[#081524] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.22)]">
+            <SectionHeading
+              headingClassName={headingFontClassName}
+              eyebrow="How Hydro-pH-Infusion works"
+              title="The science behind Hydro-pH-Infusion"
+              description="This section gives a concise technical explanation of the system in language a homeowner can review quickly."
+            />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <article className="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-sm">
-              <div className="border-b border-slate-200 bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
-                Traditional pool
-              </div>
-              <div className="grid gap-4 p-5 sm:grid-cols-[1fr_0.9fr]">
-                <div className="space-y-3 text-sm leading-7 text-slate-600">
-                  <p>• Chemical dependent</p>
-                  <p>• Chlorine smell</p>
-                  <p>• Irritated eyes</p>
-                  <p>• Manual balancing</p>
+            <div className="mt-6 space-y-4">
+              {[
+                "A patented metallic probe assembly sits inside the system and works as water moves through it.",
+                "The plan claims 300,000 active hydrogen molecules per minute with a negative molecular charge.",
+                "Hydro-pH-Infusion is meant to keep pH in the 7.2 to 7.8 range on autopilot.",
+                "The goal is simpler installation, fewer chemicals, and less hands-on balancing.",
+              ].map((step, index) => (
+                <div key={step} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] text-sm font-bold text-[#06111d]">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm leading-7 text-slate-200">{step}</p>
                 </div>
-                <div className="overflow-hidden rounded-2xl">
-                  <Image
-                    src="/fusion-clear-pool.jpg"
-                    alt="Traditional pool comparison"
-                    width={900}
-                    height={700}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </article>
-
-            <article className="overflow-hidden rounded-[2rem] border border-blue-200 bg-[#eef4ff] shadow-sm">
-              <div className="border-b border-blue-200 bg-[linear-gradient(135deg,#1749b7,#1f66d1)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
-                Fusion44X pool
-              </div>
-              <div className="grid gap-4 p-5 sm:grid-cols-[1fr_0.9fr]">
-                <div className="space-y-3 text-sm leading-7 text-slate-700">
-                  <p>• Hydrogen-rich water experience</p>
-                  <p>• Zero chlorine</p>
-                  <p>• Zero chemicals</p>
-                  <p>• Clean, healthy water</p>
-                </div>
-                <div className="overflow-hidden rounded-2xl">
-                  <Image
-                    src="/poolex4.webp"
-                    alt="Fusion44X comparison"
-                    width={900}
-                    height={700}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </article>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 px-6 py-8 text-white shadow-[0_18px_60px_rgba(15,23,42,0.18)] sm:px-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">
-                  Ready for the next step?
-                </p>
-                <h3 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                  Start with the video, then send them to the form before they drift away.
-                </h3>
+          <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(0,210,255,0.08),rgba(255,255,255,0.03))] p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
+              Compatibility and fit check
+            </p>
+            <h3 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
+              Is Fusion 44X compatible with your pool?
+            </h3>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Capacity and current setup determine whether the next step is checkout or a consultation. If you upload a pad photo, it gives the team a clear visual reference for the review.
+            </p>
+
+            <form onSubmit={handleQuizSubmit} className="mt-6 rounded-[1.6rem] border border-white/10 bg-[#06111d] p-5">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/80">Capacity</p>
+                  <div className="mt-3 grid gap-2">
+                    {capacityOptions.map((option) => {
+                      const activeOption = capacity === option.value;
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => setCapacity(option.value)}
+                          className={[
+                            "rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition",
+                            activeOption
+                              ? "border-cyan-300/50 bg-[linear-gradient(135deg,rgba(0,210,255,0.16),rgba(0,245,212,0.12))] text-[#F4F7FC]"
+                              : "border-white/10 bg-white/5 text-slate-300 hover:border-cyan-300/30 hover:bg-white/10",
+                          ].join(" ")}
+                        >
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/80">Current setup</p>
+                  <div className="mt-3 grid gap-2">
+                    {setupOptions.map((option) => {
+                      const activeOption = currentSetup === option.value;
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => setCurrentSetup(option.value)}
+                          className={[
+                            "rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition",
+                            activeOption
+                              ? "border-cyan-300/50 bg-[linear-gradient(135deg,rgba(0,210,255,0.16),rgba(0,245,212,0.12))] text-[#F4F7FC]"
+                              : "border-white/10 bg-white/5 text-slate-300 hover:border-cyan-300/30 hover:bg-white/10",
+                          ].join(" ")}
+                        >
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/free-spa-analysis"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
+
+              <div className="mt-4">
+                <label
+                  htmlFor="equipment-photo"
+                  className="mb-2 block text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/80"
                 >
-                  Open the Form
+                  Pool equipment pad photo
+                </label>
+                <label
+                  htmlFor="equipment-photo"
+                  className="flex cursor-pointer items-center gap-3 rounded-2xl border border-dashed border-cyan-300/25 bg-white/5 px-4 py-4 text-sm text-slate-300 transition hover:border-cyan-300/45 hover:bg-white/10"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(0,210,255,0.18),rgba(0,245,212,0.18))] text-cyan-100">
+                    <ShieldIcon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#F4F7FC]">Upload a clear equipment pad photo</p>
+                    <p className="mt-1 text-xs text-slate-400">
+                      {photoName || "PNG, JPEG, or WebP accepted. A clear photo makes the review process easier."}
+                    </p>
+                  </div>
+                </label>
+                <input
+                  id="equipment-photo"
+                  type="file"
+                  accept="image/*"
+                  className="sr-only"
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    setPhotoName(file ? file.name : "");
+                  }}
+                />
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/80">Routing logic</p>
+                <p className="mt-3 text-sm leading-7 text-slate-200">
+                  {needsConsultation
+                    ? "Larger pools and new-construction cases route to consultation."
+                    : "Standard residential setups route to checkout with financing."}
+                </p>
+                <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                  <button
+                    type="submit"
+                    disabled={!capacity || !currentSetup}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {routeLabel}
+                    <ArrowIcon className="h-4 w-4" />
+                  </button>
+                  <Link
+                    href="/pricing"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-[#0f2138] px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/35 hover:bg-[#132945]"
+                  >
+                    See pricing first
+                  </Link>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16" id="faq">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            headingClassName={headingFontClassName}
+            eyebrow="Frequently asked questions"
+            title="Common buyer questions"
+            description="This section covers the core objections and practical questions before the lead moves to the next step."
+          />
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {active.faqs.map((faq) => (
+              <article key={faq.question} className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.16)]">
+                <p className={`${headingFontClassName} text-lg font-bold tracking-[0.05em] text-[#F4F7FC]`}>{faq.question}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-12 pb-20 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2.2rem] border border-cyan-300/12 bg-[linear-gradient(135deg,rgba(0,210,255,0.14),rgba(0,245,212,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_30px_100px_rgba(0,0,0,0.26)] sm:p-8">
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
+                  Final call to action
+                </p>
+                <h2 className={`${headingFontClassName} mt-4 text-4xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-5xl`}>
+                  Transform the pool into a safer, cleaner, more premium place to swim.
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+                  If the page looks right and the quiz says the system fits, the next step is obvious. The layout stays focused on the review or checkout path the buyer needs.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+                <a
+                  href="#quiz"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] transition hover:brightness-110"
+                >
+                  {active.primaryCta}
                   <ArrowIcon className="h-4 w-4" />
-                </Link>
+                </a>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/15"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-[#0f2138] px-6 py-3.5 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/35 hover:bg-[#132945]"
                 >
-                  View Pricing
+                  Review pricing
                 </Link>
               </div>
             </div>
