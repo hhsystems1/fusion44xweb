@@ -347,7 +347,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
   const needsConsultation = capacity === "over-40k" || currentSetup === "new-construction";
   const routingDestination: Fusion44xDestination = needsConsultation ? "consultation" : "checkout";
   const routeLabel = needsConsultation ? "Request a Water Specialist Consultation" : "Continue to Checkout";
-  const VIMEO_VIDEO_ID = "1204085949";
+  const VIMEO_VIDEO_ID = "1204214237";
 
   function handleQuizSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -377,14 +377,9 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
               <ShieldIcon className="h-4 w-4 text-cyan-200" />
               Chemical-Free Pool System
             </Pill>
-            <div className="relative max-w-4xl">
-              <h1 className={`${headingFontClassName} mt-6 text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
-                {active.heroHeadline}
-              </h1>
-              <div className="absolute -right-4 top-0 hidden h-28 w-28 overflow-hidden rounded-2xl border border-white/10 bg-slate-800 shadow-lg lg:block">
-                <Image src="/poolex4.webp" alt="Fusion 44X product" fill className="object-cover" />
-              </div>
-            </div>
+            <h1 className={`${headingFontClassName} mt-6 max-w-4xl text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
+              {active.heroHeadline}
+            </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
               {active.heroBody}
             </p>
