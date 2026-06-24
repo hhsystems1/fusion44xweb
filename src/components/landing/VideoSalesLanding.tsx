@@ -374,7 +374,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <div className="relative z-10">
             <Pill>
               <ShieldIcon className="h-4 w-4 text-cyan-200" />
-              Premium Fusion 44X landing page
+              Fusion 44X review page
             </Pill>
             <h1 className={`${headingFontClassName} mt-6 max-w-3xl text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
               {active.heroHeadline}
@@ -442,8 +442,8 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
 
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {[
-                  ["Video-led introduction", "The hero sets the tone immediately"],
-                  ["Clear next step", "Quiz routes by fit"],
+                  ["Video sets the frame", "The hero introduces the product first"],
+                  ["Clear next step", "The fit check decides the route"],
                   ["Premium presentation", "Dark, calm, and polished"],
                 ].map(([title, detail]) => (
                   <div key={title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-4">
@@ -460,12 +460,12 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
       <section className="px-4 pb-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.18)] backdrop-blur">
-            <SectionHeading
-              headingClassName={headingFontClassName}
-              eyebrow="How it works"
-              title="The page moves from video to fit check to the right next step."
-              description="Visitors start with the video, choose the angle that fits their priorities, confirm pool compatibility, and then move to checkout or consultation."
-            />
+          <SectionHeading
+            headingClassName={headingFontClassName}
+            eyebrow="How it works"
+            title="The page moves from video to fit check to the right next step."
+            description="Visitors start with the video, choose the angle that fits their priorities, confirm pool compatibility, and then move to checkout or consultation."
+          />
 
             <div className="mt-8 grid gap-4 lg:grid-cols-4">
               {[
@@ -581,7 +581,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[2rem] border border-cyan-300/10 bg-[linear-gradient(180deg,rgba(0,210,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-              Core message
+              The product in one sentence
             </p>
             <p className={`${headingFontClassName} mt-4 max-w-5xl text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl lg:text-5xl`}>
               Fusion44X uses Hydro-pH-Infusion technology to create hydrogen-rich, balanced pool
@@ -616,7 +616,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1fr_0.92fr] lg:items-start">
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.2)]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-rose-200/80">
-              What traditional pools leave behind
+              What the old system leaves behind
             </p>
             <h2 className={`${headingFontClassName} mt-3 text-3xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-4xl`}>
               {active.problemTitle}
@@ -688,9 +688,9 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             headingClassName={headingFontClassName}
-            eyebrow="Benefits grid"
-            title="The active angle changes the framing without changing the product."
-            description="Pick the persona at the top and this section follows along. The page keeps one structure while showing the three distinct messages in a clean way."
+            eyebrow="Why buyers switch"
+            title="The product stays the same; the message follows the buyer."
+            description="Families, pet owners, and luxury homeowners all care about different outcomes, so the page speaks to those outcomes directly."
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -712,7 +712,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           <div className="rounded-[2rem] border border-white/10 bg-[#081524] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.22)]">
             <SectionHeading
               headingClassName={headingFontClassName}
-              eyebrow="How Hydro-pH-Infusion works"
+              eyebrow="What happens next"
               title="The science behind Hydro-pH-Infusion"
               description="This section gives a concise technical explanation of the system in language a homeowner can review quickly."
             />
@@ -862,8 +862,8 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             headingClassName={headingFontClassName}
-            eyebrow="Frequently asked questions"
-            title="Common buyer questions"
+            eyebrow="Questions buyers ask"
+            title="The practical questions that come before the decision."
             description="This section covers the core objections and practical questions before the lead moves to the next step."
           />
 
@@ -884,7 +884,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-cyan-200/80">
-                  Final call to action
+                  Ready for review
                 </p>
                 <h2 className={`${headingFontClassName} mt-4 text-4xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-5xl`}>
                   Transform the pool into a safer, cleaner, more premium place to swim.
