@@ -407,7 +407,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
             </div>
           </div>
 
-          <div className="relative mt-12">
+          <div className="relative mt-8 max-w-4xl mx-auto lg:max-w-3xl">
             <div className="overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-4 shadow-[0_36px_110px_rgba(0,0,0,0.34)] backdrop-blur">
               <div className="rounded-[1.6rem] border border-white/10 bg-[#040b14] p-3">
                 <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-slate-950">
