@@ -347,6 +347,7 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
   const needsConsultation = capacity === "over-40k" || currentSetup === "new-construction";
   const routingDestination: Fusion44xDestination = needsConsultation ? "consultation" : "checkout";
   const routeLabel = needsConsultation ? "Request a Water Specialist Consultation" : "Continue to Checkout";
+  const VIMEO_VIDEO_ID = "1204085949";
 
   function handleQuizSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -370,15 +371,20 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           aria-hidden
           className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,245,212,0.14),transparent_26%),radial-gradient(circle_at_18%_12%,rgba(0,210,255,0.16),transparent_28%)]"
         />
-        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div className="relative mx-auto max-w-7xl">
           <div className="relative z-10">
             <Pill>
               <ShieldIcon className="h-4 w-4 text-cyan-200" />
               Fusion 44X review page
             </Pill>
-            <h1 className={`${headingFontClassName} mt-6 max-w-3xl text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
-              {active.heroHeadline}
-            </h1>
+            <div className="relative max-w-4xl">
+              <h1 className={`${headingFontClassName} mt-6 text-5xl font-bold tracking-[0.05em] text-[#F4F7FC] sm:text-6xl lg:text-7xl`}>
+                {active.heroHeadline}
+              </h1>
+              <div className="absolute -right-4 top-0 hidden h-28 w-28 overflow-hidden rounded-2xl border border-white/10 bg-slate-800 shadow-lg lg:block">
+                <Image src="/poolex4.webp" alt="Fusion 44X product" fill className="object-cover" />
+              </div>
+            </div>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
               {active.heroBody}
             </p>
@@ -392,10 +398,10 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                 <ArrowIcon className="h-4 w-4" />
               </a>
               <a
-                href="#how-it-works"
+                href="#quiz"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] transition hover:border-cyan-300/35 hover:bg-white/10"
               >
-                {active.secondaryCta}
+                Fill Out the Form
               </a>
               <Link
                 href="/pricing"
@@ -404,26 +410,14 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                 View pricing
               </Link>
             </div>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {brandAnchors.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-medium text-slate-200 shadow-[0_14px_34px_rgba(0,0,0,0.18)]"
-                >
-                  <CheckIcon className="h-4 w-4 shrink-0 text-cyan-300" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-12">
             <div className="overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-4 shadow-[0_36px_110px_rgba(0,0,0,0.34)] backdrop-blur">
               <div className="rounded-[1.6rem] border border-white/10 bg-[#040b14] p-3">
                 <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-slate-950">
                   <iframe
-                    src="https://player.vimeo.com/video/1204085949?context=Vimeo%5CController%5CApi%5CResources%5CVideoController.&h=95460fc88a&title=0&byline=0&portrait=0&dnt=1&autoplay=1&muted=1&loop=1&background=1"
+                    src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0&dnt=1`}
                     title="Fusion44x video sales letter"
                     className="absolute inset-0 h-full w-full"
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -432,27 +426,51 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,30,0.08),rgba(8,17,30,0.2))]" />
                   <div className="absolute left-4 top-4 rounded-full border border-cyan-300/20 bg-[#06111d]/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100 backdrop-blur">
-                    Vimeo proof
+                    Video hero
                   </div>
                   <div className="absolute bottom-4 right-4 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#06111d] shadow-lg">
                     Autoplay muted loop
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                {[
-                  ["Video sets the frame", "The hero introduces the product first"],
-                  ["Clear next step", "The fit check decides the route"],
-                  ["Premium presentation", "Dark, calm, and polished"],
-                ].map(([title, detail]) => (
-                  <div key={title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-4">
-                    <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>{title}</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{detail}</p>
-                  </div>
-                ))}
+            <div className="mt-6 grid grid-cols-3 gap-4">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-slate-800">
+                <Image src="/poolex4.webp" alt="Fusion 44X product front" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-slate-800">
+                <Image src="/fusion-family-pool.jpeg" alt="Fusion 44X product side" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-slate-800">
+                <Image src="/fusion-spa-install.jpg" alt="Fusion 44X system installed" fill className="object-cover" />
               </div>
             </div>
+          </div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {brandAnchors.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-medium text-slate-200 shadow-[0_14px_34px_rgba(0,0,0,0.18)]"
+              >
+                <CheckIcon className="h-4 w-4 shrink-0 text-cyan-300" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {[
+              ["Video sets the frame", "The hero introduces the product first"],
+              ["Clear next step", "The fit check decides the route"],
+              ["Premium presentation", "Dark, calm, and polished"],
+            ].map(([title, detail]) => (
+              <div key={title} className="rounded-[1.4rem] border border-white/10 bg-[#081524] p-4">
+                <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>{title}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
