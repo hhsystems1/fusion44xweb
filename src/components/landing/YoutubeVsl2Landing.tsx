@@ -5,11 +5,11 @@ import { type ReactNode } from "react";
 import { checkoutHref } from "@/lib/products";
 
 const problemCards = [
-  { title: "Irritated eyes", image: "/fusion-family-pool.jpeg", alt: "Family swimming in clean blue pool water" },
-  { title: "Dry, itchy skin", image: "/poolex4.webp", alt: "Residential pool water surface" },
-  { title: "Harsh chemical smells", image: "/fusion-spa-install.jpg", alt: "Spa equipment installation with clear water" },
-  { title: "Chloramine exposure", image: "/fusion-family-pool.jpeg", alt: "Swimmers enjoying a backyard pool" },
-  { title: "Chemical maintenance", image: "/poolex4.webp", alt: "Clear residential pool beside patio" },
+  { title: "Irritated eyes", image: "/1b62342a-e56c-4d2c-8b15-c47cbbf0ff79.jpg", alt: "Woman experiencing eye irritation from pool chemicals" },
+  { title: "Dry, itchy skin", image: "/263466ad-c35e-4ce0-91bd-b9e2cfb02c3e.jpg", alt: "Woman with skin rash on shoulder by a pool" },
+  { title: "Harsh chemical smells", image: "/f4de05c7-4f89-4479-8c11-846483b4c0d1.jpg", alt: "Luxury pool with chemical vapors rising" },
+  { title: "Chloramine exposure", image: "/d95e94a2-37f3-4eb6-bd57-47b499da92f7.jpg", alt: "Pool tiles with mineral deposits and chloramine chemical formula" },
+  { title: "Chemical maintenance", image: "/f8cd5c9b-b93a-46fd-bb9d-d909731dafea.jpg", alt: "Various pool chemicals crossed out by a no symbol" },
 ] as const;
 
 const proofPoints = [
