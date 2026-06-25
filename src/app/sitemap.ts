@@ -89,6 +89,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
     },
     {
+      path: "/landing/dry-skin",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    {
       path: "/landing/pool-day",
       priority: 0.9,
       changeFrequency: "weekly" as const,
