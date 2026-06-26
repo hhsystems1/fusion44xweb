@@ -6,12 +6,36 @@ import { type ReactNode } from "react";
 import { checkoutHref } from "@/lib/products";
 
 const problemCards = [
-  { title: "Irritated eyes", image: "/1b62342a-e56c-4d2c-8b15-c47cbbf0ff79.jpg", alt: "Woman experiencing eye irritation from pool chemicals" },
-  { title: "Dry, itchy skin", image: "/263466ad-c35e-4ce0-91bd-b9e2cfb02c3e.jpg", alt: "Woman with skin rash on shoulder by a pool" },
-  { title: "Harsh chemical smells", image: "/f4de05c7-4f89-4479-8c11-846483b4c0d1.jpg", alt: "Luxury pool with chemical vapors rising" },
-  { title: "Chloramine exposure", image: "/d95e94a2-37f3-4eb6-bd57-47b499da92f7.jpg", alt: "Pool tiles with mineral deposits and chloramine chemical formula" },
-  { title: "Chemical maintenance", image: "/f8cd5c9b-b93a-46fd-bb9d-d909731dafea.jpg", alt: "Various pool chemicals crossed out by a no symbol" },
-  { title: "Pet Skin Irritation", image: "/fusion-family-pool.jpeg", alt: "Pet skin irritation from harsh chemicals" },
+  { 
+    title: "Irritated Paws & Eyes", 
+    image: "/irraeyes.webp", 
+    alt: "Dog experiencing eye irritation from pool chemicals" 
+  },
+  { 
+    title: "Dry, Itchy Skin", 
+    image: "/dryskin5.webp", 
+    alt: "Pet with skin rash caused by harsh pool chemicals" 
+  },
+  { 
+    title: "Harsh Chemical Odors", 
+    image: "/smells.webp", 
+    alt: "Strong chlorine smell deterring dogs from swimming" 
+  },
+  { 
+    title: "Toxic Chloramine Exposure", 
+    image: "/chemexpo.webp", 
+    alt: "Chemical buildup in pool water harmful to pets" 
+  },
+  { 
+    title: "Stressful Maintenance", 
+    image: "/chemmain4.webp", 
+    alt: "Complicated chemical balancing process" 
+  },
+  { 
+    title: "Pet-Safe Water", 
+    image: "/fusion-family-pool.jpeg", 
+    alt: "Happy dog enjoying clean, hydrogen-rich water" 
+  },
 ] as const;
 
 const proofPoints = [
@@ -102,7 +126,7 @@ function HeroVideoCard() {
         <div className="absolute inset-0 grid place-items-center">
           <div className="grid h-24 w-24 place-items-center rounded-full border-4 border-white bg-[#061b3a]/42 text-3xl text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-sm"><span>▶</span></div>
         </div>
-        <div className="absolute bottom-5 left-5 right-5 rounded-3 laxl bg-[#041024]/80 p-5 text-center text-sm font-extrabold leading-6 text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-md sm:text-base">
+        <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-[#041024]/80 p-5 text-center text-sm font-extrabold leading-6 text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-md sm:text-base">
           "Dogs don't just swim in your pool, they drink from it. Traditional chemical pools are hostile to your pet's health."
           <span className="block text-[#5db4ff]">Fusion 44X changes that.</span>
         </div>
@@ -121,7 +145,7 @@ function HeroSection() {
           <h1 className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[0.88] tracking-[-0.075em] text-[#071832] sm:text-6xl lg:text-7xl xl:text-8xl">
             What if your pool water was <span className="block text-[#0757c7]">actually safer?</span>
           </h1>
-          <p className="mt-6 max- laxl text-lg font-bold leading-8 text-[#052f78] sm:text-xl">Fusion 44X creates hydrogen-rich, balanced water without chlorine, chemicals, or pesticides.</p>
+          <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#052f78] sm:text-xl">Fusion 44X creates hydrogen-rich, balanced water without chlorine, chemicals, or pesticides.</p>
 
           <div className="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
             {proofPoints.map((item) => (
@@ -169,7 +193,7 @@ function ProblemSection() {
 function ComparisonSection() {
   return (
     <section className="bg-white px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
-      <div className="mx-auto max- laxl grid max-w-6xl">
+      <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#0757c7] sm:text-4xl lg:text-5xl">The Fusion 44X difference</h2>
         <div className="relative mt-8 overflow-hidden rounded-[1.75rem] border border-[#0757c7]/14 bg-white shadow-[0_24px_70px_rgba(4,29,75,0.16)]">
           <div className="grid lg:grid-cols-2">
@@ -184,7 +208,7 @@ function ComparisonSection() {
               <ul className="grid gap-3 p-6">{fusionItems.map((item) => <li key={item} className="flex items-center gap-3 text-sm font-extrabold text-[#052f78]"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#1da35b] text-xs font-black text-white">✓</span>{item}</li>)}</ul>
             </div>
           </div>
-          <div className="absolute left-1/2 top-1/2 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[6px] border-white bg-[#0 laxl 1b3a] text-xl font-black text-white shadow-[0_18px_42px_rgba(6,27,58,0.28)] lg:grid">VS</div>
+          <div className="absolute left-1/2 top-1/2 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[6px] border-white bg-[#061b3a] text-xl font-black text-white shadow-[0_18px_42px_rgba(6,27,58,0.28)] lg:grid">VS</div>
         </div>
       </div>
     </section>
@@ -195,7 +219,7 @@ function ScienceSection() {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_14%_46%,rgba(28,137,255,0.36),transparent_18rem),linear-gradient(90deg,#03142e,#06285c_58%,#03142e)] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0_1px,transparent_1px)] [background-size:28px_28px]" />
-      <div className="relative mx-auto grid max- laxl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
           <Image src="/fusion-spa-install.jpg" alt="Fusion 44X system installed on existing equipment" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover opacity-55" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(66,178,255,0.42),transparent_14rem),linear-gradient(180deg,rgba(3,20,46,0.10),rgba(3,20,46,0.78))]" />
@@ -205,7 +229,7 @@ function ScienceSection() {
         <div className="relative z-10">
           <Pill dark>Patented advanced water science</Pill>
           <h2 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-[-0.055em] sm:text-5xl lg:text-6xl">Powered by Hydro-pi Diffusion Technology</h2>
-          <p className="mt-5 max- laxl text-base font-medium leading-8 text-slate-200 sm:text-lg">Fusion 44X creates hydrogen-rich, balanced water throughout your pool or spa, using patented advanced water science to protect your pets and family.</p>
+          <p className="mt-5 max-w-3xl text-base font-medium leading-8 text-slate-200 sm:text-lg">Fusion 44X creates hydrogen-rich, balanced water throughout your pool or spa, using patented advanced water science to protect your pets and family.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {scienceFeatures.map((feature) => (
               <div key={feature.title} className="rounded-3xl border border-white/10 bg-white/[0.07] p-4 text-center backdrop-blur-sm">
@@ -223,10 +247,10 @@ function ScienceSection() {
 function FinalCtaSection() {
   return (
     <section className="bg-[linear-gradient(90deg,rgba(255,255,255,0.96),rgba(255,255,255,0.68)),radial-gradient(circle_at_82%_34%,rgba(9,103,232,0.24),transparent_18rem),linear-gradient(135deg,#dff5ff,#76d6ff)]">
-      <div className="mx-auto grid min-h-[340px] max- laxl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.78fr] lg:px-8">
+      <div className="mx-auto grid min-h-[340px] max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.78fr] lg:px-8">
         <div className="relative z-10">
           <Pill>Trusted by pet owners who want better</Pill>
-          <h2 className="mt-5 max- laxl text-4xl font-black uppercase leading-[0.94] tracking-[-0.06em] text-[#0757c7] sm:text-5xl lg:text-6xl">Healthier water. Happier pets. Peace of mind.</h2>
+          <h2 className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[0.94] tracking-[-0.06em] text-[#0757c7] sm:text-5xl lg:text-6xl">Healthier water. Happier pets. Peace of mind.</h2>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row"><CtaButton href="/pricing">See pricing and financing</CtaButton><CtaButton href={checkoutHref("fusion-residential-pool")} variant="secondary">Start pool checkout</CtaButton></div>
         </div>
         <div className="relative hidden min-h-[280px] overflow-hidden rounded-[2rem] border-[7px] border-white shadow-[0_24px_70px_rgba(4,29,75,0.18)] lg:block"><Image src="/fusion-family-pool.jpeg" alt="Happy pet enjoying Fusion 44X pool water" fill sizes="38vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#061b3a]/35 to-transparent" /></div>
