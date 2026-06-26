@@ -784,36 +784,36 @@ export function TechnologySection({
   );
 }
 
-export function ComparisonSection({
-  campaign,
-}: {
-  campaign: Fusion44xLandingCampaign;
-}) {
-  return (
-    <SectionShell title={campaign.comparisonTitle} description={campaign.comparisonSubtitle}>
-      <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
-        <div className="grid gap-3 border-b border-white/10 bg-slate-950/45 px-5 py-4 text-sm font-semibold text-white md:grid-cols-[1.1fr_1fr_1fr]">
-          <div>Experience</div>
-          <div className="text-white/85">Traditional approach</div>
-          <div className="text-cyan-100">Fusion44x</div>
-        </div>
-        {campaign.comparisonRows.map((row, index) => (
-          <div
-            key={row.label}
-            className={[
-              "grid gap-4 px-5 py-4 text-sm leading-7 md:grid-cols-[1.1fr_1fr_1fr]",
-              index !== campaign.comparisonRows.length - 1 ? "border-b border-white/8" : "",
-            ].join(" ")}
-          >
-            <div className="font-medium text-white">{row.label}</div>
-            <div className="text-white/85">{row.traditional}</div>
-            <div className="text-cyan-100">{row.fusion44x}</div>
-          </div>
-        ))}
-      </div>
-    </SectionShell>
-  );
-}
+// export function ComparisonSection({
+//   campaign,
+// }: {
+//   campaign: Fusion44xLandingCampaign;
+// }) {
+//   return (
+//     <SectionShell title={campaign.comparisonTitle} description={campaign.comparisonSubtitle}>
+//       <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 backdrop-blur-xl">
+//         <div className="grid gap-3 border-b border-white/10 bg-slate-950/45 px-5 py-4 text-sm font-semibold text-white md:grid-cols-[1.1fr_1fr_1fr]">
+//           <div>Experience</div>
+//           <div className="text-white/85">Traditional approach</div>
+//           <div className="text-cyan-100">Fusion44x</div>
+//         </div>
+//         {campaign.comparisonRows.map((row, index) => (
+//           <div
+//             key={row.label}
+//             className={[
+//               "grid gap-4 px-5 py-4 text-sm leading-7 md:grid-cols-[1.1fr_1fr_1fr]",
+//               index !== campaign.comparisonRows.length - 1 ? "border-b border-white/8" : "",
+//             ].join(" ")}
+//           >
+//             <div className="font-medium text-white">{row.label}</div>
+//             <div className="text-white/85">{row.traditional}</div>
+//             <div className="text-cyan-100">{row.fusion44x}</div>
+//           </div>
+//         ))}
+//       </div>
+//     </SectionShell>
+//   );
+// }
 
 export function FinancingCTA({
   campaign,
@@ -1079,7 +1079,7 @@ export default function Fusion44xLandingPage({
       <ProblemSolutionSection campaign={campaign} />
       <BenefitsGrid campaign={campaign} />
       <TechnologySection campaign={campaign} />
-      <ComparisonSection campaign={campaign} />
+      {/* <ComparisonSection campaign={campaign} /> */}
       <FinancingCTA
         campaign={campaign}
         buildOutboundHref={buildOutboundHref}
