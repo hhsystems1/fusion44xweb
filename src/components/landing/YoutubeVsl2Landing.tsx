@@ -6,18 +6,11 @@ import { checkoutHref } from "@/lib/products";
 
 const problemCards = [
   { image: "/irraeyes.webp", alt: "Person with irritated eyes after swimming" },
-  { image: "/eyes.jpg", alt: "Irritation around the eyes" },
-  { image: "/dryskin.jpg", alt: "Person with dry, itchy skin after a pool session" },
-  { image: "/dryskin2.jpg", alt: "Dry skin around arms after swimming" },
-  { image: "/drykin3.png", alt: "Close-up of skin dryness after pool exposure" },
+  { image: "/dryskin5.webp", alt: "Person with dry, itchy skin after a pool session" },
   { image: "/smells.webp", alt: "Close-up of pool-related chemical odor caution area" },
-  { image: "/harshsmell.jpg", alt: "Harsh chemical smell concern image" },
   { image: "/chemexpo.webp", alt: "Chloramine-related chemical exposure concern" },
   { image: "/respirratation.webp", alt: "Pump and system maintenance equipment" },
-  { image: "/irratedeyes.jpg", alt: "Eye irritation symptom in a pool environment" },
-  { image: "/ce.jpg", alt: "Pool water chemistry concern visual" },
-  { image: "/chemmain.jpg", alt: "Chemical treatment module visual" },
-  { image: "/chemmain2.jpg", alt: "Hydrogen-rich treatment equipment visual" },
+
 ] as const;
 
 const proofPoints = [
@@ -180,19 +173,20 @@ function ScienceSection() {
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_14%_46%,rgba(28,137,255,0.36),transparent_18rem),linear-gradient(90deg,#03142e,#06285c_58%,#03142e)] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
-          <Image src="/chemmain4.webp" alt="Fusion 44X chemical process and treatment modules" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover opacity-55" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(66,178,255,0.42),transparent_14rem),linear-gradient(180deg,rgba(3,20,46,0.10),rgba(3,20,46,0.78))]" />
-          <div className="absolute inset-0 grid place-items-center p-8"><div className="grid h-64 w-48 place-items-center rounded-[2rem] border border-white/15 bg-[linear-gradient(145deg,#050a13,#1c2736)] text-center shadow-[0_30px_70px_rgba(0,0,0,0.40)]"><div><p className="text-2xl font-black tracking-[-0.05em]">Fusion 44X</p><p className="mt-2 text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">Hydro-pH</p></div></div></div>
+        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#071c3a] shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
+          <Image
+            src="/probe.png"
+            alt="Fusion 44X probe unit showing the treatment process"
+            fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="object-contain p-6 sm:p-8"
+          />
         </div>
 
         <div>
           <Pill dark>Patented advanced water science</Pill>
-          <div className="mt-5 grid gap-4 sm:grid-cols-[1fr_0.72fr] sm:items-center">
+          <div className="mt-5">
             <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.055em] sm:text-5xl lg:text-6xl">This is where the science begins</h2>
-            <div className="relative min-h-28 overflow-hidden rounded-2xl border border-white/20 bg-[#071c3a]">
-              <Image src="/probe.png" alt="Fusion 44X probe unit showing the treatment process" fill sizes="(max-width: 768px) 100vw, 240px" className="object-cover" />
-            </div>
           </div>
           <p className="mt-5 max-w-3xl text-base font-medium leading-8 text-slate-200 sm:text-lg">Fusion 44X uses proprietary Hydro-pH-Infusion technology to create hydrogen-rich water throughout your pool or spa while working with your existing equipment.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
