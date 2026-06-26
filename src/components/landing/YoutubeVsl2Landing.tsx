@@ -5,11 +5,12 @@ import { type ReactNode } from "react";
 import { checkoutHref } from "@/lib/products";
 
 const problemCards = [
-  { title: "Irritated eyes", image: "/1b62342a-e56c-4d2c-8b15-c47cbbf0ff79.jpg", alt: "Woman experiencing eye irritation from pool chemicals" },
-  { title: "Dry, itchy skin", image: "/263466ad-c35e-4ce0-91bd-b9e2cfb02c3e.jpg", alt: "Woman with skin rash on shoulder by a pool" },
-  { title: "Harsh chemical smells", image: "/f4de05c7-4f89-4479-8c11-846483b4c0d1.jpg", alt: "Luxury pool with chemical vapors rising" },
-  { title: "Chloramine exposure", image: "/d95e94a2-37f3-4eb6-bd57-47b499da92f7.jpg", alt: "Pool tiles with mineral deposits and chloramine chemical formula" },
-  { title: "Chemical maintenance", image: "/f8cd5c9b-b93a-46fd-bb9d-d909731dafea.jpg", alt: "Various pool chemicals crossed out by a no symbol" },
+  { image: "/irraeyes.webp", alt: "Person with irritated eyes after swimming" },
+  { image: "/dryskin5.webp", alt: "Person with dry, itchy skin after a pool session" },
+  { image: "/smells.webp", alt: "Close-up of pool-related chemical odor caution area" },
+  { image: "/chemexpo.webp", alt: "Chloramine-related chemical exposure concern" },
+  { image: "/respirratation.webp", alt: "Pump and system maintenance equipment" },
+
 ] as const;
 
 const proofPoints = [
@@ -17,9 +18,6 @@ const proofPoints = [
   { title: "Zero chemicals", icon: "pH" },
   { title: "Zero pesticides", icon: "0" },
 ] as const;
-
-const traditionalItems = ["Chlorine", "Chemicals", "Pesticides", "Chloramine", "Chemical odor", "Manual balancing"] as const;
-const fusionItems = ["Zero chlorine", "Zero chemicals", "Zero pesticides", "No chloramine", "Clean, fresh water", "Balanced pH daily"] as const;
 
 const scienceFeatures = [
   { title: "Hydrogen rich water", icon: "H2" },
@@ -101,7 +99,7 @@ function HeroVideoCard() {
           <div className="grid h-24 w-24 place-items-center rounded-full border-4 border-white bg-[#061b3a]/42 text-3xl text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-sm"><span className="translate-x-0.5">▶</span></div>
         </div>
         <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-[#041024]/80 p-5 text-center text-sm font-extrabold leading-6 text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-md sm:text-base">
-          "Most pool owners have accepted chlorine, chemical smells, irritated eyes, and dry skin as part of owning a pool."
+          &ldquo;Most pool owners have accepted chlorine, chemical smells, irritated eyes, and dry skin as part of owning a pool.&rdquo;
           <span className="block text-[#5db4ff]">Fusion 44X changes that.</span>
         </div>
       </div>
@@ -147,42 +145,23 @@ function ProblemSection() {
     <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Traditional pools expose swimmers to:</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-          {problemCards.map((card) => (
-            <article key={card.title} className="relative rounded-[1.35rem] bg-white p-2 text-center shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
-              <div className="absolute -left-2 -top-2 z-10 grid h-9 w-9 place-items-center rounded-full border-[3px] border-white bg-[#e32626] text-lg font-black text-white shadow-lg">x</div>
-              <div className="relative h-32 overflow-hidden rounded-2xl">
-                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 1024px) 50vw, 20vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061b3a]/25 to-transparent" />
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {problemCards.map((card, index) => (
+            <article
+              key={`${card.image}-${index}`}
+              className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]"
+            >
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={card.image}
+                  alt={card.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
+                  className="object-cover"
+                />
               </div>
-              <h3 className="px-2 py-4 text-xs font-black uppercase leading-tight tracking-[0.02em] text-[#071832]">{card.title}</h3>
             </article>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ComparisonSection() {
-  return (
-    <section className="bg-white px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#0757c7] sm:text-4xl lg:text-5xl">The Fusion 44X difference</h2>
-        <div className="relative mt-8 overflow-hidden rounded-[1.75rem] border border-[#0757c7]/14 bg-white shadow-[0_24px_70px_rgba(4,29,75,0.16)]">
-          <div className="grid lg:grid-cols-2">
-            <div>
-              <div className="relative h-40 overflow-hidden bg-slate-300 grayscale"><Image src="/poolex4.webp" alt="Traditional cloudy pool comparison" fill sizes="50vw" className="object-cover opacity-70" /></div>
-              <div className="bg-[#50545b] px-6 py-3 text-center text-lg font-black uppercase tracking-[0.05em] text-white">Traditional pool</div>
-              <ul className="grid gap-3 p-6">{traditionalItems.map((item) => <li key={item} className="flex items-center gap-3 text-sm font-extrabold text-slate-700"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-slate-500 text-xs font-black text-white">x</span>{item}</li>)}</ul>
-            </div>
-            <div>
-              <div className="relative h-40 overflow-hidden bg-cyan-300"><Image src="/fusion-family-pool.jpeg" alt="Fusion 44X clean blue pool comparison" fill sizes="50vw" className="object-cover" /><div className="absolute inset-0 bg-cyan-300/10" /></div>
-              <div className="bg-[#0757c7] px-6 py-3 text-center text-lg font-black uppercase tracking-[0.05em] text-white">Fusion 44X pool</div>
-              <ul className="grid gap-3 p-6">{fusionItems.map((item) => <li key={item} className="flex items-center gap-3 text-sm font-extrabold text-[#052f78]"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#1da35b] text-xs font-black text-white">✓</span>{item}</li>)}</ul>
-            </div>
-          </div>
-          <div className="absolute left-1/2 top-1/2 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[6px] border-white bg-[#061b3a] text-xl font-black text-white shadow-[0_18px_42px_rgba(6,27,58,0.28)] lg:grid">VS</div>
         </div>
       </div>
     </section>
@@ -194,15 +173,21 @@ function ScienceSection() {
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_14%_46%,rgba(28,137,255,0.36),transparent_18rem),linear-gradient(90deg,#03142e,#06285c_58%,#03142e)] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
-          <Image src="/fusion-spa-install.jpg" alt="Fusion 44X system installed on existing equipment" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover opacity-55" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(66,178,255,0.42),transparent_14rem),linear-gradient(180deg,rgba(3,20,46,0.10),rgba(3,20,46,0.78))]" />
-          <div className="absolute inset-0 grid place-items-center p-8"><div className="grid h-64 w-48 place-items-center rounded-[2rem] border border-white/15 bg-[linear-gradient(145deg,#050a13,#1c2736)] text-center shadow-[0_30px_70px_rgba(0,0,0,0.40)]"><div><p className="text-2xl font-black tracking-[-0.05em]">Fusion 44X</p><p className="mt-2 text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">Hydro-pH</p></div></div></div>
+        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#071c3a] shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
+          <Image
+            src="/probe.png"
+            alt="Fusion 44X probe unit showing the treatment process"
+            fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="object-contain p-6 sm:p-8"
+          />
         </div>
 
         <div>
           <Pill dark>Patented advanced water science</Pill>
-          <h2 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-[-0.055em] sm:text-5xl lg:text-6xl">This is where the science begins</h2>
+          <div className="mt-5">
+            <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.055em] sm:text-5xl lg:text-6xl">This is where the science begins</h2>
+          </div>
           <p className="mt-5 max-w-3xl text-base font-medium leading-8 text-slate-200 sm:text-lg">Fusion 44X uses proprietary Hydro-pH-Infusion technology to create hydrogen-rich water throughout your pool or spa while working with your existing equipment.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {scienceFeatures.map((feature) => (
@@ -240,7 +225,6 @@ export default function YoutubeVsl2Landing() {
       <TopBar />
       <HeroSection />
       <ProblemSection />
-      <ComparisonSection />
       <ScienceSection />
       <FinalCtaSection />
     </main>
