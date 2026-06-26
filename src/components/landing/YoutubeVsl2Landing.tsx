@@ -147,11 +147,8 @@ function ProblemSection() {
         <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Traditional pools expose swimmers to:</h2>
         <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {problemCards.map((card, index) => (
-            <article
-              key={`${card.image}-${index}`}
-              className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]"
-            >
-              <div className="relative aspect-[4/3] w-full">
+            <article key={`${card.image}-${index}`} className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
                   src={card.image}
                   alt={card.alt}

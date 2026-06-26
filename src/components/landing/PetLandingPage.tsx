@@ -127,7 +127,7 @@ function HeroVideoCard() {
           <div className="grid h-24 w-24 place-items-center rounded-full border-4 border-white bg-[#061b3a]/42 text-3xl text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-sm"><span>▶</span></div>
         </div>
         <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-[#041024]/80 p-5 text-center text-sm font-extrabold leading-6 text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-md sm:text-base">
-          "Dogs don't just swim in your pool, they drink from it. Traditional chemical pools are hostile to your pet's health."
+          “Dogs don&apos;t just swim in your pool, they drink from it. Traditional chemical pools are hostile to your pet&apos;s health.”
           <span className="block text-[#5db4ff]">Fusion 44X changes that.</span>
         </div>
       </div>
@@ -172,16 +172,13 @@ function ProblemSection() {
   return (
     <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Dogs don't just swim in your pool, they drink from it.</h2>
+        <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Dogs don&apos;t just swim in your pool, they drink from it.</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {problemCards.map((card) => (
-            <article key={card.title} className="relative rounded-[1.35rem] bg-white p-2 text-center shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
-              <div className="absolute -left-2 -top-2 z-10 grid h-9 w-9 place-items-center rounded-full border-[3px] border-white bg-[#e32626] text-lg font-black text-white shadow-lg">x</div>
-              <div className="relative h-40 overflow-hidden rounded-2xl">
+            <article key={card.title} className="relative rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[1.35rem]">
                 <Image src={card.image} alt={card.alt} fill sizes="(max-width: 1024px) 50vw, 20vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061b3a]/25 to-transparent" />
               </div>
-              <h3 className="px-2 py-4 text-xs font-black uppercase leading-tight tracking-[0.02em] text-[#071832]">{card.title}</h3>
             </article>
           ))}
         </div>
@@ -220,11 +217,15 @@ function ScienceSection() {
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_14%_46%,rgba(28,137,255,0.36),transparent_18rem),linear-gradient(90deg,#03142e,#06285c_58%,#03142e)] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
       <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
-          <Image src="/fusion-spa-install.jpg" alt="Fusion 44X system installed on existing equipment" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover opacity-55" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(66,178,255,0.42),transparent_14rem),linear-gradient(180deg,rgba(3,20,46,0.10),rgba(3,20,46,0.78))]" />
-          <div className="absolute inset-0 grid place-items-center p-8"><div className="grid h-64 w-48 place-items-center rounded-[2rem] border border-white/15 bg-[linear-gradient(145deg,#050a13,#1c2736)] text-center shadow-[0_30px_70px_rgba(0,0,0,0.40)]"><div><p className="text-2xl font-black tracking-[-0.05em]">Fusion 44X</p><p className="mt-2 text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">Hydro-pH</p></div></div></div>
-        </div>
+        <div className="relative min-h-[330px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#061c3a] shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
+        <Image
+          src="/probe.png"
+          alt="Fusion 44X monitoring probe used for Hydro-pi monitoring"
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          className="object-contain p-6 sm:p-8"
+        />
+      </div>
 
         <div className="relative z-10">
           <Pill dark>Patented advanced water science</Pill>
@@ -262,7 +263,7 @@ function FinalCtaSection() {
 
 export default function PetLandingPage({ bodyFontClassName = "" }: { bodyFontClassName?: string }) {
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-[#071832]">
+    <main className={`min-h-screen overflow-hidden bg-white text-[#071832] ${bodyFontClassName}`}>
       <TopBar />
       <HeroSection />
       <ProblemSection />
