@@ -84,23 +84,23 @@ const ANGLES: Record<AngleKey, AngleContent> = {
   pets: {
     label: "Pet owners",
     eyebrow: "Pet-safe angle",
-    heroHeadline: "Your Dog Does Not Know Your Pool Is Not a Water Bowl.",
+    heroHeadline: "WHAT IF YOUR POOL WATER WAS ACTUALLY SAFER FOR YOUR DOG?",
     heroBody:
-      "Pets swim, splash, lick their fur, and absolutely do drink pool water when nobody is looking. Fusion 44X is built for owners who want the backyard to be safe, simple, and less hostile to four-legged chaos.",
-    primaryCta: "See If Fusion44X Fits My Pool",
-    secondaryCta: "Read Our Pet Safety Specifications",
+      "Pets swim, splash, lick their fur, and absolutely do drink pool water when nobody is looking. Fusion 44X is built for owners who want the backyard to be safe, simple, and free from the harsh chemical cycle.",
+    primaryCta: "GET A FREE ESTIMATE FOR YOUR PET",
+    secondaryCta: "SEE FUSION POOLS FOR DOGS",
     positioningTitle: "Pet-Safe, Hydrogen-Rich Water Made for Swimming and Splashing",
     positioningBody:
       "Fusion 44X creates hydrogen-rich, balanced pool water for pets who swim, splash, lick their fur, and occasionally treat the pool like a communal bowl. The goal is clean, mineral-balanced water without harsh chemical residue on skin or coat.",
-    problemTitle: "The Hidden Hazards of Chlorinated Pools for Pets",
+    problemTitle: "DOGS DON'T JUST SWIM IN YOUR POOL, THEY DRINK FROM IT.",
     problemBody:
-      "Dogs do not wear goggles, they gulp water, and they lick themselves dry after swimming. Traditional pool chemistry can leave behind chloramines, copper residue, and other irritants that can mean red eyes, hot spots, dry paws, fur bleaching, and a stomach that wishes you had made a different choice.",
+      "Traditional pool chemistry leaves behind chloramines and irritants that cause red eyes, dull coats, and chemical tastes. Saltwater pools are still part of the chlorine cycle—they just hide it better.",
     solutionTitle: "The Ultimate Pet-Wellness Upgrade: Fusion 44X",
     solutionBody:
-      "This setup is designed to replace the usual chlorine-and-salt routine with a system that is friendlier to pets. It connects to the existing pad, keeps the water balanced on autopilot, and turns the backyard into a safer place for active dogs.",
+      "Fusion 44X uses Hydro-pi Diffusion Technology to create hydrogen-rich, balanced water throughout your pool, eliminating the need for harsh chemicals and protecting your pet's health.",
     benefits: [
       {
-        title: "Safe Enough for Daily Splashing",
+        title: "Safer for Pet to Drink",
         description:
           "The pool is positioned as a water-first environment rather than a chemical-heavy space pets have to navigate.",
       },
@@ -110,31 +110,36 @@ const ANGLES: Record<AngleKey, AngleContent> = {
           "Less exposure to harsh pool chemistry means fewer irritated patches, cracked pads, and post-swim misery.",
       },
       {
-        title: "Keeps the Coat Soft and Odor-Free",
+        title: "No Harsh Chemical Smell",
         description:
           "The goal is to avoid the dry, bleached, chemical-smelling coat that often follows traditional pool exposure.",
       },
       {
-        title: "More Comfortable Swimming",
+        title: "Clearer, Healthier Water",
         description:
           "Pets can swim and recover without the same burning-eye, stinging-skin routine people have come to accept as normal.",
       },
     ],
     faqs: [
       {
-        question: "Can dogs drink the pool water?",
+        question: "Is Fusion 44X safe for my dogs to drink?",
         answer:
-          "The plan positions the system as producing water that meets drinking-water standards, making accidental sips far less concerning than with a traditional chemical pool.",
+          "The system is described as producing water that meets drinking-water standards, making accidental sips far less concerning than with a traditional chemical pool.",
       },
       {
-        question: "What happens with fur, dander, and oils?",
+        question: "Can I use Fusion 44X on an old pool?",
         answer:
-          "The system is described as helping neutralize organic contaminants so the existing filtration setup can do its job more effectively.",
+          "Yes. The installation is designed to integrate with the existing equipment pad, so the project stays simple instead of becoming a major remodel.",
       },
       {
-        question: "Do I need a new pad?",
+        question: "What does hydrogen water mean?",
         answer:
-          "No. The installation is designed to integrate with the existing equipment pad, so the project stays simple instead of becoming a major remodel.",
+          "It refers to water enriched with molecular hydrogen, which helps maintain a balanced pH and creates a gentler environment for skin and eyes.",
+      },
+      {
+        question: "What is the main difference?",
+        answer:
+          "Unlike saltwater or chlorine systems, Fusion 44X removes the need for a continuous chemical cycle, replacing it with a patented diffusion technology.",
       },
     ],
   },
