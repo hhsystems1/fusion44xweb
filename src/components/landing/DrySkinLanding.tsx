@@ -197,8 +197,8 @@ function ProblemCard({
 }) {
   return (
     <article className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-sm">
-      <div className="relative aspect-[16/11] overflow-hidden">
-        <Image src={image} alt={alt} fill sizes="(max-width: 1024px) 100vw, 25vw" className="object-cover" />
+      <div className="relative aspect-video overflow-hidden bg-white">
+        <Image src={image} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
       </div>
       <div className="p-5">
         <h3 className={`${syne.className} text-2xl font-semibold tracking-[0.03em] text-[#F4F7FC]`}>
@@ -343,7 +343,7 @@ export default function DrySkinLanding() {
             description="These reference images do the heavy lifting: dry skin, irritated eyes, chloramine exposure, and the usual maintenance chaos all point to the same thing - a pool system that is asking too much from the swimmer."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2">
             {painPoints.map((item) => (
               <ProblemCard key={item.title} {...item} />
             ))}
@@ -408,8 +408,8 @@ export default function DrySkinLanding() {
                   key={item.title}
                   className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_18px_60px_rgba(0,0,0,0.18)]"
                 >
-                  <div className="relative aspect-[16/11]">
-                    <Image src={item.image} alt={item.alt} fill sizes="(max-width: 1024px) 100vw, 25vw" className="object-cover" />
+                  <div className="relative aspect-video bg-white">
+                    <Image src={item.image} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
                   </div>
                   <div className="p-4">
                     <h3 className={`${syne.className} text-xl font-semibold tracking-[0.03em]`}>

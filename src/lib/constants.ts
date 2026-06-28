@@ -23,18 +23,18 @@ export const siteConfig = {
   },
 } as const;
 
+export const whoIsThisFor = [
+  { href: "/parents", label: "Parents" },
+  { href: "/pet-owners", label: "Pet Owners" },
+  { href: "/luxury", label: "Luxury Homes" },
+];
+
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/home-neo", label: "Home Neo" },
-  { href: "/products", label: "Products" },
-  { href: "/residential-pools", label: "Pool Systems" },
+  { label: "Who We Help", children: whoIsThisFor },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/discover-fusion-44x/how-it-works", label: "How It Works" },
-  { href: "/discover-fusion-44x/why-fusion-44-x", label: "Why Fusion 44X" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/free-spa-analysis", label: "Free Spa Analysis" },
-] as const;
+];
 
 export const trustFeatures = [
   {

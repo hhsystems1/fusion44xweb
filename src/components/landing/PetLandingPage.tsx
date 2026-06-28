@@ -7,34 +7,19 @@ import { checkoutHref } from "@/lib/products";
 
 const problemCards = [
   { 
-    title: "Irritated Paws & Eyes", 
-    image: "/irraeyes.webp", 
-    alt: "Dog experiencing eye irritation from pool chemicals" 
+    title: "Dry Eye's",
+    image: "/peteye.png",
+    alt: "Dog with irritated eyes from pool exposure",
   },
   { 
-    title: "Dry, Itchy Skin", 
-    image: "/dryskin5.webp", 
-    alt: "Pet with skin rash caused by harsh pool chemicals" 
+    title: "Dry Skin",
+    image: "/petskin.png",
+    alt: "Dog with dry skin from pool exposure",
   },
   { 
-    title: "Harsh Chemical Odors", 
-    image: "/smells.webp", 
-    alt: "Strong chlorine smell deterring dogs from swimming" 
-  },
-  { 
-    title: "Toxic Chloramine Exposure", 
-    image: "/chemexpo.webp", 
-    alt: "Chemical buildup in pool water harmful to pets" 
-  },
-  { 
-    title: "Stressful Maintenance", 
-    image: "/chemmain4.webp", 
-    alt: "Complicated chemical balancing process" 
-  },
-  { 
-    title: "Pet-Safe Water", 
-    image: "/fusion-family-pool.jpeg", 
-    alt: "Happy dog enjoying clean, hydrogen-rich water" 
+    title: "Toxic Fumes",
+    image: "/petair.png",
+    alt: "Dog exposed to harsh pool chemical fumes",
   },
 ] as const;
 
@@ -43,9 +28,6 @@ const proofPoints = [
   { title: "Zero chemicals", icon: "pH" },
   { title: "Zero pesticides", icon: "0" },
 ] as const;
-
-const traditionalItems = ["Chlorine", "Chemicals", "Pesticides", "Chloramine", "Chemical odor", "Manual balancing"] as const;
-const fusionItems = ["Zero chlorine", "Zero chemicals", "Zero pesticides", "No chloramine", "Clean, fresh water", "Balanced pH daily"] as const;
 
 const scienceFeatures = [
   { title: "Hydrogen rich water", icon: "H2" },
@@ -116,36 +98,34 @@ function TopBar() {
   );
 }
 
-function HeroVideoCard() {
-  return (
-    <div className="relative overflow-hidden rounded-[2rem] border-[7px] border-white bg-[#0b76cf] shadow-[0_30px_90px_rgba(4,29,75,0.22)]">
-      <div className="relative aspect-[0.92] min-h-[390px] lg:min-h-[500px]">
-        <Image src="/fusion-family-pool.jpeg" alt="Fusion 44X pet pool lifestyle video preview" fill sizes="(max-width: 1024px) 100vw, 48vw" className="object-cover" priority />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_32%,rgba(255,255,255,0.55),transparent_18%),linear-gradient(180deg,rgba(9,96,201,0.06),rgba(3,18,47,0.56))]" />
-        <div className="absolute right-5 top-5 rounded-full border border-white/25 bg-white/90 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#052f78] shadow-sm">Watch the 3 minute VSL</div>
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="grid h-24 w-24 place-items-center rounded-full border-4 border-white bg-[#061b3a]/42 text-3xl text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-sm"><span>▶</span></div>
-        </div>
-        <div className="absolute bottom-5 left-5 right-5 rounded-3xl bg-[#041024]/80 p-5 text-center text-sm font-extrabold leading-6 text-white shadow-[0_18px_46px_rgba(0,0,0,0.24)] backdrop-blur-md sm:text-base">
-          “Dogs don&apos;t just swim in your pool, they drink from it. Traditional chemical pools are hostile to your pet&apos;s health.”
-          <span className="block text-[#5db4ff]">Fusion 44X changes that.</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_0%,rgba(74,179,255,0.20),transparent_34rem),linear-gradient(105deg,#ffffff_0%,#f2faff_46%,#dff3ff_100%)] px-4 pb-12 pt-8 sm:px-6 lg:px-8 lg:pb-16">
+    <section className="relative isolate min-h-[760px] overflow-hidden bg-[#eaf6ff] px-4 pb-14 pt-10 sm:px-6 md:min-h-[720px] lg:min-h-[calc(100svh-77px)] lg:px-8">
+      <Image
+        src="/petimg.png"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover md:hidden"
+        priority
+      />
+      <Image
+        src="/petimg2.png"
+        alt=""
+        fill
+        sizes="100vw"
+        className="hidden object-cover md:block"
+        priority
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.72)_44%,rgba(255,255,255,0.08)_100%)] md:bg-[linear-gradient(90deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.80)_34%,rgba(255,255,255,0.18)_68%,rgba(255,255,255,0)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_0.92fr]">
-        <div className="relative z-10">
+      <div className="relative mx-auto flex min-h-[inherit] max-w-7xl items-center">
+        <div className="relative z-10 max-w-2xl text-left lg:ml-0">
           <Pill><ShieldIcon className="h-4 w-4" />Safer Water for Your Dog</Pill>
-          <h1 className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[0.88] tracking-[-0.075em] text-[#071832] sm:text-6xl lg:text-7xl xl:text-8xl">
-            What if your pool water was <span className="block text-[#0757c7]">actually safer?</span>
+          <h1 className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[0.88] tracking-[-0.075em] text-[#071832] sm:text-6xl lg:text-6xl xl:text-6xl">
+            Are You Ready to Stop Worrying About <span className="block text-[#0757c7]">Your Dog Drinking From Your Pool.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#052f78] sm:text-xl">Fusion 44X creates hydrogen-rich, balanced water without chlorine, chemicals, or pesticides.</p>
+          <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#052f78] lg:text-xl">Fusion 44X creates hydrogen-rich, balanced water without chlorine, chemicals, or pesticides.</p>
 
           <div className="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
             {proofPoints.map((item) => (
@@ -157,12 +137,10 @@ function HeroSection() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CtaButton href="/free-spa-analysis">GET A FREE ESTIMATE FOR YOUR PET<ArrowIcon className="h-4 w-4" /></CtaButton>
-            <CtaButton href="/pricing" variant="secondary">SEE FUSION POOLS FOR DOGS<ArrowIcon className="h-4 w-4" /></CtaButton>
+            <CtaButton href="/free-spa-analysis">SEE IF FUSION44X FITS YOUR POOL<ArrowIcon className="h-4 w-4" /></CtaButton>
+            <CtaButton href="/pricing" variant="secondary">SEE PRICING AND FINANCING<ArrowIcon className="h-4 w-4" /></CtaButton>
           </div>
         </div>
-
-        <HeroVideoCard />
       </div>
     </section>
   );
@@ -173,39 +151,20 @@ function ProblemSection() {
     <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Dogs don&apos;t just swim in your pool, they drink from it.</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {problemCards.map((card) => (
-            <article key={card.title} className="relative rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[1.35rem]">
+            <article key={card.title} className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
+              <div className="relative aspect-[16/9] w-full">
                 <Image src={card.image} alt={card.alt} fill sizes="(max-width: 1024px) 50vw, 20vw" className="object-cover" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,27,58,0.06)_20%,rgba(6,27,58,0.78)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="text-3xl font-black uppercase leading-none tracking-[-0.05em] text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.45)] sm:text-4xl lg:text-3xl xl:text-4xl">
+                    {card.title}
+                  </h3>
+                </div>
               </div>
             </article>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ComparisonSection() {
-  return (
-    <section className="bg-white px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#0757c7] sm:text-4xl lg:text-5xl">The Fusion 44X difference</h2>
-        <div className="relative mt-8 overflow-hidden rounded-[1.75rem] border border-[#0757c7]/14 bg-white shadow-[0_24px_70px_rgba(4,29,75,0.16)]">
-          <div className="grid lg:grid-cols-2">
-            <div className="bg-slate-50">
-              <div className="relative h-40 overflow-hidden bg-slate-300 grayscale"><Image src="/poolex4.webp" alt="Traditional cloudy pool comparison" fill sizes="50vw" className="object-cover opacity-70" /></div>
-              <div className="bg-[#50545b] px-6 py-3 text-center text-lg font-black uppercase tracking-[0.05em] text-white">Traditional pool</div>
-              <ul className="grid gap-3 p-6">{traditionalItems.map((item) => <li key={item} className="flex items-center gap-3 text-sm font-extrabold text-slate-700"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-slate-500 text-xs font-black text-white">x</span>{item}</li>)}</ul>
-            </div>
-            <div className="bg-blue-50">
-              <div className="relative h-40 overflow-hidden bg-cyan-300"><Image src="/fusion-family-pool.jpeg" alt="Fusion 44X clean blue pool comparison" fill sizes="50vw" className="object-cover" /><div className="absolute inset-0 bg-cyan-300/10" /></div>
-              <div className="bg-[#0757c7] px-6 py-3 text-center text-lg font-black uppercase tracking-[0.05em] text-white">Fusion 44X pool</div>
-              <ul className="grid gap-3 p-6">{fusionItems.map((item) => <li key={item} className="flex items-center gap-3 text-sm font-extrabold text-[#052f78]"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#1da35b] text-xs font-black text-white">✓</span>{item}</li>)}</ul>
-            </div>
-          </div>
-          <div className="absolute left-1/2 top-1/2 hidden h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[6px] border-white bg-[#061b3a] text-xl font-black text-white shadow-[0_18px_42px_rgba(6,27,58,0.28)] lg:grid">VS</div>
         </div>
       </div>
     </section>
@@ -267,7 +226,6 @@ export default function PetLandingPage({ bodyFontClassName = "" }: { bodyFontCla
       <TopBar />
       <HeroSection />
       <ProblemSection />
-      <ComparisonSection />
       <ScienceSection />
       <FinalCtaSection />
     </main>

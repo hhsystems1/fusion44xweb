@@ -43,7 +43,7 @@ export async function GET(request: Request) {
     }
   }
 
-  const fallbackUrl = new URL("/free-spa-analysis", request.url);
+  const fallbackUrl = new URL("/pricing", request.url);
   fallbackUrl.searchParams.set("intent", "purchase");
   if (productId) fallbackUrl.searchParams.set("product", productId);
 

@@ -145,16 +145,16 @@ function ProblemSection() {
     <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-black uppercase leading-none tracking-[-0.04em] text-[#061b3a] sm:text-4xl lg:text-5xl">Traditional pools expose swimmers to:</h2>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <div className="mx-auto mt-8 grid max-w-6xl gap-6 md:grid-cols-2">
           {problemCards.map((card, index) => (
             <article key={`${card.image}-${index}`} className="relative overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_42px_rgba(6,27,58,0.13)]">
-              <div className="relative aspect-[16/9] w-full">
+              <div className="relative aspect-[1198/674] w-full bg-white">
                 <Image
                   src={card.image}
                   alt={card.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain"
                 />
               </div>
             </article>

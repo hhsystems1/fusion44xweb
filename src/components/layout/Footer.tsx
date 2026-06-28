@@ -8,13 +8,14 @@ import { siteConfig, navLinks } from "@/lib/constants";
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
+  const standaloneLandingPages = ["/parents", "/pet-owners", "/luxury"];
 
-  if (pathname.startsWith("/landing/")) {
+  if (pathname.startsWith("/landing/") || standaloneLandingPages.includes(pathname)) {
     return null;
   }
 
   return (
-    <footer className="border-t border-white/10 bg-black">
+    <footer className="border-t border-[#0757c7]/10 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -25,21 +26,25 @@ export function Footer() {
               height={118}
               className="mb-4 h-16 w-16 rounded-full"
             />
-            <p className="text-xs text-foreground-secondary leading-relaxed">
+            <p className="text-xs leading-relaxed text-[#052f78]">
               {siteConfig.tagline}
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">
+            <h3 className="mb-4 text-sm font-black uppercase tracking-[0.08em] text-[#071832]">
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {navLinks.map((link) => (
+              {navLinks.flatMap((link) =>
+                "children" in link
+                  ? (link as { children: { href: string; label: string }[] }).children
+                  : [link as { href: string; label: string }]
+              ).map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs text-foreground-secondary transition-colors hover:text-accent"
+                    className="text-xs font-bold text-[#052f78] transition-colors hover:text-[#0757c7]"
                   >
                     {link.label}
                   </Link>
@@ -49,14 +54,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">
+            <h3 className="mb-4 text-sm font-black uppercase tracking-[0.08em] text-[#071832]">
               Contact
             </h3>
-            <ul className="space-y-2 text-xs text-foreground-secondary">
+            <ul className="space-y-2 text-xs text-[#052f78]">
               <li>
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="transition-colors hover:text-accent"
+                  className="transition-colors hover:text-[#0757c7]"
                 >
                   {siteConfig.phone}
                 </a>
@@ -64,7 +69,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="transition-colors hover:text-accent"
+                  className="transition-colors hover:text-[#0757c7]"
                 >
                   {siteConfig.email}
                 </a>
@@ -79,10 +84,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4">
+            <h3 className="mb-4 text-sm font-black uppercase tracking-[0.08em] text-[#071832]">
               Hours
             </h3>
-            <ul className="space-y-1 text-xs text-foreground-secondary">
+            <ul className="space-y-1 text-xs text-[#052f78]">
               <li>{siteConfig.businessHours.weekdays}</li>
               <li>{siteConfig.businessHours.saturday}</li>
               <li>{siteConfig.businessHours.sunday}</li>
@@ -99,7 +104,7 @@ export function Footer() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground-secondary transition-colors hover:text-accent"
+                  className="text-[#052f78] transition-colors hover:text-[#0757c7]"
                   aria-label={platform}
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -111,7 +116,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/5 pt-6 text-center text-xs text-foreground-secondary">
+        <div className="mt-10 border-t border-[#0757c7]/10 pt-6 text-center text-xs text-[#052f78]">
           <p>
             &copy; {currentYear} {siteConfig.name}. All rights reserved.
           </p>

@@ -3,19 +3,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { navLinks } from "@/lib/constants";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
+  const standaloneLandingPages = ["/parents", "/pet-owners", "/luxury"];
 
-  if (pathname.startsWith("/landing/")) {
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  if (pathname.startsWith("/landing/") || standaloneLandingPages.includes(pathname)) {
     return null;
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#0757c7]/10 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -33,26 +46,65 @@ export function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.slice(0, -1).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-full px-3 py-2 text-xs font-medium text-foreground-secondary transition-colors hover:text-accent hover:bg-white/5"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <ul className="flex items-center gap-1">
+            {navLinks.slice(0, -1).map((link) => {
+              if ("children" in link) {
+                return (
+                  <li key={link.label} ref={dropdownRef} className="relative">
+                    <button
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="flex items-center gap-1 rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7]"
+                    >
+                      {link.label}
+                      <svg
+                        className={`h-3 w-3 transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {dropdownOpen && (
+                      <div className="absolute left-0 top-full mt-2 w-48 rounded-xl border border-[#0757c7]/10 bg-white shadow-lg">
+                        {(link as { children: { href: string; label: string }[] }).children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setDropdownOpen(false)}
+                            className="block rounded-xl px-4 py-3 text-xs font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7]"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </li>
+                );
+              }
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
           <Link
-            href="/free-spa-analysis"
-            className="ml-2 rounded-full bg-gradient-to-r from-accent to-accent-hover px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-accent/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent/40"
+            href="/pricing"
+            className="ml-2 rounded-full bg-[#0757c7] px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-white shadow-[0_14px_34px_rgba(7,87,199,0.24)] transition-all duration-300 hover:bg-[#052f78]"
           >
-            Free Spa Analysis
+            Checkout
           </Link>
         </nav>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden rounded-full p-2 text-foreground-secondary hover:text-accent hover:bg-white/5 transition-colors"
+          className="rounded-full p-2 text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7] lg:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           <svg
@@ -81,18 +133,39 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="lg:hidden border-t border-white/10 bg-background/95 backdrop-blur-xl">
+        <nav className="border-t border-[#0757c7]/10 bg-white/95 backdrop-blur-xl lg:hidden">
           <div className="space-y-1 px-4 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block rounded-xl px-4 py-4 text-sm font-medium text-foreground-secondary transition-colors hover:text-accent hover:bg-white/5 active:bg-white/10"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              if ("children" in link) {
+                return (
+                  <div key={link.label}>
+                    <p className="block rounded-xl px-4 pb-1 pt-4 text-xs font-black uppercase tracking-[0.08em] text-[#052f78]/50">
+                      {link.label}
+                    </p>
+                    {(link as { children: { href: string; label: string }[] }).children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-xl px-4 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7] active:bg-[#0757c7]/10"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block rounded-xl px-4 py-4 text-sm font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:bg-[#0757c7]/5 hover:text-[#0757c7] active:bg-[#0757c7]/10"
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </nav>
       )}
