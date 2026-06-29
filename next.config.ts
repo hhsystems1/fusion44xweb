@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
       { source: "/discover-fusion-44x/why-fusion-44-x", destination: "/how-it-works", permanent: true },
       { source: "/products", destination: "/pricing", permanent: true },
       { source: "/residential-pools", destination: "/pricing", permanent: true },
-      { source: "/free-spa-analysis", destination: "/pricing", permanent: true },
       { source: "/installation", destination: "/how-it-works", permanent: true },
       { source: "/science-lab-results", destination: "/how-it-works", permanent: true },
       { source: "/reviews", destination: "/", permanent: true },

@@ -268,7 +268,7 @@ function TopBar({ headingFontClassName }: { headingFontClassName: string }) {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="/free-spa-analysis"
+            href="/pool-analysis"
             className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/10"
           >
             Open the form
@@ -323,14 +323,14 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="/free-spa-analysis"
+                href="/pool-analysis"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00f5d4)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#06111d] shadow-[0_18px_50px_rgba(0,210,255,0.22)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(0,245,212,0.22)]"
               >
                 {active.primaryCta}
                 <ArrowIcon className="h-4 w-4" />
               </a>
               <a
-                href="/free-spa-analysis"
+                href="/pool-analysis"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] transition hover:border-cyan-300/35 hover:bg-white/10"
               >
                 Fill Out the Form

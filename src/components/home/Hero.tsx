@@ -51,7 +51,7 @@ export function HeroSection() {
                 </svg>
               </Link>
               <Link
-                href="/free-spa-analysis"
+                href="/pool-analysis"
                 className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/25 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-accent/60 hover:text-accent"
               >
                 Get a Free Analysis

@@ -81,7 +81,7 @@ export default function LuxuryPage() {
               <p className="mt-1 text-[10px] font-black uppercase tracking-[0.24em] text-[#0757c7]">Water made perfect</p>
             </div>
           </Link>
-          <Link href="/free-spa-analysis" className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">Explore fit</Link>
+          <Link href="/pool-analysis" className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">Explore fit</Link>
         </div>
       </header>
 
@@ -99,7 +99,7 @@ export default function LuxuryPage() {
               Fusion 44X creates hydrogen-rich, balanced water without chlorine, chemicals, or pesticides, so premium outdoor spaces stay beautiful and easier to enjoy.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CtaButton href="/free-spa-analysis">Check system sizing</CtaButton>
+              <CtaButton href="/pool-analysis">Check system sizing</CtaButton>
               <CtaButton href="/how-it-works" secondary>View technical specs</CtaButton>
             </div>
           </div>

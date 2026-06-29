@@ -238,7 +238,7 @@ export default function DrySkinLanding() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/free-spa-analysis"
+                href="/pool-analysis"
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00a7d1)] px-6 text-sm font-semibold text-[#03111c] shadow-[0_18px_50px_rgba(0,210,255,0.28)] transition hover:-translate-y-0.5"
               >
                 Check My Pool Compatibility
@@ -453,7 +453,7 @@ export default function DrySkinLanding() {
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/free-spa-analysis"
+                  href="/pool-analysis"
                   className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00a7d1)] px-6 text-sm font-semibold text-[#03111c] transition hover:-translate-y-0.5"
                 >
                   Request My Pool Review
@@ -514,7 +514,7 @@ export default function DrySkinLanding() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/free-spa-analysis"
+                  href="/pool-analysis"
                   className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#00d2ff,#00a7d1)] px-6 text-sm font-semibold text-[#03111c] transition hover:-translate-y-0.5"
                 >
                   Check My Pool Compatibility

@@ -92,7 +92,7 @@ function TopBar() {
           <Pill>Lifetime warranty</Pill>
         </div>
 
-        <Link href="/free-spa-analysis" className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">Get quote</Link>
+        <Link href="/pool-analysis" className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">Get quote</Link>
       </div>
     </header>
   );
@@ -137,7 +137,7 @@ function HeroSection() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CtaButton href="/free-spa-analysis">SEE IF FUSION44X FITS YOUR POOL<ArrowIcon className="h-4 w-4" /></CtaButton>
+            <CtaButton href="/pool-analysis">SEE IF FUSION44X FITS YOUR POOL<ArrowIcon className="h-4 w-4" /></CtaButton>
             <CtaButton href="/pricing" variant="secondary">SEE PRICING AND FINANCING<ArrowIcon className="h-4 w-4" /></CtaButton>
           </div>
         </div>

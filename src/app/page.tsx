@@ -61,7 +61,7 @@ export default function Home() {
               Fusion 44X replaces harsh chlorine-centered pool routines with hydrogen-rich, balanced water for families, pets, and premium properties.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CtaLink href="/free-spa-analysis">Find your path</CtaLink>
+              <CtaLink href="/pool-analysis">Find your path</CtaLink>
               <Link
                 href="/how-it-works"
                 className="inline-flex min-h-14 items-center justify-center rounded-xl border border-[#0757c7]/25 bg-white px-6 text-center text-xs font-black uppercase tracking-[0.12em] text-[#052f78] shadow-[0_14px_34px_rgba(5,47,120,0.10)] transition hover:-translate-y-0.5 hover:border-[#0757c7]/45"
@@ -69,7 +69,7 @@ export default function Home() {
                 See the science
               </Link>
               <Link
-                href="/free-spa-analysis"
+                href="/pool-analysis"
                 className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#0757c7] px-6 text-center text-xs font-black uppercase tracking-[0.12em] text-white shadow-[0_18px_46px_rgba(7,87,199,0.28)] transition hover:-translate-y-0.5 hover:bg-[#052f78]"
               >
                 See if it fits your pool needs
@@ -108,7 +108,7 @@ export default function Home() {
                 <div className="p-5">
                   <p className="text-sm font-bold leading-7 text-[#052f78]">{path.copy}</p>
                   <Link
-                    href="/free-spa-analysis"
+                    href="/pool-analysis"
                     className="mt-4 inline-flex items-center justify-center rounded-full bg-[#0757c7] px-5 py-2.5 text-xs font-black uppercase tracking-[0.1em] text-white shadow-[0_14px_34px_rgba(7,87,199,0.24)] transition hover:bg-[#052f78]"
                   >
                     See if it fits your pool needs
