@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { FinalCTA } from "@/components/spa-analysis/FinalCTA";
 import { siteConfig } from "@/lib/constants";
+import { normalizePoolJourneyContext } from "@/lib/pool-journey";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -26,6 +27,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PoolAnalysisPage() {
-  return <FinalCTA />;
+export default async function PoolAnalysisPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const journeyContext = normalizePoolJourneyContext(params.segment);
+
+  return <FinalCTA journeyContext={journeyContext} />;
 }

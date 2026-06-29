@@ -5,10 +5,10 @@ import { forwardToCrm21 } from "@/lib/crm21";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    console.log("[LEAD]", JSON.stringify(body));
-    return forwardToCrm21(request, { ...body, formType: "lead" });
+    console.log("[FINANCING]", JSON.stringify(body));
+    return forwardToCrm21(request, { ...body, formType: "financing" });
   } catch (error) {
-    console.error("[LEAD ERROR]", error);
+    console.error("[FINANCING ERROR]", error);
     return Response.json({ success: false, error: "Invalid request" }, { status: 400 });
   }
 }

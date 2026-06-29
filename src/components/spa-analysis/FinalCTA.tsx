@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, type FormEvent } from "react";
 
 import { siteConfig } from "@/lib/constants";
+import { getPoolJourneyConfig, type PoolJourneyContext } from "@/lib/pool-journey";
 import { getStoredUTMParams, trackEvent } from "@/lib/tracking";
 
 type RecommendationFormData = {
@@ -247,7 +248,7 @@ function InstallationStep({ formData, updateField }: StepProps) {
   );
 }
 
-function PhotosStep({ formData, updateField }: StepProps) {
+function PhotosStep() {
   const labels = [
     "Pool Photo\n(Required)",
     "Equipment Photo\n(Required)",
@@ -317,11 +318,16 @@ function ContactStep({ formData, updateField }: StepProps) {
   );
 }
 
-export function FinalCTA() {
+export function FinalCTA({
+  journeyContext = "general",
+}: {
+  journeyContext?: PoolJourneyContext;
+}) {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<RecommendationFormData>(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const journey = getPoolJourneyConfig(journeyContext);
 
   const updateField = (field: keyof RecommendationFormData, value: string) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -337,6 +343,7 @@ export function FinalCTA() {
       ...formData,
       ...getStoredUTMParams(),
       type: "free-spa-analysis",
+      journeyContext,
       page: window.location.href,
     };
 
@@ -356,6 +363,7 @@ export function FinalCTA() {
         name: "Lead",
         properties: {
           type: "free-spa-analysis",
+          journeyContext,
           poolType: formData.poolType,
           installationSetup: formData.installationSetup,
         },
@@ -413,7 +421,7 @@ export function FinalCTA() {
             />
             <div>
               <p className="text-sm font-bold tracking-tight text-slate-950">Fusion 44X</p>
-              <p className="text-xs text-slate-500">Quick recommendation quiz</p>
+              <p className="text-xs text-slate-500">{journey.formEyebrow}</p>
             </div>
           </div>
           <a
@@ -428,13 +436,25 @@ export function FinalCTA() {
           <div className="p-6 sm:p-8 lg:p-10">
             <ProgressBar currentStep={step} totalSteps={7} />
 
+            <div className="mt-6 rounded-[1.6rem] border border-blue-100 bg-blue-50/80 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1749b7]">
+                {journey.formEyebrow}
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+                {journey.formTitle}
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+                {journey.formSubtitle}
+              </p>
+            </div>
+
             <form onSubmit={handleSubmit} className="mt-8">
               {step === 0 && <PoolTypeStep formData={formData} updateField={updateField} onNext={nextStep} />}
               {step === 1 && <PoolSizeStep formData={formData} updateField={updateField} onNext={nextStep} />}
               {step === 2 && <SanitizationStep formData={formData} updateField={updateField} onNext={nextStep} />}
               {step === 3 && <EquipmentStep formData={formData} updateField={updateField} onNext={nextStep} />}
               {step === 4 && <InstallationStep formData={formData} updateField={updateField} onNext={nextStep} />}
-              {step === 5 && <PhotosStep formData={formData} updateField={updateField} onNext={nextStep} />}
+              {step === 5 && <PhotosStep />}
               {step === 6 && <ContactStep formData={formData} updateField={updateField} onNext={nextStep} />}
 
               <div className="mt-8 flex items-center justify-between border-t border-slate-200 pt-6">

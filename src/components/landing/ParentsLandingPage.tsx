@@ -3,6 +3,7 @@ import Link from "next/link";
 import { type ReactNode } from "react";
 
 import { checkoutHref } from "@/lib/products";
+import { getPoolAnalysisHref, getPoolJourneyConfig } from "@/lib/pool-journey";
 
 const proofPoints = [
   { title: "Zero chlorine", icon: "H2" },
@@ -100,7 +101,9 @@ function TopBar() {
           <Pill>Family pool compatibility</Pill>
         </div>
 
-        <Link href="/pool-analysis" className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">Check fit</Link>
+        <Link href={getPoolAnalysisHref("parents")} className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#052f78]">
+          {getPoolJourneyConfig("parents").formButtonLabel}
+        </Link>
       </div>
     </header>
   );
@@ -139,7 +142,7 @@ function HeroSection() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CtaButton href="/pool-analysis">Check My Family&apos;s Pool Compatibility<ArrowIcon className="h-4 w-4" /></CtaButton>
+            <CtaButton href={getPoolAnalysisHref("parents")}>Check My Family&apos;s Pool Compatibility<ArrowIcon className="h-4 w-4" /></CtaButton>
             <CtaButton href="/pricing" variant="secondary">See pricing and financing<ArrowIcon className="h-4 w-4" /></CtaButton>
           </div>
         </div>
@@ -307,7 +310,7 @@ function OfferSection() {
               Tell us about your pool and we will help confirm whether Fusion 44X is the right fit for your family before you move forward.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <CtaButton href="/pool-analysis">Check My Family&apos;s Pool Compatibility</CtaButton>
+              <CtaButton href={getPoolAnalysisHref("parents")}>Check My Family&apos;s Pool Compatibility</CtaButton>
               <CtaButton href={checkoutHref("fusion-residential-pool")} variant="secondary">Start pool checkout</CtaButton>
             </div>
           </div>
@@ -330,7 +333,7 @@ function FinalCtaSection() {
           Zero red eyes. Zero skin rashes. Zero chemical odors.
         </h2>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <CtaButton href="/pool-analysis">Check My Family&apos;s Pool Compatibility</CtaButton>
+          <CtaButton href={getPoolAnalysisHref("parents")}>Check My Family&apos;s Pool Compatibility</CtaButton>
           <CtaButton href="/pricing" variant="secondary">See pricing and financing</CtaButton>
         </div>
       </div>

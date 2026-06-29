@@ -19,6 +19,20 @@ export default function PricingPage() {
           <h1 className="mt-6 text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-[#071832] sm:text-6xl">
             Choose your water system
           </h1>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="/apply-financing"
+              className="inline-flex items-center justify-center rounded-full bg-[#0757c7] px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_18px_46px_rgba(7,87,199,0.28)] transition-all hover:bg-[#052f78]"
+            >
+              Apply for financing
+            </Link>
+            <Link
+              href="/become-a-distributor"
+              className="inline-flex items-center justify-center rounded-full border border-[#0757c7]/25 bg-white px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#052f78] transition-colors hover:border-[#0757c7]/50 hover:text-[#0757c7]"
+            >
+              Become a distributor
+            </Link>
+          </div>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -58,6 +72,12 @@ export default function PricingPage() {
                 >
                   Specs
                 </Link>
+                <Link
+                  href="/apply-financing"
+                  className="inline-flex items-center justify-center rounded-full border border-[#0757c7]/25 bg-[#eef5ff] px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#0757c7] transition-colors hover:border-[#0757c7]/50"
+                >
+                  Apply for financing
+                </Link>
               </div>
             </article>
           ))}
@@ -65,14 +85,20 @@ export default function PricingPage() {
 
         <div className="mt-8 rounded-lg border border-[#0757c7]/14 bg-white p-8 shadow-[0_24px_70px_rgba(4,29,75,0.10)]">
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0757c7]">
-                Financing Options
-              </p>
-              <h2 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.045em] text-[#071832]">
-                Monthly payment options are available
-              </h2>
-            </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0757c7]">
+              Financing Options
+            </p>
+            <h2 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.045em] text-[#071832]">
+              Monthly payment options are available
+            </h2>
+            <Link
+              href="/apply-financing"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0757c7] px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_18px_46px_rgba(7,87,199,0.28)] transition-all hover:bg-[#052f78]"
+            >
+              Apply for financing
+            </Link>
+          </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {products.map((product) => (
                 <div

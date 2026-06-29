@@ -1,24 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { getPoolLandingHref, getPoolJourneyConfig } from "@/lib/pool-journey";
+
 const paths = [
   {
+    context: "parents",
     title: "Parents",
-    href: "/parents",
     label: "Health & Dermal Focus",
     copy: "For families searching around red eyes, skin rashes, allergies, and harsh pool chemical exposure.",
     image: "/fusion-swim-lifestyle.jpeg",
   },
   {
+    context: "pet-owners",
     title: "Pet Owners",
-    href: "/pet-owners",
     label: "Pet Safety Focus",
     copy: "For dog owners worried about drinking pool water, fumes, irritated eyes, and chemical toxicity.",
     image: "/petimg2.png",
   },
   {
+    context: "luxury",
     title: "Luxury Homeowners",
-    href: "/luxury",
     label: "Aesthetics & Asset Protection",
     copy: "For high-end pools, estate finishes, travertine, outdoor living spaces, and premium water expectations.",
     image: "/fusion-clear-pool.jpg",
@@ -92,10 +94,10 @@ export default function Home() {
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {paths.map((path) => (
               <div
-                key={path.href}
+                key={path.title}
                 className="group overflow-hidden rounded-[1.35rem] border border-[#0757c7]/12 bg-white shadow-[0_16px_42px_rgba(6,27,58,0.10)] transition hover:-translate-y-1 hover:border-[#0757c7]/35"
               >
-                <Link href={path.href} className="block">
+                <Link href={getPoolLandingHref(path.context)} className="block">
                   <div className="relative aspect-[16/10]">
                     <Image src={path.image} alt="" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#061b3a]/72 to-transparent" />
@@ -108,10 +110,10 @@ export default function Home() {
                 <div className="p-5">
                   <p className="text-sm font-bold leading-7 text-[#052f78]">{path.copy}</p>
                   <Link
-                    href="/pool-analysis"
+                    href={getPoolLandingHref(path.context)}
                     className="mt-4 inline-flex items-center justify-center rounded-full bg-[#0757c7] px-5 py-2.5 text-xs font-black uppercase tracking-[0.1em] text-white shadow-[0_14px_34px_rgba(7,87,199,0.24)] transition hover:bg-[#052f78]"
                   >
-                    See if it fits your pool needs
+                    {getPoolJourneyConfig(path.context).cardButtonLabel}
                   </Link>
                 </div>
               </div>
