@@ -70,12 +70,6 @@ export default function Home() {
               >
                 See the science
               </Link>
-              <Link
-                href="/pool-analysis"
-                className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#0757c7] px-6 text-center text-xs font-black uppercase tracking-[0.12em] text-white shadow-[0_18px_46px_rgba(7,87,199,0.28)] transition hover:-translate-y-0.5 hover:bg-[#052f78]"
-              >
-                See if it fits your pool needs
-              </Link>
             </div>
           </div>
         </div>
