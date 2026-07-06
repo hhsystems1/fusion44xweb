@@ -344,6 +344,8 @@ export function FinalCTA({
       ...getStoredUTMParams(),
       type: "free-spa-analysis",
       journeyContext,
+      campaign: "free-spa-analysis",
+      pagePath: window.location.pathname,
       page: window.location.href,
     };
 

@@ -92,6 +92,8 @@ export function trackEvent(event: TrackEvent) {
       ...event.properties,
       ...utm,
       url: window.location.href,
+      pagePath: window.location.pathname,
+      referrer: document.referrer || undefined,
       userAgent: navigator.userAgent,
       timestamp: new Date().toISOString(),
     },

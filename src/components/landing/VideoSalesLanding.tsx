@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 type AngleKey = "parents" | "pets" | "luxury";
 
@@ -251,7 +252,7 @@ function TopBar({ headingFontClassName }: { headingFontClassName: string }) {
   return (
     <div className="sticky top-0 z-50 border-b border-white/10 bg-[#06111d]/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
+        <div className="flex items-center gap-3" aria-label="Fusion 44X">
           <Image
             src="/fusion44x-logo.png"
             alt="Fusion 44X"
@@ -264,7 +265,7 @@ function TopBar({ headingFontClassName }: { headingFontClassName: string }) {
             <p className={`${headingFontClassName} text-sm font-bold tracking-[0.05em] text-[#F4F7FC]`}>Fusion 44X</p>
             <p className="text-xs text-slate-400">Multi-angle landing page</p>
           </div>
-        </Link>
+        </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
@@ -375,6 +376,8 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
           </div>
         </div>
       </section>
+
+      <WarrantyNoticeCard />
 
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-7xl">

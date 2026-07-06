@@ -5,6 +5,7 @@ import Link from "next/link";
 import { type ReactNode } from "react";
 import { checkoutHref } from "@/lib/products";
 import { getPoolAnalysisHref, getPoolJourneyConfig } from "@/lib/pool-journey";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 const problemCards = [
   { 
@@ -80,13 +81,13 @@ function TopBar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#0757c7]/10 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
+        <div className="flex items-center gap-3" aria-label="Fusion 44X">
           <Image src="/fusion44x-logo.png" alt="Fusion 44X" width={52} height={52} className="h-12 w-12 rounded-full border border-[#0757c7]/10 bg-white object-cover shadow-sm" priority />
           <div className="leading-none">
             <p className="text-lg font-black tracking-[-0.04em] text-[#052f78] sm:text-xl">Fusion 44X</p>
             <p className="mt-1 text-[10px] font-black uppercase tracking-[0.24em] text-[#0757c7]">Water made perfect</p>
           </div>
-        </Link>
+        </div>
 
         <div className="hidden items-center gap-2 md:flex">
           <Pill><ShieldIcon className="h-4 w-4" />Patented Hydro-pH-Infusion</Pill>
@@ -228,6 +229,7 @@ export default function PetLandingPage({ bodyFontClassName = "" }: { bodyFontCla
     <main className={`min-h-screen overflow-hidden bg-white text-[#071832] ${bodyFontClassName}`}>
       <TopBar />
       <HeroSection />
+      <WarrantyNoticeCard />
       <ProblemSection />
       <ScienceSection />
       <FinalCtaSection />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 import { getPoolLandingHref, getPoolJourneyConfig } from "@/lib/pool-journey";
 
 const paths = [
@@ -74,6 +75,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WarrantyNoticeCard />
 
       <section className="px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">

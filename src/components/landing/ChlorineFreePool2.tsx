@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { useFusion44xLandingTracking } from "@/hooks/useFusion44xLandingTracking";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 interface ChlorineFreePool2Props {
   campaign: string;
@@ -54,6 +55,7 @@ export function ChlorineFreePool2({ campaign, pagePath }: ChlorineFreePool2Props
       <style>{KEYFRAMES}</style>
 
       <Hero />
+      <WarrantyNoticeCard />
       <Intro />
       <HowItWorks />
       <Compare />

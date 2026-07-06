@@ -4,12 +4,17 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const webhookUrl = process.env.TRACK_WEBHOOK_URL;
+    const webhookUrl = process.env.CRM_TRACK_URL ?? process.env.TRACK_WEBHOOK_URL;
+    const crmApiKey =
+      process.env.CRM_FORM_API_KEY ?? process.env.LEAD_WEBHOOK_API_KEY;
 
     if (webhookUrl) {
       fetch(webhookUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(crmApiKey ? { "x-api-key": crmApiKey } : {}),
+        },
         body: JSON.stringify({
           ...body,
           receivedAt: new Date().toISOString(),

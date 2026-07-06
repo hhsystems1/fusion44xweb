@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Inter, Syne } from "next/font/google";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -317,6 +318,8 @@ export default function DrySkinLanding() {
           </div>
         </div>
       </section>
+
+      <WarrantyNoticeCard />
 
       <section className="px-4 py-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-3 rounded-[1.6rem] border border-white/10 bg-white/5 p-4 text-sm text-slate-200 sm:grid-cols-3">

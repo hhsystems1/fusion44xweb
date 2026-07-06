@@ -8,6 +8,7 @@ import Link from "next/link";
 import { type Fusion44xDestination } from "@/lib/fusion44xLinks";
 import { useFusion44xLandingTracking } from "@/hooks/useFusion44xLandingTracking";
 import type { Fusion44xLandingCampaign } from "@/content/fusion44xLanding";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 function ArrowIcon({ className = "" }: { className?: string }) {
   return (
@@ -1069,6 +1070,7 @@ export default function Fusion44xLandingPage({
         trackOutboundClick={trackOutboundClick}
         trackLeadClick={trackLeadClick}
       />
+      <WarrantyNoticeCard />
       <TrustBar items={campaign.trustBar} />
       <VSLSection
         campaign={campaign}

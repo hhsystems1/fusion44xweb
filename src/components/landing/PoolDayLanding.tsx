@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { siteConfig, faqs } from "@/lib/constants";
 import { checkoutHref, products } from "@/lib/products";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 function ArrowIcon({ className = "" }: { className?: string }) {
   return (
@@ -48,7 +49,7 @@ function MainNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-[#f7f2e9]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
+        <div className="flex items-center gap-3" aria-label="Fusion44x">
           <Image
             src="/fusion44x-logo.png"
             alt="Fusion44x"
@@ -61,7 +62,7 @@ function MainNav() {
             <p className="text-sm font-bold tracking-tight text-slate-900">Fusion44x</p>
             <p className="text-xs text-slate-500">Pool & spa care made simple</p>
           </div>
-        </Link>
+        </div>
 
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
@@ -432,6 +433,7 @@ export default function PoolDayLanding() {
       <TopBar />
       <MainNav />
       <Hero />
+      <WarrantyNoticeCard />
       <ProductGrid />
       <FeatureGrid />
       <TipsSection />
