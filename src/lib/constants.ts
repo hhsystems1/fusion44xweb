@@ -12,9 +12,10 @@ export const siteConfig = {
     country: "US",
   },
   social: {
-    facebook: "https://facebook.com/fusion44x",
-    instagram: "https://instagram.com/fusion44x",
-    youtube: "https://youtube.com/@fusion44x",
+    facebook: "https://www.facebook.com/share/1FFpMmqc4t/?mibextid=wwXIfr",
+    instagram: "https://www.instagram.com/fusion44x/",
+    youtube: "https://www.youtube.com/@Fusion44X",
+    tiktok: "https://www.tiktok.com/@fusion44x.pools?_r=1&_t=ZP-97sWzg6YBVX",
   },
   businessHours: {
     weekdays: "Mon-Fri: 8 AM - 6 PM",
