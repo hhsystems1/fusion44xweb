@@ -296,7 +296,8 @@ function Pill({ children }: { children: ReactNode }) {
 
 export default function VideoSalesLanding({ headingFontClassName = "", bodyFontClassName = "" }: { headingFontClassName?: string; bodyFontClassName?: string }) {
   const active = ANGLES["parents"];
-  const VIMEO_VIDEO_ID = "1204214237";
+  // PLACEHOLDER: Replace with your actual YouTube Video ID (e.g. "dQw4w9WgXcQ")
+  const YOUTUBE_VIDEO_ID = "YOUR_YOUTUBE_VIDEO_ID_HERE";
 
   return (
     <main
@@ -350,10 +351,10 @@ export default function VideoSalesLanding({ headingFontClassName = "", bodyFontC
               <div className="rounded-[1.6rem] border border-white/10 bg-[#040b14] p-3">
                 <div className="relative aspect-video overflow-hidden rounded-[1.25rem] bg-slate-950">
                   <iframe
-                    src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&dnt=1`}
-                    title="Fusion44x video sales letter"
-                    className="absolute inset-0 h-full w-full"
-                    allow="autoplay; fullscreen; picture-in-picture"
+                    src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}`}
+                    title="Fusion 44X video sales letter"
+                    className="absolute inset-0 h-full w-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
                   />

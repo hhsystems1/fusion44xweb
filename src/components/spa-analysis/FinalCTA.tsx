@@ -176,7 +176,7 @@ function SanitizationStep({ formData, updateField, onNext }: StepProps) {
   );
 }
 
-function EquipmentStep({ formData, updateField }: StepProps) {
+function EquipmentStep({ formData, updateField, onNext }: StepProps) {
   const equipmentOptions = [
     "Cartridge filter",
     "Sand filter",
@@ -194,7 +194,10 @@ function EquipmentStep({ formData, updateField }: StepProps) {
             <button
               key={option}
               type="button"
-              onClick={() => updateField("currentEquipment", option)}
+              onClick={() => {
+                updateField("currentEquipment", option);
+                setTimeout(onNext, 200);
+              }}
               className={[
                 "flex w-full items-center rounded-2xl border px-5 py-4 text-left text-base font-semibold transition",
                 isSelected
@@ -214,7 +217,7 @@ function EquipmentStep({ formData, updateField }: StepProps) {
   );
 }
 
-function InstallationStep({ formData, updateField }: StepProps) {
+function InstallationStep({ formData, updateField, onNext }: StepProps) {
   const options = [
     { value: "existing-pad", label: "Existing Equipment Pad", note: "I already have a pad" },
     { value: "new-install", label: "New Installation", note: "No existing pad" },
@@ -230,7 +233,10 @@ function InstallationStep({ formData, updateField }: StepProps) {
             <button
               key={o.value}
               type="button"
-              onClick={() => updateField("installationSetup", o.value)}
+              onClick={() => {
+                updateField("installationSetup", o.value);
+                setTimeout(onNext, 200);
+              }}
               className={[
                 "flex flex-col items-start rounded-2xl border px-5 py-5 text-left transition",
                 isSelected
@@ -504,7 +510,19 @@ export function FinalCTA({
                   })}
                 </div>
 
-                {isLastStep ? (
+                {!isLastStep ? (
+                  <button
+                    type="button"
+                    onClick={nextStep}
+                    className="inline-flex items-center gap-1 rounded-2xl bg-[#1749b7] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#123c96]"
+                  >
+                    Next
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
+                      <path d="M5 12h14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                      <path d="m13 6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                ) : (
                   <button
                     type="submit"
                     disabled={!canSubmit}
@@ -513,7 +531,7 @@ export function FinalCTA({
                     Get My Recommendation
                     <CheckIcon className="h-4 w-4" />
                   </button>
-                ) : null}
+                )}
               </div>
 
               {error ? (

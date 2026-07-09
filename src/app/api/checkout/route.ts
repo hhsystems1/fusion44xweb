@@ -23,6 +23,28 @@ export async function GET(request: Request) {
     }
   }
 
+  if (productId === "fusion-spas-jacuzzis") {
+    const paymentLink = new URL("https://buy.stripe.com/8x2fZj3VH8GWa4q27PbQY09");
+    for (const [key, val] of Object.entries(utmParams)) {
+      paymentLink.searchParams.set(key, val);
+    }
+    if (referrer) {
+      paymentLink.searchParams.set("referrer", referrer);
+    }
+    return Response.redirect(paymentLink.toString(), 302);
+  }
+
+  if (productId === "fusion-residential-pool") {
+    const paymentLink = new URL("https://buy.stripe.com/8x23cx2RDf5kgsOcMtbQY08");
+    for (const [key, val] of Object.entries(utmParams)) {
+      paymentLink.searchParams.set(key, val);
+    }
+    if (referrer) {
+      paymentLink.searchParams.set("referrer", referrer);
+    }
+    return Response.redirect(paymentLink.toString(), 302);
+  }
+
   const hasStripeKey = !!process.env.STRIPE_SECRET_KEY;
   const hasPriceId = getStripePriceId(productId);
 
