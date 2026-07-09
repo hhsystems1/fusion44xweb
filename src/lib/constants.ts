@@ -2,13 +2,13 @@ export const siteConfig = {
   name: "Fusion 44X",
   tagline: "Chlorine-Free Pool & Spa Water Systems",
   url: "https://fusion44x.com",
-  phone: "(555) 123-4567",
-  email: "info@fusion44x.com",
+  phone: "(775) 600-5305",
+  email: "support@fusion44x.com",
   address: {
-    street: "123 Innovation Drive",
-    city: "Scottsdale",
+    street: "20165 N 67th Ave",
+    city: "Glendale",
     state: "AZ",
-    zip: "85260",
+    zip: "85308",
     country: "US",
   },
   social: {
