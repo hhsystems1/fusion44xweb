@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function ParentsPage() {
-  return <ParentsLandingPage bodyFontClassName={inter.className} />;
+  return <ParentsLandingPage bodyFontClassName={inter.className} showUpgradeCard={false} />;
 }

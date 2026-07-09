@@ -414,7 +414,7 @@ export function FinalCTA({
   const canSubmit = formData.firstName && formData.email && formData.phone;
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#eef5ff] px-4 py-4 text-slate-950 sm:px-6 lg:px-8 lg:py-6">
+    <section className="relative isolate overflow-hidden bg-[#eef5ff] px-4 py-6 text-slate-950 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,169,255,0.24),transparent_34%),radial-gradient(circle_at_18%_12%,rgba(23,73,183,0.14),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.68),rgba(239,245,255,0.98))]"
@@ -469,12 +469,12 @@ export function FinalCTA({
               {step === 5 && <PhotosStep />}
               {step === 6 && <ContactStep formData={formData} updateField={updateField} onNext={nextStep} />}
 
-              <div className="mt-8 flex items-center justify-between border-t border-slate-200 pt-6">
+              <div className="mt-8 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
                 <button
                   type="button"
                   onClick={prevStep}
                   disabled={step === 0}
-                  className="inline-flex items-center gap-1 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="inline-flex w-full items-center justify-center gap-1 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-30 sm:w-auto"
                 >
                   <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
                     <path d="M19 12H5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -483,7 +483,7 @@ export function FinalCTA({
                   Back
                 </button>
 
-                <div className="flex items-center gap-1 text-sm text-slate-400">
+                <div className="flex w-full flex-wrap items-center justify-center gap-1 text-sm text-slate-400 sm:w-auto">
                   {[0, 1, 2, 3, 4, 5, 6].map((i) => {
                     const stepFields: Record<number, keyof RecommendationFormData> = {
                       0: "poolType",
@@ -518,7 +518,7 @@ export function FinalCTA({
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="inline-flex items-center gap-1 rounded-2xl bg-[#1749b7] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#123c96]"
+                    className="inline-flex w-full items-center justify-center gap-1 rounded-2xl bg-[#1749b7] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#123c96] sm:w-auto"
                   >
                     Next
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-4 w-4">
@@ -530,7 +530,7 @@ export function FinalCTA({
                   <button
                     type="submit"
                     disabled={!canSubmit}
-                    className="inline-flex items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#1749b7,#1f66d1,#2d7ff0)] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white shadow-[0_12px_32px_rgba(23,73,183,0.26)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(23,73,183,0.32)] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#1749b7,#1f66d1,#2d7ff0)] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white shadow-[0_12px_32px_rgba(23,73,183,0.26)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(23,73,183,0.32)] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 sm:w-auto"
                   >
                     Get My Recommendation
                     <CheckIcon className="h-4 w-4" />

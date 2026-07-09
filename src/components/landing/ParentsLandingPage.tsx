@@ -299,10 +299,14 @@ function DifferenceSection() {
   );
 }
 
-function StartHereSection() {
+function StartHereSection({ showUpgradeCard = true }: { showUpgradeCard?: boolean }) {
+  const layoutClassName = showUpgradeCard
+    ? "lg:grid-cols-[1fr_0.9fr]"
+    : "lg:grid-cols-1 lg:max-w-4xl";
+
   return (
     <section className="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div className={`mx-auto grid max-w-7xl gap-8 lg:items-center ${layoutClassName}`}>
         <div>
           <Pill>Start here</Pill>
           <h2 className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[0.94] tracking-[-0.06em] text-[#0757c7] sm:text-5xl lg:text-6xl">
@@ -323,31 +327,33 @@ function StartHereSection() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-[#0757c7]/12 bg-[#f4fbff] p-6 shadow-[0_16px_42px_rgba(6,27,58,0.08)] sm:p-8">
-          <div className="overflow-hidden rounded-[1.5rem] border border-white bg-white shadow-sm">
-            <Image
-              src="/fusion-family-pool.jpeg"
-              alt="Family enjoying a Fusion 44X pool"
-              width={960}
-              height={720}
-              className="h-auto w-full object-cover"
-            />
+        {showUpgradeCard ? (
+          <div className="rounded-[2rem] border border-[#0757c7]/12 bg-[#f4fbff] p-6 shadow-[0_16px_42px_rgba(6,27,58,0.08)] sm:p-8">
+            <div className="overflow-hidden rounded-[1.5rem] border border-white bg-white shadow-sm">
+              <Image
+                src="/fusion-family-pool.jpeg"
+                alt="Family enjoying a Fusion 44X pool"
+                width={960}
+                height={720}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <div className="mt-6 flex flex-col gap-3">
+              <CtaButton href={getPoolAnalysisHref("parents")}>
+                Check My Family&apos;s Pool Compatibility
+                <ArrowIcon className="h-4 w-4" />
+              </CtaButton>
+              <CtaButton href={getPoolAnalysisHref("parents")} variant="secondary">
+                Schedule A Pool Review Call
+                <ArrowIcon className="h-4 w-4" />
+              </CtaButton>
+              <CtaButton href="/pricing" variant="secondary">
+                See Pricing and Financing
+                <ArrowIcon className="h-4 w-4" />
+              </CtaButton>
+            </div>
           </div>
-          <div className="mt-6 flex flex-col gap-3">
-            <CtaButton href={getPoolAnalysisHref("parents")}>
-              Check My Family&apos;s Pool Compatibility
-              <ArrowIcon className="h-4 w-4" />
-            </CtaButton>
-            <CtaButton href={getPoolAnalysisHref("parents")} variant="secondary">
-              Schedule A Pool Review Call
-              <ArrowIcon className="h-4 w-4" />
-            </CtaButton>
-            <CtaButton href="/pricing" variant="secondary">
-              See Pricing and Financing
-              <ArrowIcon className="h-4 w-4" />
-            </CtaButton>
-          </div>
-        </div>
+        ) : null}
       </div>
     </section>
   );
@@ -355,8 +361,10 @@ function StartHereSection() {
 
 export default function ParentsLandingPage({
   bodyFontClassName = "",
+  showUpgradeCard = true,
 }: {
   bodyFontClassName?: string;
+  showUpgradeCard?: boolean;
 }) {
   return (
     <main className={`min-h-screen overflow-hidden bg-white text-[#071832] ${bodyFontClassName}`}>
@@ -365,7 +373,7 @@ export default function ParentsLandingPage({
       <SymptomsSection />
       <ChemicalCycleSection />
       <DifferenceSection />
-      <StartHereSection />
+      <StartHereSection showUpgradeCard={showUpgradeCard} />
     </main>
   );
 }
