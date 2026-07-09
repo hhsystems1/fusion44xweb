@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { products, checkoutHref } from "@/lib/products";
+import { WarrantyNoticeCard } from "@/components/shared/WarrantyNoticeCard";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -72,12 +73,6 @@ export default function PricingPage() {
                 >
                   Specs
                 </Link>
-                <Link
-                  href="/apply-financing"
-                  className="inline-flex items-center justify-center rounded-full border border-[#0757c7]/25 bg-[#eef5ff] px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-[#0757c7] transition-colors hover:border-[#0757c7]/50"
-                >
-                  Apply for financing
-                </Link>
               </div>
             </article>
           ))}
@@ -92,12 +87,6 @@ export default function PricingPage() {
             <h2 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.045em] text-[#071832]">
               Monthly payment options are available
             </h2>
-            <Link
-              href="/apply-financing"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0757c7] px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_18px_46px_rgba(7,87,199,0.28)] transition-all hover:bg-[#052f78]"
-            >
-              Apply for financing
-            </Link>
           </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {products.map((product) => (
@@ -116,6 +105,9 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-12">
+        <WarrantyNoticeCard />
       </div>
     </div>
   );

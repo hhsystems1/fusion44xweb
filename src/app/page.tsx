@@ -76,8 +76,6 @@ export default function Home() {
         </div>
       </section>
 
-      <WarrantyNoticeCard />
-
       <section className="px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
@@ -118,6 +116,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WarrantyNoticeCard />
     </div>
   );
 }
