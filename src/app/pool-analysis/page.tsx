@@ -34,6 +34,7 @@ export default async function PoolAnalysisPage({
 }) {
   const params = await searchParams;
   const journeyContext = normalizePoolJourneyContext(params.segment);
+  const sourcePage = typeof params.source_page === "string" ? params.source_page : undefined;
 
-  return <FinalCTA journeyContext={journeyContext} />;
+  return <FinalCTA journeyContext={journeyContext} sourcePage={sourcePage} />;
 }

@@ -5,6 +5,7 @@ const contextConfig: Record<
   {
     landingHref: string;
     formHref: string;
+    sourcePage?: string;
     cardButtonLabel: string;
     formButtonLabel: string;
     formEyebrow: string;
@@ -14,7 +15,8 @@ const contextConfig: Record<
 > = {
   parents: {
     landingHref: "/parents",
-    formHref: "/pool-analysis?segment=parents",
+    formHref: "/pool-analysis?segment=parents&source_page=family-pool-water",
+    sourcePage: "family-pool-water",
     cardButtonLabel: "Open parents page",
     formButtonLabel: "Check family fit",
     formEyebrow: "Parents landing page",

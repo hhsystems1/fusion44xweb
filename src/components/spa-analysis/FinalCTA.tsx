@@ -326,8 +326,10 @@ function ContactStep({ formData, updateField }: StepProps) {
 
 export function FinalCTA({
   journeyContext = "general",
+  sourcePage,
 }: {
   journeyContext?: PoolJourneyContext;
+  sourcePage?: string;
 }) {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<RecommendationFormData>(initialFormData);
@@ -350,6 +352,7 @@ export function FinalCTA({
       ...getStoredUTMParams(),
       type: "free-spa-analysis",
       journeyContext,
+      source_page: sourcePage,
       campaign: "free-spa-analysis",
       pagePath: window.location.pathname,
       page: window.location.href,
@@ -372,6 +375,7 @@ export function FinalCTA({
         properties: {
           type: "free-spa-analysis",
           journeyContext,
+          sourcePage,
           poolType: formData.poolType,
           installationSetup: formData.installationSetup,
         },

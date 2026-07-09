@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     "Are these toxic pool chemicals even needed? Check whether Fusion 44X is compatible with your family pool.",
   alternates: {
-    canonical: `${siteConfig.url}/parents`,
+    canonical: `${siteConfig.url}/landing/family-pool-water`,
   },
   openGraph: {
     title: "Fusion 44X | Family Pool Water",
     description:
       "Hydrogen-rich, balanced pool water for families who want to move beyond the chemical cycle.",
-    url: `${siteConfig.url}/parents`,
+    url: `${siteConfig.url}/landing/family-pool-water`,
     type: "website",
   },
   twitter: {
@@ -32,6 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ParentsPage() {
+export default function FamilyPoolWaterPage() {
   return <ParentsLandingPage bodyFontClassName={inter.className} />;
 }

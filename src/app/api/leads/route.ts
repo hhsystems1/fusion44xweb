@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 
 import { forwardToCrm21 } from "@/lib/crm21";
+import { sendLeadNotificationEmail } from "@/lib/lead-notifications";
 
 export async function POST(request: NextRequest) {
   try {
@@ -19,6 +20,10 @@ export async function POST(request: NextRequest) {
       process.env.CRM_FORM_API_KEY ?? process.env.LEAD_WEBHOOK_API_KEY;
 
     const response = await forwardToCrm21(request, leadPayload);
+
+    await sendLeadNotificationEmail(leadPayload).catch((emailError) => {
+      console.error("[LEAD EMAIL ERROR]", emailError);
+    });
 
     if (crmTrackUrl) {
       fetch(crmTrackUrl, {
